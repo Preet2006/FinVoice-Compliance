@@ -298,26 +298,5 @@ The last verified project results were 1,189 backend tests and 214 frontend test
 9. Explain that the assignment provides five unseen calls for demonstration; they are not included in the V4 baseline.
 10. Explain that new calls can be uploaded and processed through the Upload workflow when provider access and review capacity are available.
 
-## Security and limitations
 
-- Do not use real customer recordings in this prototype.
-- Keep API keys outside Git and never include them in logs, screenshots, or reports.
-- AI speaker attribution and compliance findings can be wrong; manager review is part of the design.
-- The model’s speaker confidence is uncalibrated and is not a substitute for diarization.
-- Script-derived evaluation labels are not audio-verified ground truth.
-- Free-tier provider limits can interrupt analysis; failed calls remain visible for diagnosis.
-- Metadata-only seeded calls do not contain recordings and may not support the full review workflow.
-- SQLite is appropriate for this local prototype, not a multi-user production deployment.
-- No regulatory certification or production readiness is claimed.
-
-## Future improvements
-
-These are not implemented functionality:
-
-- WER benchmarking against the three manually prepared transcripts.
-- An audio-verified evaluation set and independent speaker-label verification.
-- Dedicated diarization with calibrated attribution confidence.
-- Broader multilingual compliance coverage and larger labelled datasets.
-- Durable asynchronous processing and operational retry/queue management.
-- PostgreSQL or another production-grade database deployment.
 
