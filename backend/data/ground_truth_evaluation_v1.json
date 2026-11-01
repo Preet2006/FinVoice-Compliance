@@ -1,0 +1,3150 @@
+{
+ "metadata": {
+  "description": "Script-derived EXPECTED ground truth for the 20 role-play recordings, with scenario times synchronised to metadata.csv.",
+  "kind": "script-derived expected labels. NOT independently audio-verified ground truth.",
+  "created": "2026-10-30",
+  "version": "evaluation v1",
+  "labeller": "Project team decisions applied to the original scripts",
+  "audio_verified": false,
+  "speaker_labels_verified": false,
+  "actual_recording_times_verified": false,
+  "notes": "Labels come from the original scripts (call_scripts.md for calls 1-10; the previously generated scripts for calls 11-20, with the easy replacement script for call 19). They say what each script intends, not what a person confirmed in the audio. CALL-0018 is the only intended R1 evaluation call and its time is a SIMULATED test input. No call has a confirmed actual recording time. Do not report precision or recall computed from this file as audio-verified accuracy.",
+  "supersedes": "none: backend/data/ground_truth.json is unchanged and still holds the original placeholder labels",
+  "derived_from": "ground_truth_script_derived.json (unchanged)",
+  "derived_from_sha256": "71c1ea99547f6948993f03b21316b946cfc895e36a86101e687b760a58aae640",
+  "scenario_times": "Simulated role-play scenario times (HH:MM, 24-hour, IST). They are assigned test inputs, NOT verified recording times; confirmed_recording_time is null for every call."
+ },
+ "provenance": {
+  "source_proposal": "script_derived_ground_truth_proposal_v2.json",
+  "source_proposal_sha256": "bf977a80088715f2ca943129c3b69e5d03e57303030e768a8cf0e548475381d0",
+  "script_hashes": {
+   "call_scripts.md_sha256": "d08f4fc449d2ee765d4de7fba06faf2f0e82e9f7aa0378079d2b0cf214e04329",
+   "calls_11_20_draft_sha256": "dd105b7e4e3043655ac506e6c445323e23854933dae72a2f1bdea185ed45ed35",
+   "calls_11_20_scripts_md_sha256": "7da5e0c32e0de41a5acf9ca5b5f567322f95f7a863ea64f0dd5aff3d52a711f3"
+  },
+  "decisions_applied": [
+   "R1: CALL-0018 is the only intended R1 call; simulated test time 2026-10-30T20:30:00 IST (19:15 also mentioned, also outside hours). It is a test input, not an actual recording time. CALL-0008, 0012 and 0016 get no R1 from their metadata times.",
+   "CALL-0004: R4 expected; R3 added only if independently satisfied, and it is not.",
+   "CALL-0009: R6 judged strictly on the agent's first two conversational turns, element by element.",
+   "CALL-0012: the code read-out request is R5."
+  ],
+  "version_note": "v2 follows v1 (unchanged). The dialogue, evidence, incidents and transcript comparison are identical in v1 and v2.",
+  "classification_rule_for_script_vs_transcript": {
+   "broadly consistent": "every scripted violation line and R6 opening element is found in the transcript and nothing contradicts the script",
+   "partial mismatch": "a scripted line is missing or garbled, or turns are merged so the structure cannot be recovered",
+   "major mismatch": "scripted violation lines are absent or the content contradicts the script",
+   "transcript insufficient": "too little transcript to decide"
+  }
+ },
+ "calls": {
+  "CALL-0001": {
+   "scenario": "Clean collection call (Hindi) [name added for readability; heading is (Hindi)]",
+   "script_heading": "(Hindi)",
+   "script_source": "call_scripts.md",
+   "dialogue": [
+    {
+     "turn": 1,
+     "speaker": "Agent",
+     "text": "Namaste, main Pooja Rane bol rahi hoon, Shaha Finlease se. Kya meri baat Dinesh Kale ji se ho rahi hai?"
+    },
+    {
+     "turn": 2,
+     "speaker": "Borrower",
+     "text": "Ji haan, main Dinesh bol raha hoon."
+    },
+    {
+     "turn": 3,
+     "speaker": "Agent",
+     "text": "Dhanyavaad Dinesh ji. Yeh call recorded hai. Main aapke personal loan ke baare mein baat karna chahti thi. Kya aap abhi baat kar sakte hain?"
+    },
+    {
+     "turn": 4,
+     "speaker": "Borrower",
+     "text": "Haan, boliye."
+    },
+    {
+     "turn": 5,
+     "speaker": "Agent",
+     "text": "Aapke loan account mein abhi 48,000 rupaye baaki hain. Kya aap bata sakte hain ki payment mein kya dikkat aa rahi hai?"
+    },
+    {
+     "turn": 6,
+     "speaker": "Borrower",
+     "text": "Madam, pichle do mahine se meri naukri nahi hai. Isliye nahi de paaya."
+    },
+    {
+     "turn": 7,
+     "speaker": "Agent",
+     "text": "Main samajh sakti hoon, yeh mushkil samay hai. Kya aap abhi kuch chhoti rakam de sakte hain, jaise 5,000 rupaye?"
+    },
+    {
+     "turn": 8,
+     "speaker": "Borrower",
+     "text": "Abhi mushkil hai. Agle mahine ki 10 tarikh tak 3,000 rupaye de sakta hoon."
+    },
+    {
+     "turn": 9,
+     "speaker": "Agent",
+     "text": "Theek hai. Main note kar leti hoon, 10 tarikh tak 3,000 rupaye. Main aapko payment link bhej dungi."
+    },
+    {
+     "turn": 10,
+     "speaker": "Borrower",
+     "text": "Ji, bhej dijiye."
+    },
+    {
+     "turn": 11,
+     "speaker": "Agent",
+     "text": "Dhanyavaad Dinesh ji. Aapka din shubh ho."
+    }
+   ],
+   "expected_labels_from_script": {
+    "R1": false,
+    "R2": false,
+    "R3": false,
+    "R4": false,
+    "R5": false,
+    "R6": false
+   },
+   "expected_incidents": {},
+   "violation_evidence": [],
+   "opening_R6": {
+    "scope": "the agent's first two conversational turns (existing definition: rules.py R6, turns.py)",
+    "agent_turn_1": {
+     "script_turn": 1,
+     "name": true,
+     "company": true,
+     "purpose": false
+    },
+    "agent_turn_2": {
+     "script_turn": 3,
+     "name": false,
+     "company": false,
+     "purpose": true
+    },
+    "present_within_scope": {
+     "name": true,
+     "company": true,
+     "purpose": true
+    },
+    "missing": [],
+    "satisfied": true,
+    "explanation": "Agent turn 1 gives name and company but only asks for Dinesh; the purpose (personal loan) comes in agent turn 2.",
+    "v1_text": "satisfied: name+company turn 1, purpose (personal loan) turn 3 = second agent turn"
+   },
+   "multiple_rules_on_same_dialogue": [],
+   "script_notes": "",
+   "transcript_comparison": {
+    "classification": "broadly consistent",
+    "transcript_source": "whisper_1_5.json run 1 (9 segs)",
+    "details": "Opening (seg0-1), purpose (seg4), job-loss and 3,000-by-10th exchange present. Not transcribed: the 48,000 question (turn 5) and the borrower's short 'Haan, boliye'. The agent said their own name, not 'Pooja Rane'.",
+    "caveat": "Compared by reading the saved Whisper text against the script. Whisper output is not authoritative and this comparison is not human-verified."
+   },
+   "timestamp": {
+    "scenario_time": "10:30",
+    "scenario_start_time": "2026-10-01T10:30:00",
+    "metadata_csv_start_time": "2026-10-01T10:30:00",
+    "status": "simulated/assigned scenario time; not a verified recording time",
+    "confirmed_recording_time": null,
+    "designed_to_test_out_of_hours": false
+   },
+   "speaker_labels_verified": false,
+   "audio_verified": false,
+   "r1": {
+    "expected": false,
+    "basis": "The scenario time is inside 08:00-19:00 IST, so no R1 is expected.",
+    "scenario_time": "10:30",
+    "scenario_time_is_simulated": true,
+    "scenario_not_actual": "A simulated role-play scenario time. NOT an actual recording time, and no actual recording time has been verified."
+   },
+   "violations": {
+    "R1": false,
+    "R2": false,
+    "R3": false,
+    "R4": false,
+    "R5": false,
+    "R6": false
+   },
+   "notes": "Clean collection call (Hindi). Script-derived expected labels: clean. NOT audio-verified.",
+   "label_basis": "script-derived: what the script intends; not verified against the audio",
+   "scenario_time": "10:30",
+   "scenario_start_time": "2026-10-01T10:30:00",
+   "scenario_time_kind": "simulated role-play scenario time (assigned); not a verified recording time"
+  },
+  "CALL-0002": {
+   "scenario": "Abuse and threats by the agent (Hindi/English mixed) [name added for readability; heading is (Hindi and English mixed)]",
+   "script_heading": "(Hindi and English mixed)",
+   "script_source": "call_scripts.md",
+   "dialogue": [
+    {
+     "turn": 1,
+     "speaker": "Agent",
+     "text": "Hello, main Imran bol raha hoon, Shaha Finlease se, aapke credit card ke baare mein call kiya hai. Farah Khan ji se baat ho rahi hai?"
+    },
+    {
+     "turn": 2,
+     "speaker": "Borrower",
+     "text": "Haan, main Farah bol rahi hoon."
+    },
+    {
+     "turn": 3,
+     "speaker": "Agent",
+     "text": "Madam, aapke credit card ka 62,000 rupaye baaki hai. Kab de rahe ho?"
+    },
+    {
+     "turn": 4,
+     "speaker": "Borrower",
+     "text": "Abhi paise nahi hain, mujhe thoda time chahiye."
+    },
+    {
+     "turn": 5,
+     "speaker": "Agent",
+     "text": "Aap hamesha yahi bolte ho. Kitna time chahiye?"
+    },
+    {
+     "turn": 6,
+     "speaker": "Borrower",
+     "text": "Bas ek mahina de dijiye, please."
+    },
+    {
+     "turn": 7,
+     "speaker": "Agent",
+     "text": "Ek mahina? Aap hamein bewakoof samajhte ho kya?"
+    },
+    {
+     "turn": 8,
+     "speaker": "Borrower",
+     "text": "Aap aise baat mat kijiye."
+    },
+    {
+     "turn": 9,
+     "speaker": "Agent",
+     "text": "Agar kal tak paisa nahi aaya to main police bhej dunga, aur aapko jail jaana padega."
+    },
+    {
+     "turn": 10,
+     "speaker": "Borrower",
+     "text": "Aap mujhe dara rahe hain? Yeh galat hai."
+    },
+    {
+     "turn": 11,
+     "speaker": "Agent",
+     "text": "Darna chahiye, tabhi paisa aayega. Hum aapke ghar bhi aayenge."
+    },
+    {
+     "turn": 12,
+     "speaker": "Borrower",
+     "text": "Main complaint karungi."
+    },
+    {
+     "turn": 13,
+     "speaker": "Agent",
+     "text": "Jo karna hai karo."
+    },
+    {
+     "turn": 14,
+     "speaker": "Borrower",
+     "text": "Main phone rakh rahi hoon."
+    }
+   ],
+   "expected_labels_from_script": {
+    "R1": false,
+    "R2": true,
+    "R3": true,
+    "R4": false,
+    "R5": false,
+    "R6": false
+   },
+   "expected_incidents": {
+    "R2": 1,
+    "R3": 2
+   },
+   "violation_evidence": [
+    {
+     "rule": "R2",
+     "turns": [
+      7
+     ],
+     "expected_speaker": "agent",
+     "why": "agent calls the borrower foolish ('bewakoof')",
+     "line": "Ek mahina? Aap hamein bewakoof samajhte ho kya?"
+    },
+    {
+     "rule": "R3",
+     "turns": [
+      9
+     ],
+     "expected_speaker": "agent",
+     "why": "police and jail threat",
+     "line": "Agar kal tak paisa nahi aaya to main police bhej dunga, aur aapko jail jaana padega."
+    },
+    {
+     "rule": "R3",
+     "turns": [
+      11
+     ],
+     "expected_speaker": "agent",
+     "why": "'Hum aapke ghar bhi aayenge' after 'Darna chahiye, tabhi paisa aayega'",
+     "line": "Darna chahiye, tabhi paisa aayega. Hum aapke ghar bhi aayenge."
+    }
+   ],
+   "opening_R6": {
+    "scope": "the agent's first two conversational turns (existing definition: rules.py R6, turns.py)",
+    "agent_turn_1": {
+     "script_turn": 1,
+     "name": true,
+     "company": true,
+     "purpose": true
+    },
+    "agent_turn_2": null,
+    "present_within_scope": {
+     "name": true,
+     "company": true,
+     "purpose": true
+    },
+    "missing": [],
+    "satisfied": true,
+    "explanation": "Name, company and purpose are all stated in agent turn 1.",
+    "v1_text": "satisfied: name, company, purpose (credit card) in turn 1"
+   },
+   "multiple_rules_on_same_dialogue": [
+    "R2",
+    "R3"
+   ],
+   "script_notes": "R2 and R3 in different turns; R3 twice, separated by a borrower turn.",
+   "transcript_comparison": {
+    "classification": "broadly consistent",
+    "transcript_source": "whisper_1_5.json run 1 (22 segs)",
+    "details": "Every scripted violation line is present: R2 seg9, R3 seg12-13 and seg18. Urdu script. The borrower's name is garbled.",
+    "caveat": "Compared by reading the saved Whisper text against the script. Whisper output is not authoritative and this comparison is not human-verified."
+   },
+   "timestamp": {
+    "scenario_time": "15:15",
+    "scenario_start_time": "2026-10-01T15:15:00",
+    "metadata_csv_start_time": "2026-10-01T15:15:00",
+    "status": "simulated/assigned scenario time; not a verified recording time",
+    "confirmed_recording_time": null,
+    "designed_to_test_out_of_hours": false
+   },
+   "speaker_labels_verified": false,
+   "audio_verified": false,
+   "r1": {
+    "expected": false,
+    "basis": "The scenario time is inside 08:00-19:00 IST, so no R1 is expected.",
+    "scenario_time": "15:15",
+    "scenario_time_is_simulated": true,
+    "scenario_not_actual": "A simulated role-play scenario time. NOT an actual recording time, and no actual recording time has been verified."
+   },
+   "violations": {
+    "R1": false,
+    "R2": true,
+    "R3": true,
+    "R4": false,
+    "R5": false,
+    "R6": false
+   },
+   "notes": "Abuse and threats by the agent (Hindi/English mixed). Script-derived expected labels: R2, R3 (R2 x1, R3 x2). NOT audio-verified. R2 and R3 in different turns; R3 twice, separated by a borrower turn.",
+   "label_basis": "script-derived: what the script intends; not verified against the audio",
+   "scenario_time": "15:15",
+   "scenario_start_time": "2026-10-01T15:15:00",
+   "scenario_time_kind": "simulated role-play scenario time (assigned); not a verified recording time"
+  },
+  "CALL-0003": {
+   "scenario": "OTP request with no opening (English) [name added for readability; heading is (English)]",
+   "script_heading": "(English)",
+   "script_source": "call_scripts.md",
+   "dialogue": [
+    {
+     "turn": 1,
+     "speaker": "Agent",
+     "text": "Hello, am I speaking to Prakash Naik?"
+    },
+    {
+     "turn": 2,
+     "speaker": "Borrower",
+     "text": "Yes, who is this?"
+    },
+    {
+     "turn": 3,
+     "speaker": "Agent",
+     "text": "Sir, your personal loan is overdue by 35,000 rupees. You need to pay today."
+    },
+    {
+     "turn": 4,
+     "speaker": "Borrower",
+     "text": "Who are you calling from?"
+    },
+    {
+     "turn": 5,
+     "speaker": "Agent",
+     "text": "I am calling about the loan, sir. I will send a payment request to your phone now. Please tell me the OTP you receive so I can process the payment for you."
+    },
+    {
+     "turn": 6,
+     "speaker": "Borrower",
+     "text": "I am not comfortable sharing an OTP."
+    },
+    {
+     "turn": 7,
+     "speaker": "Agent",
+     "text": "Sir, it is the only way to close this quickly. Just read the six digits to me."
+    },
+    {
+     "turn": 8,
+     "speaker": "Borrower",
+     "text": "No. I will pay through my bank app tomorrow."
+    },
+    {
+     "turn": 9,
+     "speaker": "Agent",
+     "text": "Okay, please pay tomorrow then."
+    },
+    {
+     "turn": 10,
+     "speaker": "Borrower",
+     "text": "Okay, bye."
+    }
+   ],
+   "expected_labels_from_script": {
+    "R1": false,
+    "R2": false,
+    "R3": false,
+    "R4": false,
+    "R5": true,
+    "R6": true
+   },
+   "expected_incidents": {
+    "R5": 2
+   },
+   "violation_evidence": [
+    {
+     "rule": "R5",
+     "turns": [
+      5
+     ],
+     "expected_speaker": "agent",
+     "why": "asks for the OTP",
+     "line": "I am calling about the loan, sir. I will send a payment request to your phone now. Please tell me the OTP you receive so I can process the payment for you."
+    },
+    {
+     "rule": "R5",
+     "turns": [
+      7
+     ],
+     "expected_speaker": "agent",
+     "why": "'Just read the six digits to me' after the borrower refused",
+     "line": "Sir, it is the only way to close this quickly. Just read the six digits to me."
+    }
+   ],
+   "opening_R6": {
+    "scope": "the agent's first two conversational turns (existing definition: rules.py R6, turns.py)",
+    "agent_turn_1": {
+     "script_turn": 1,
+     "name": false,
+     "company": false,
+     "purpose": false
+    },
+    "agent_turn_2": {
+     "script_turn": 3,
+     "name": false,
+     "company": false,
+     "purpose": true
+    },
+    "present_within_scope": {
+     "name": false,
+     "company": false,
+     "purpose": true
+    },
+    "missing": [
+     "name",
+     "company"
+    ],
+    "satisfied": false,
+    "explanation": "Agent turn 1 is only 'am I speaking to Prakash Naik?'. Agent turn 2 states the overdue loan but never a name or company; the borrower even asks 'Who are you calling from?'.",
+    "v1_text": "NOT satisfied: no agent name or company in the first two agent turns (turns 1 and 3)"
+   },
+   "multiple_rules_on_same_dialogue": [],
+   "script_notes": "R5 twice; R6 missing name and company.",
+   "transcript_comparison": {
+    "classification": "broadly consistent",
+    "transcript_source": "whisper_1_5.json run 1 (11 segs)",
+    "details": "Both OTP requests present (seg4, seg7); no agent name or company anywhere, as scripted.",
+    "caveat": "Compared by reading the saved Whisper text against the script. Whisper output is not authoritative and this comparison is not human-verified."
+   },
+   "timestamp": {
+    "scenario_time": "11:00",
+    "scenario_start_time": "2026-10-02T11:00:00",
+    "metadata_csv_start_time": "2026-10-02T11:00:00",
+    "status": "simulated/assigned scenario time; not a verified recording time",
+    "confirmed_recording_time": null,
+    "designed_to_test_out_of_hours": false
+   },
+   "speaker_labels_verified": false,
+   "audio_verified": false,
+   "r1": {
+    "expected": false,
+    "basis": "The scenario time is inside 08:00-19:00 IST, so no R1 is expected.",
+    "scenario_time": "11:00",
+    "scenario_time_is_simulated": true,
+    "scenario_not_actual": "A simulated role-play scenario time. NOT an actual recording time, and no actual recording time has been verified."
+   },
+   "violations": {
+    "R1": false,
+    "R2": false,
+    "R3": false,
+    "R4": false,
+    "R5": true,
+    "R6": true
+   },
+   "notes": "OTP request with no opening (English). Script-derived expected labels: R5, R6 (R5 x2). NOT audio-verified. R5 twice; R6 missing name and company.",
+   "label_basis": "script-derived: what the script intends; not verified against the audio",
+   "scenario_time": "11:00",
+   "scenario_start_time": "2026-10-02T11:00:00",
+   "scenario_time_kind": "simulated role-play scenario time (assigned); not a verified recording time"
+  },
+  "CALL-0004": {
+   "scenario": "Debt disclosed to the borrower's brother (Hindi) [name added for readability; heading is (Hindi)]",
+   "script_heading": "(Hindi)",
+   "script_source": "call_scripts.md",
+   "dialogue": [
+    {
+     "turn": 1,
+     "speaker": "Agent",
+     "text": "Namaste, main Rekha Pillai bol rahi hoon, Shaha Finlease se. Ek zaroori baat ke liye Sandeep Verma ji se baat kar sakti hoon?"
+    },
+    {
+     "turn": 2,
+     "speaker": "Borrower",
+     "text": "Woh abhi ghar par nahi hain. Main unka bhai bol raha hoon. Aap kaun?"
+    },
+    {
+     "turn": 3,
+     "speaker": "Agent",
+     "text": "Main Shaha Finlease se hoon. Sandeep ji ne hamare yahan se loan liya tha aur do saal se ek bhi kist nahi bhari hai."
+    },
+    {
+     "turn": 4,
+     "speaker": "Borrower",
+     "text": "Loan? Mujhe iske baare mein kuch nahi pata."
+    },
+    {
+     "turn": 5,
+     "speaker": "Agent",
+     "text": "Aapke bhai defaulter hain. Aap unko samjhao, warna sabko pata chal jayega ki woh paise dabaa ke baithe hain."
+    },
+    {
+     "turn": 6,
+     "speaker": "Borrower",
+     "text": "Aap yeh mujhe kyun bata rahe hain? Yeh unka personal mamla hai."
+    },
+    {
+     "turn": 7,
+     "speaker": "Agent",
+     "text": "Aap family hain, aapki bhi zimmedari hai. Unke office mein bhi hum bata denge."
+    },
+    {
+     "turn": 8,
+     "speaker": "Borrower",
+     "text": "Aap aisa nahi kar sakte. Main unko bol dunga ki aapko phone karein."
+    },
+    {
+     "turn": 9,
+     "speaker": "Agent",
+     "text": "Theek hai. Dhanyavaad."
+    }
+   ],
+   "expected_labels_from_script": {
+    "R1": false,
+    "R2": false,
+    "R3": false,
+    "R4": true,
+    "R5": false,
+    "R6": false
+   },
+   "expected_incidents": {
+    "R4": 3
+   },
+   "violation_evidence": [
+    {
+     "rule": "R4",
+     "turns": [
+      3
+     ],
+     "expected_speaker": "agent",
+     "why": "tells the borrower's brother that Sandeep took a loan and has not paid for two years",
+     "line": "Main Shaha Finlease se hoon. Sandeep ji ne hamare yahan se loan liya tha aur do saal se ek bhi kist nahi bhari hai."
+    },
+    {
+     "rule": "R4",
+     "turns": [
+      5
+     ],
+     "expected_speaker": "agent",
+     "why": "calls Sandeep a defaulter and says everyone will find out",
+     "line": "Aapke bhai defaulter hain. Aap unko samjhao, warna sabko pata chal jayega ki woh paise dabaa ke baithe hain."
+    },
+    {
+     "rule": "R4",
+     "turns": [
+      7
+     ],
+     "expected_speaker": "agent",
+     "why": "'Unke office mein bhi hum bata denge'",
+     "line": "Aap family hain, aapki bhi zimmedari hai. Unke office mein bhi hum bata denge."
+    }
+   ],
+   "opening_R6": {
+    "scope": "the agent's first two conversational turns (existing definition: rules.py R6, turns.py)",
+    "agent_turn_1": {
+     "script_turn": 1,
+     "name": true,
+     "company": true,
+     "purpose": false
+    },
+    "agent_turn_2": {
+     "script_turn": 3,
+     "name": false,
+     "company": true,
+     "purpose": true
+    },
+    "present_within_scope": {
+     "name": true,
+     "company": true,
+     "purpose": true
+    },
+    "missing": [],
+    "satisfied": true,
+    "explanation": "Agent turn 1 gives name and company; 'Ek zaroori baat' is vague. Agent turn 2 states the loan.",
+    "v1_text": "satisfied: name+company turn 1, purpose (loan) turn 3 = second agent turn (said to the wrong person)"
+   },
+   "multiple_rules_on_same_dialogue": [],
+   "script_notes": "R4 only. A threat to disclose loan information is not a separate R3 violation. (v1 said an R3 reading was possible and undecided.)",
+   "transcript_comparison": {
+    "classification": "broadly consistent",
+    "transcript_source": "whisper_1_5.json run 1 (17 segs)",
+    "details": "Disclosure lines present (seg3-8, seg13). The agent said their own name, not 'Rekha Pillai'.",
+    "caveat": "Compared by reading the saved Whisper text against the script. Whisper output is not authoritative and this comparison is not human-verified."
+   },
+   "timestamp": {
+    "scenario_time": "14:45",
+    "scenario_start_time": "2026-10-02T14:45:00",
+    "metadata_csv_start_time": "2026-10-02T14:45:00",
+    "status": "simulated/assigned scenario time; not a verified recording time",
+    "confirmed_recording_time": null,
+    "designed_to_test_out_of_hours": false
+   },
+   "speaker_labels_verified": false,
+   "audio_verified": false,
+   "r1": {
+    "expected": false,
+    "basis": "The scenario time is inside 08:00-19:00 IST, so no R1 is expected.",
+    "scenario_time": "14:45",
+    "scenario_time_is_simulated": true,
+    "scenario_not_actual": "A simulated role-play scenario time. NOT an actual recording time, and no actual recording time has been verified."
+   },
+   "r3_considered": {
+    "decision": "R3 NOT added; R4 stays expected (three incidents).",
+    "definition_applied": "rules.py R3: 'No mentions of police, jail, arrest, legal action, or physical threats like \"we will come to your house\"'. The analysis prompt adds 'threats, intimidation or coercive conduct'.",
+    "lines_examined": [
+     "Aapke bhai defaulter hain. Aap unko samjhao, warna sabko pata chal jayega ki woh paise dabaa ke baithe hain.",
+     "Aap family hain, aapki bhi zimmedari hai. Unke office mein bhi hum bata denge."
+    ],
+    "finding": "Turns 5 and 7 threaten to tell others about the debt ('warna sabko pata chal jayega', 'Unke office mein bhi hum bata denge'). That is the disclosure the R4 rule already covers. The script contains no police, jail, arrest, legal action or physical threat, and no separate coercive act apart from the disclosure itself, so no R3 is independently satisfied.",
+    "policy_preserved": "R3 and R4 are both counted when both genuinely apply independently; that is not the case in this script."
+   },
+   "violations": {
+    "R1": false,
+    "R2": false,
+    "R3": false,
+    "R4": true,
+    "R5": false,
+    "R6": false
+   },
+   "notes": "Debt disclosed to the borrower's brother (Hindi). Script-derived expected labels: R4 (R4 x3). NOT audio-verified. R4 only. A threat to disclose loan information is not a separate R3 violation. (v1 said an R3 reading was possible and undecided.)",
+   "label_basis": "script-derived: what the script intends; not verified against the audio",
+   "scenario_time": "14:45",
+   "scenario_start_time": "2026-10-02T14:45:00",
+   "scenario_time_kind": "simulated role-play scenario time (assigned); not a verified recording time"
+  },
+  "CALL-0005": {
+   "scenario": "Clean call with an abusive borrower (English) [name added for readability; heading is (English)]",
+   "script_heading": "(English)",
+   "script_source": "call_scripts.md",
+   "dialogue": [
+    {
+     "turn": 1,
+     "speaker": "Agent",
+     "text": "Good morning, this is Arjun Reddy calling from Shaha Finlease about your credit card account. Am I speaking with Mr Rakesh Menon?"
+    },
+    {
+     "turn": 2,
+     "speaker": "Borrower",
+     "text": "Yes. Again? You people call every single day."
+    },
+    {
+     "turn": 3,
+     "speaker": "Agent",
+     "text": "I understand it is frustrating, sir, and I apologise. This call is recorded. I am calling about the outstanding amount of 27,500 rupees on your credit card. Is this a good time to talk?"
+    },
+    {
+     "turn": 4,
+     "speaker": "Borrower",
+     "text": "Stop harassing me! I told you last week I have no money. You people are useless."
+    },
+    {
+     "turn": 5,
+     "speaker": "Agent",
+     "text": "I am sorry you feel that way, sir. I will not take much of your time. Could you tell me when you expect to be able to make a payment?"
+    },
+    {
+     "turn": 6,
+     "speaker": "Borrower",
+     "text": "Do not ask me that. Leave me alone!"
+    },
+    {
+     "turn": 7,
+     "speaker": "Agent",
+     "text": "Understood, sir. If you prefer, I can note that you would like a call after the 15th instead."
+    },
+    {
+     "turn": 8,
+     "speaker": "Borrower",
+     "text": "Fine. Call after the 15th and not before."
+    },
+    {
+     "turn": 9,
+     "speaker": "Agent",
+     "text": "Noted, sir. I will not call before the 15th. Thank you for your time, and I apologise again for the inconvenience."
+    },
+    {
+     "turn": 10,
+     "speaker": "Borrower",
+     "text": "Okay. Bye."
+    }
+   ],
+   "expected_labels_from_script": {
+    "R1": false,
+    "R2": false,
+    "R3": false,
+    "R4": false,
+    "R5": false,
+    "R6": false
+   },
+   "expected_incidents": {},
+   "violation_evidence": [],
+   "opening_R6": {
+    "scope": "the agent's first two conversational turns (existing definition: rules.py R6, turns.py)",
+    "agent_turn_1": {
+     "script_turn": 1,
+     "name": true,
+     "company": true,
+     "purpose": true
+    },
+    "agent_turn_2": null,
+    "present_within_scope": {
+     "name": true,
+     "company": true,
+     "purpose": true
+    },
+    "missing": [],
+    "satisfied": true,
+    "explanation": "Name, company and purpose are all stated in agent turn 1.",
+    "v1_text": "satisfied: name, company, purpose in turn 1"
+   },
+   "multiple_rules_on_same_dialogue": [],
+   "script_notes": "The BORROWER is abusive ('useless'); that is not an agent breach.",
+   "transcript_comparison": {
+    "classification": "broadly consistent",
+    "transcript_source": "whisper_1_5.json run 1 (12 segs)",
+    "details": "Complete opening and the borrower's abuse present. The agent said their own name, not 'Arjun Reddy'.",
+    "caveat": "Compared by reading the saved Whisper text against the script. Whisper output is not authoritative and this comparison is not human-verified."
+   },
+   "timestamp": {
+    "scenario_time": "09:00",
+    "scenario_start_time": "2026-10-03T09:00:00",
+    "metadata_csv_start_time": "2026-10-03T09:00:00",
+    "status": "simulated/assigned scenario time; not a verified recording time",
+    "confirmed_recording_time": null,
+    "designed_to_test_out_of_hours": false
+   },
+   "speaker_labels_verified": false,
+   "audio_verified": false,
+   "r1": {
+    "expected": false,
+    "basis": "The scenario time is inside 08:00-19:00 IST, so no R1 is expected.",
+    "scenario_time": "09:00",
+    "scenario_time_is_simulated": true,
+    "scenario_not_actual": "A simulated role-play scenario time. NOT an actual recording time, and no actual recording time has been verified."
+   },
+   "violations": {
+    "R1": false,
+    "R2": false,
+    "R3": false,
+    "R4": false,
+    "R5": false,
+    "R6": false
+   },
+   "notes": "Clean call with an abusive borrower (English). Script-derived expected labels: clean. NOT audio-verified. The BORROWER is abusive ('useless'); that is not an agent breach.",
+   "label_basis": "script-derived: what the script intends; not verified against the audio",
+   "scenario_time": "09:00",
+   "scenario_start_time": "2026-10-03T09:00:00",
+   "scenario_time_kind": "simulated role-play scenario time (assigned); not a verified recording time"
+  },
+  "CALL-0006": {
+   "scenario": "Clean collection call (English)",
+   "script_heading": "Clean collection call (English)",
+   "script_source": "call_scripts.md",
+   "dialogue": [
+    {
+     "turn": 1,
+     "speaker": "Agent",
+     "text": "Good afternoon, this is Preet Jhagekar calling from Shaha Finlease regarding your personal loan. Am I speaking with Amit Sharma?"
+    },
+    {
+     "turn": 2,
+     "speaker": "Borrower",
+     "text": "Yes, but I've already received several calls from your company."
+    },
+    {
+     "turn": 3,
+     "speaker": "Agent",
+     "text": "I understand, sir. I'm calling about the outstanding payment of 18,000 rupees. Could you tell me when you might be able to pay?"
+    },
+    {
+     "turn": 4,
+     "speaker": "Borrower",
+     "text": "I've explained that my salary is delayed. I need a few more days."
+    },
+    {
+     "turn": 5,
+     "speaker": "Agent",
+     "text": "All right, sir. When do you expect to receive your salary?"
+    },
+    {
+     "turn": 6,
+     "speaker": "Borrower",
+     "text": "By the 12th of next month. I'll try to make the payment then."
+    },
+    {
+     "turn": 7,
+     "speaker": "Agent",
+     "text": "Thank you for letting me know. I'll note that date in your account."
+    },
+    {
+     "turn": 8,
+     "speaker": "Borrower",
+     "text": "Please make sure your team doesn't keep calling me before then."
+    },
+    {
+     "turn": 9,
+     "speaker": "Agent",
+     "text": "I understand. I'll record your request and ask the team to follow the agreed date."
+    },
+    {
+     "turn": 10,
+     "speaker": "Borrower",
+     "text": "Thank you. Goodbye."
+    },
+    {
+     "turn": 11,
+     "speaker": "Agent",
+     "text": "Thank you for your time, sir. Goodbye."
+    }
+   ],
+   "expected_labels_from_script": {
+    "R1": false,
+    "R2": false,
+    "R3": false,
+    "R4": false,
+    "R5": false,
+    "R6": false
+   },
+   "expected_incidents": {},
+   "violation_evidence": [],
+   "opening_R6": {
+    "scope": "the agent's first two conversational turns (existing definition: rules.py R6, turns.py)",
+    "agent_turn_1": {
+     "script_turn": 1,
+     "name": true,
+     "company": true,
+     "purpose": true
+    },
+    "agent_turn_2": null,
+    "present_within_scope": {
+     "name": true,
+     "company": true,
+     "purpose": true
+    },
+    "missing": [],
+    "satisfied": true,
+    "explanation": "Name, company and purpose are all stated in agent turn 1.",
+    "v1_text": "satisfied: name, company, purpose in turn 1"
+   },
+   "multiple_rules_on_same_dialogue": [],
+   "script_notes": "Original ground_truth.json said R2; the script has no foul language.",
+   "transcript_comparison": {
+    "classification": "broadly consistent",
+    "transcript_source": "verify_6_10_results.json run 1 (18 segs)",
+    "details": "All turns present and polite. Closing turns fragmented into short segments.",
+    "caveat": "Compared by reading the saved Whisper text against the script. Whisper output is not authoritative and this comparison is not human-verified."
+   },
+   "timestamp": {
+    "scenario_time": "12:20",
+    "scenario_start_time": "2026-10-03T12:20:00",
+    "metadata_csv_start_time": "2026-10-03T12:20:00",
+    "status": "simulated/assigned scenario time; not a verified recording time",
+    "confirmed_recording_time": null,
+    "designed_to_test_out_of_hours": false
+   },
+   "speaker_labels_verified": false,
+   "audio_verified": false,
+   "r1": {
+    "expected": false,
+    "basis": "The scenario time is inside 08:00-19:00 IST, so no R1 is expected.",
+    "scenario_time": "12:20",
+    "scenario_time_is_simulated": true,
+    "scenario_not_actual": "A simulated role-play scenario time. NOT an actual recording time, and no actual recording time has been verified."
+   },
+   "violations": {
+    "R1": false,
+    "R2": false,
+    "R3": false,
+    "R4": false,
+    "R5": false,
+    "R6": false
+   },
+   "notes": "Clean collection call (English). Script-derived expected labels: clean. NOT audio-verified. Original ground_truth.json said R2; the script has no foul language.",
+   "label_basis": "script-derived: what the script intends; not verified against the audio",
+   "scenario_time": "12:20",
+   "scenario_start_time": "2026-10-03T12:20:00",
+   "scenario_time_kind": "simulated role-play scenario time (assigned); not a verified recording time"
+  },
+  "CALL-0007": {
+   "scenario": "OTP request (Hindi and English mixed)",
+   "script_heading": "OTP request (Hindi and English mixed)",
+   "script_source": "call_scripts.md",
+   "dialogue": [
+    {
+     "turn": 1,
+     "speaker": "Agent",
+     "text": "Hello, main Preet Jhagekar bol raha hoon, Shaha Finlease se. Main aapke personal loan ke pending payment ke baare mein call kar raha hoon. Kya meri baat Rahul Mehta ji se ho rahi hai?"
+    },
+    {
+     "turn": 2,
+     "speaker": "Borrower",
+     "text": "Haan, boliye. Kitna payment pending hai?"
+    },
+    {
+     "turn": 3,
+     "speaker": "Agent",
+     "text": "Sir, aapke account mein 22,000 rupaye pending hain. Aap payment kab tak kar paayenge?"
+    },
+    {
+     "turn": 4,
+     "speaker": "Borrower",
+     "text": "Main agle hafte payment karne ki koshish karunga."
+    },
+    {
+     "turn": 5,
+     "speaker": "Agent",
+     "text": "Theek hai, sir. Main aapko payment request bhej raha hoon. Aapke phone par ek OTP aayega. Please woh OTP mujhe bata dijiye, main payment process kar deta hoon."
+    },
+    {
+     "turn": 6,
+     "speaker": "Borrower",
+     "text": "OTP? Kya mujhe aapko OTP batana zaroori hai?"
+    },
+    {
+     "turn": 7,
+     "speaker": "Agent",
+     "text": "Haan sir, jaldi process karne ke liye bata dijiye."
+    },
+    {
+     "turn": 8,
+     "speaker": "Borrower",
+     "text": "Nahi, main OTP share nahi karunga. Main apne bank app se payment karunga."
+    },
+    {
+     "turn": 9,
+     "speaker": "Agent",
+     "text": "Theek hai, sir. Aap bank app se payment kar sakte hain. Dhanyavaad."
+    },
+    {
+     "turn": 10,
+     "speaker": "Borrower",
+     "text": "Theek hai. Goodbye."
+    }
+   ],
+   "expected_labels_from_script": {
+    "R1": false,
+    "R2": false,
+    "R3": false,
+    "R4": false,
+    "R5": true,
+    "R6": false
+   },
+   "expected_incidents": {
+    "R5": 2
+   },
+   "violation_evidence": [
+    {
+     "rule": "R5",
+     "turns": [
+      5
+     ],
+     "expected_speaker": "agent",
+     "why": "asks for the OTP",
+     "line": "Theek hai, sir. Main aapko payment request bhej raha hoon. Aapke phone par ek OTP aayega. Please woh OTP mujhe bata dijiye, main payment process kar deta hoon."
+    },
+    {
+     "rule": "R5",
+     "turns": [
+      7
+     ],
+     "expected_speaker": "agent",
+     "why": "'Haan sir, jaldi process karne ke liye bata dijiye' after the borrower questioned it",
+     "line": "Haan sir, jaldi process karne ke liye bata dijiye."
+    }
+   ],
+   "opening_R6": {
+    "scope": "the agent's first two conversational turns (existing definition: rules.py R6, turns.py)",
+    "agent_turn_1": {
+     "script_turn": 1,
+     "name": true,
+     "company": true,
+     "purpose": true
+    },
+    "agent_turn_2": null,
+    "present_within_scope": {
+     "name": true,
+     "company": true,
+     "purpose": true
+    },
+    "missing": [],
+    "satisfied": true,
+    "explanation": "Name, company and purpose are all stated in agent turn 1.",
+    "v1_text": "satisfied: name, company, purpose in turn 1"
+   },
+   "multiple_rules_on_same_dialogue": [],
+   "script_notes": "Original ground_truth.json said R3; the script has no threat. A separate unlinked recording call_07new.wav exists.",
+   "transcript_comparison": {
+    "classification": "broadly consistent",
+    "transcript_source": "verify_6_10_results.json run 1 (15 segs)",
+    "details": "Both OTP requests present (seg6, seg9) and the borrower's refusal. call_07new.wav is a separate, unlinked recording.",
+    "caveat": "Compared by reading the saved Whisper text against the script. Whisper output is not authoritative and this comparison is not human-verified."
+   },
+   "timestamp": {
+    "scenario_time": "10:10",
+    "scenario_start_time": "2026-10-04T10:10:00",
+    "metadata_csv_start_time": "2026-10-04T10:10:00",
+    "status": "simulated/assigned scenario time; not a verified recording time",
+    "confirmed_recording_time": null,
+    "designed_to_test_out_of_hours": false
+   },
+   "speaker_labels_verified": false,
+   "audio_verified": false,
+   "r1": {
+    "expected": false,
+    "basis": "The scenario time is inside 08:00-19:00 IST, so no R1 is expected.",
+    "scenario_time": "10:10",
+    "scenario_time_is_simulated": true,
+    "scenario_not_actual": "A simulated role-play scenario time. NOT an actual recording time, and no actual recording time has been verified."
+   },
+   "violations": {
+    "R1": false,
+    "R2": false,
+    "R3": false,
+    "R4": false,
+    "R5": true,
+    "R6": false
+   },
+   "notes": "OTP request (Hindi and English mixed). Script-derived expected labels: R5 (R5 x2). NOT audio-verified. Original ground_truth.json said R3; the script has no threat. A separate unlinked recording call_07new.wav exists.",
+   "label_basis": "script-derived: what the script intends; not verified against the audio",
+   "scenario_time": "10:10",
+   "scenario_start_time": "2026-10-04T10:10:00",
+   "scenario_time_kind": "simulated role-play scenario time (assigned); not a verified recording time"
+  },
+  "CALL-0008": {
+   "scenario": "Threats and intimidation (Hindi)",
+   "script_heading": "Threats and intimidation (Hindi)",
+   "script_source": "call_scripts.md",
+   "dialogue": [
+    {
+     "turn": 1,
+     "speaker": "Agent",
+     "text": "Namaste, main Preet Jhagekar bol raha hoon, Shaha Finlease se. Main aapke personal loan ke pending payment ke baare mein baat kar raha hoon. Kya meri baat Rohit Verma ji se ho rahi hai?"
+    },
+    {
+     "turn": 2,
+     "speaker": "Borrower",
+     "text": "Ji haan. Bataiye, kya baat hai?"
+    },
+    {
+     "turn": 3,
+     "speaker": "Agent",
+     "text": "Sir, aapke loan account mein 40,000 rupaye pending hain. Payment kab tak kar paayenge?"
+    },
+    {
+     "turn": 4,
+     "speaker": "Borrower",
+     "text": "Abhi meri financial situation theek nahi hai. Mujhe thoda aur time chahiye."
+    },
+    {
+     "turn": 5,
+     "speaker": "Agent",
+     "text": "Sir, aapne pehle bhi time maanga tha. Humein payment ki ek clear date chahiye."
+    },
+    {
+     "turn": 6,
+     "speaker": "Borrower",
+     "text": "Main agle mahine ki 10 tareekh tak payment karne ki koshish karunga."
+    },
+    {
+     "turn": 7,
+     "speaker": "Agent",
+     "text": "Agar aapne payment nahi ki, toh main police bhej dunga aur aapko jail jaana padega."
+    },
+    {
+     "turn": 8,
+     "speaker": "Borrower",
+     "text": "Aap mujhe police aur jail ki dhamki kyun de rahe hain? Main payment karne ki koshish kar raha hoon."
+    },
+    {
+     "turn": 9,
+     "speaker": "Agent",
+     "text": "Main aapko bata raha hoon ki payment ko aur delay mat kijiye."
+    },
+    {
+     "turn": 10,
+     "speaker": "Borrower",
+     "text": "Theek hai, main apni taraf se koshish karunga."
+    },
+    {
+     "turn": 11,
+     "speaker": "Agent",
+     "text": "Theek hai, sir. Dhanyavaad."
+    }
+   ],
+   "expected_labels_from_script": {
+    "R1": true,
+    "R2": false,
+    "R3": true,
+    "R4": false,
+    "R5": false,
+    "R6": false
+   },
+   "expected_incidents": {
+    "R3": 1
+   },
+   "violation_evidence": [
+    {
+     "rule": "R3",
+     "turns": [
+      7
+     ],
+     "expected_speaker": "agent",
+     "why": "police and jail threat",
+     "line": "Agar aapne payment nahi ki, toh main police bhej dunga aur aapko jail jaana padega."
+    }
+   ],
+   "opening_R6": {
+    "scope": "the agent's first two conversational turns (existing definition: rules.py R6, turns.py)",
+    "agent_turn_1": {
+     "script_turn": 1,
+     "name": true,
+     "company": true,
+     "purpose": true
+    },
+    "agent_turn_2": null,
+    "present_within_scope": {
+     "name": true,
+     "company": true,
+     "purpose": true
+    },
+    "missing": [],
+    "satisfied": true,
+    "explanation": "Name, company and purpose are all stated in agent turn 1.",
+    "v1_text": "satisfied: name, company, purpose in turn 1"
+   },
+   "multiple_rules_on_same_dialogue": [],
+   "script_notes": "R1 comes from the metadata time (see timestamps); turn 9 is a reminder, not a threat.",
+   "transcript_comparison": {
+    "classification": "broadly consistent",
+    "transcript_source": "verify_6_10_results.json run 1 (8 segs)",
+    "details": "Threat present at seg5. The borrower's 'next month's 10th' turn (turn 6) is not transcribed.",
+    "caveat": "Compared by reading the saved Whisper text against the script. Whisper output is not authoritative and this comparison is not human-verified."
+   },
+   "timestamp": {
+    "scenario_time": "07:30",
+    "scenario_start_time": "2026-10-04T07:30:00",
+    "metadata_csv_start_time": "2026-10-04T07:30:00",
+    "status": "simulated/assigned scenario time; not a verified recording time",
+    "confirmed_recording_time": null,
+    "designed_to_test_out_of_hours": true
+   },
+   "speaker_labels_verified": false,
+   "audio_verified": false,
+   "r1": {
+    "expected": true,
+    "basis": "Intended R1 evaluation case: the scenario time is outside 08:00-19:00 IST.",
+    "scenario_time": "07:30",
+    "scenario_time_is_simulated": true,
+    "scenario_not_actual": "A simulated role-play scenario time. NOT an actual recording time, and no actual recording time has been verified."
+   },
+   "violations": {
+    "R1": true,
+    "R2": false,
+    "R3": true,
+    "R4": false,
+    "R5": false,
+    "R6": false
+   },
+   "notes": "Threats and intimidation (Hindi). Script-derived expected labels: R3 (R3 x1). NOT audio-verified. R1 comes from the metadata time (see timestamps); turn 9 is a reminder, not a threat.",
+   "label_basis": "script-derived: what the script intends; not verified against the audio",
+   "scenario_time": "07:30",
+   "scenario_start_time": "2026-10-04T07:30:00",
+   "scenario_time_kind": "simulated role-play scenario time (assigned); not a verified recording time"
+  },
+  "CALL-0009": {
+   "scenario": "Third-party disclosure (English)",
+   "script_heading": "Third-party disclosure (English)",
+   "script_source": "call_scripts.md",
+   "dialogue": [
+    {
+     "turn": 1,
+     "speaker": "Agent",
+     "text": "Good afternoon, this is Preet Jhagekar calling from Shaha Finlease regarding Mr. Karan Malhotra. Am I speaking with someone from his office?"
+    },
+    {
+     "turn": 2,
+     "speaker": "Colleague",
+     "text": "Yes, I'm his colleague. May I know why you're calling?"
+    },
+    {
+     "turn": 3,
+     "speaker": "Agent",
+     "text": "I'm calling because Karan has an outstanding personal loan of 55,000 rupees with our company."
+    },
+    {
+     "turn": 4,
+     "speaker": "Colleague",
+     "text": "I'm sorry, but I don't handle his personal matters. You should speak to him directly."
+    },
+    {
+     "turn": 5,
+     "speaker": "Agent",
+     "text": "He has missed several payments, and we haven't received the amount despite multiple reminders."
+    },
+    {
+     "turn": 6,
+     "speaker": "Colleague",
+     "text": "That's private information. Why are you sharing it with me?"
+    },
+    {
+     "turn": 7,
+     "speaker": "Agent",
+     "text": "Please ask him to contact Shaha Finlease as soon as possible about his pending payments."
+    },
+    {
+     "turn": 8,
+     "speaker": "Colleague",
+     "text": "I'll tell him that your company called, but please don't share his financial details with other people."
+    },
+    {
+     "turn": 9,
+     "speaker": "Agent",
+     "text": "Understood. Please ask him to contact us directly. Thank you for your time."
+    },
+    {
+     "turn": 10,
+     "speaker": "Colleague",
+     "text": "All right. Goodbye."
+    }
+   ],
+   "expected_labels_from_script": {
+    "R1": false,
+    "R2": false,
+    "R3": false,
+    "R4": true,
+    "R5": false,
+    "R6": false
+   },
+   "expected_incidents": {
+    "R4": 2
+   },
+   "violation_evidence": [
+    {
+     "rule": "R4",
+     "turns": [
+      3
+     ],
+     "expected_speaker": "agent",
+     "why": "tells the borrower's colleague that Karan owes 55,000 rupees",
+     "line": "I'm calling because Karan has an outstanding personal loan of 55,000 rupees with our company."
+    },
+    {
+     "rule": "R4",
+     "turns": [
+      5
+     ],
+     "expected_speaker": "agent",
+     "why": "says Karan has missed several payments",
+     "line": "He has missed several payments, and we haven't received the amount despite multiple reminders."
+    }
+   ],
+   "opening_R6": {
+    "scope": "the agent's first two conversational turns (existing definition: rules.py R6, turns.py)",
+    "agent_turn_1": {
+     "script_turn": 1,
+     "name": true,
+     "company": true,
+     "purpose": false
+    },
+    "agent_turn_2": {
+     "script_turn": 3,
+     "name": false,
+     "company": false,
+     "purpose": true
+    },
+    "present_within_scope": {
+     "name": true,
+     "company": true,
+     "purpose": true
+    },
+    "missing": [],
+    "satisfied": true,
+    "explanation": "Agent turn 1 gives name (Preet Jhagekar) and company (Shaha Finlease) but 'regarding Mr. Karan Malhotra' names the subject, not why the call is made. Agent turn 2 (script turn 3, answering the colleague's 'why you're calling') states the purpose: 'Karan has an outstanding personal loan of 55,000 rupees'. That is inside the agent's first two turns, so the existing definition is met. (If the scope were the first two turns of EITHER speaker, turn 2 would be the colleague's and the purpose would be missing: the application does not use that reading.)",
+    "v1_text": "judgment call: name+company turn 1; the purpose ('regarding Mr. Karan Malhotra') is vague, the loan is named in turn 3 (second agent turn)"
+   },
+   "multiple_rules_on_same_dialogue": [],
+   "script_notes": "Original ground_truth.json said clean.",
+   "transcript_comparison": {
+    "classification": "broadly consistent",
+    "transcript_source": "verify_6_10_results.json run 1 (10 segs)",
+    "details": "Both disclosure lines present (seg3, seg5). English audio.",
+    "caveat": "Compared by reading the saved Whisper text against the script. Whisper output is not authoritative and this comparison is not human-verified."
+   },
+   "timestamp": {
+    "scenario_time": "11:45",
+    "scenario_start_time": "2026-10-05T11:45:00",
+    "metadata_csv_start_time": "2026-10-05T11:45:00",
+    "status": "simulated/assigned scenario time; not a verified recording time",
+    "confirmed_recording_time": null,
+    "designed_to_test_out_of_hours": false
+   },
+   "speaker_labels_verified": false,
+   "audio_verified": false,
+   "r1": {
+    "expected": false,
+    "basis": "The scenario time is inside 08:00-19:00 IST, so no R1 is expected.",
+    "scenario_time": "11:45",
+    "scenario_time_is_simulated": true,
+    "scenario_not_actual": "A simulated role-play scenario time. NOT an actual recording time, and no actual recording time has been verified."
+   },
+   "violations": {
+    "R1": false,
+    "R2": false,
+    "R3": false,
+    "R4": true,
+    "R5": false,
+    "R6": false
+   },
+   "notes": "Third-party disclosure (English). Script-derived expected labels: R4 (R4 x2). NOT audio-verified. Original ground_truth.json said clean.",
+   "label_basis": "script-derived: what the script intends; not verified against the audio",
+   "scenario_time": "11:45",
+   "scenario_start_time": "2026-10-05T11:45:00",
+   "scenario_time_kind": "simulated role-play scenario time (assigned); not a verified recording time"
+  },
+  "CALL-0010": {
+   "scenario": "Clean collection call (Hindi and English mixed)",
+   "script_heading": "Clean collection call (Hindi and English mixed)",
+   "script_source": "call_scripts.md",
+   "dialogue": [
+    {
+     "turn": 1,
+     "speaker": "Agent",
+     "text": "Good morning, main Preet Jhagekar bol raha hoon, Shaha Finlease se. Main aapke personal loan ke outstanding payment ke baare mein call kar raha hoon. Kya meri baat Neeraj Sharma ji se ho rahi hai?"
+    },
+    {
+     "turn": 2,
+     "speaker": "Borrower",
+     "text": "Ji haan, main Neeraj bol raha hoon. Bataiye."
+    },
+    {
+     "turn": 3,
+     "speaker": "Agent",
+     "text": "Thank you, sir. Aapke loan account mein 12,000 rupaye pending hain. Kya abhi baat karne ka sahi samay hai?"
+    },
+    {
+     "turn": 4,
+     "speaker": "Borrower",
+     "text": "Ji, boliye. Main sun raha hoon."
+    },
+    {
+     "turn": 5,
+     "speaker": "Agent",
+     "text": "Dhanyavaad, sir. Main bas yeh jaanana chahta hoon ki aap payment kab tak kar paayenge."
+    },
+    {
+     "turn": 6,
+     "speaker": "Borrower",
+     "text": "Main is Friday tak payment kar dunga."
+    },
+    {
+     "turn": 7,
+     "speaker": "Agent",
+     "text": "Theek hai, sir. Kya main note kar loon ki aap Friday tak payment kar denge?"
+    },
+    {
+     "turn": 8,
+     "speaker": "Borrower",
+     "text": "Ji haan, aap note kar sakte hain."
+    },
+    {
+     "turn": 9,
+     "speaker": "Agent",
+     "text": "Bilkul, sir. Main aapki commitment note kar leta hoon. Agar aapko payment karne mein koi dikkat aaye, toh aap humse contact kar sakte hain."
+    },
+    {
+     "turn": 10,
+     "speaker": "Borrower",
+     "text": "Theek hai, thank you."
+    },
+    {
+     "turn": 11,
+     "speaker": "Agent",
+     "text": "Thank you for your time, sir. Aapka din shubh ho."
+    },
+    {
+     "turn": 12,
+     "speaker": "Borrower",
+     "text": "Dhanyavaad. Goodbye."
+    }
+   ],
+   "expected_labels_from_script": {
+    "R1": false,
+    "R2": false,
+    "R3": false,
+    "R4": false,
+    "R5": false,
+    "R6": false
+   },
+   "expected_incidents": {},
+   "violation_evidence": [],
+   "opening_R6": {
+    "scope": "the agent's first two conversational turns (existing definition: rules.py R6, turns.py)",
+    "agent_turn_1": {
+     "script_turn": 1,
+     "name": true,
+     "company": true,
+     "purpose": true
+    },
+    "agent_turn_2": null,
+    "present_within_scope": {
+     "name": true,
+     "company": true,
+     "purpose": true
+    },
+    "missing": [],
+    "satisfied": true,
+    "explanation": "Name, company and purpose are all stated in agent turn 1.",
+    "v1_text": "satisfied: name, company, purpose in turn 1"
+   },
+   "multiple_rules_on_same_dialogue": [],
+   "script_notes": "Original ground_truth.json said R5 (CVV/PIN); the script has no credential request.",
+   "transcript_comparison": {
+    "classification": "partial mismatch",
+    "transcript_source": "verify_6_10_results.json run 1 (20 segs)",
+    "details": "Content is consistent with a clean call, but the second half is fragmentary ('Friday' became 'फ्रैड', several one-word segments), so the later scripted lines cannot be matched reliably.",
+    "caveat": "Compared by reading the saved Whisper text against the script. Whisper output is not authoritative and this comparison is not human-verified."
+   },
+   "timestamp": {
+    "scenario_time": "16:00",
+    "scenario_start_time": "2026-10-05T16:00:00",
+    "metadata_csv_start_time": "2026-10-05T16:00:00",
+    "status": "simulated/assigned scenario time; not a verified recording time",
+    "confirmed_recording_time": null,
+    "designed_to_test_out_of_hours": false
+   },
+   "speaker_labels_verified": false,
+   "audio_verified": false,
+   "r1": {
+    "expected": false,
+    "basis": "The scenario time is inside 08:00-19:00 IST, so no R1 is expected.",
+    "scenario_time": "16:00",
+    "scenario_time_is_simulated": true,
+    "scenario_not_actual": "A simulated role-play scenario time. NOT an actual recording time, and no actual recording time has been verified."
+   },
+   "violations": {
+    "R1": false,
+    "R2": false,
+    "R3": false,
+    "R4": false,
+    "R5": false,
+    "R6": false
+   },
+   "notes": "Clean collection call (Hindi and English mixed). Script-derived expected labels: clean. NOT audio-verified. Original ground_truth.json said R5 (CVV/PIN); the script has no credential request.",
+   "label_basis": "script-derived: what the script intends; not verified against the audio",
+   "scenario_time": "16:00",
+   "scenario_start_time": "2026-10-05T16:00:00",
+   "scenario_time_kind": "simulated role-play scenario time (assigned); not a verified recording time"
+  },
+  "CALL-0011": {
+   "scenario": "Fully compliant repayment call",
+   "script_heading": null,
+   "script_source": "generator output saved from the earlier conversation (new_calls_ground_truth_draft.json)",
+   "dialogue": [
+    {
+     "turn": 1,
+     "speaker": "Agent",
+     "text": "Hello, main Neha Kapoor bol rahi hoon, Shaha Finlease se. Aapke personal loan ki pending EMI ke baare mein call kiya hai. Kya meri baat Sandeep Rao ji se ho rahi hai?"
+    },
+    {
+     "turn": 2,
+     "speaker": "Borrower",
+     "text": "Haan ji, main Sandeep bol raha hoon. Boliye."
+    },
+    {
+     "turn": 3,
+     "speaker": "Agent",
+     "text": "Thank you, Sandeep ji. Aapki ₹18,500 ki EMI pichhle hafte se pending hai. Payment kab tak ho jayegi?"
+    },
+    {
+     "turn": 4,
+     "speaker": "Borrower",
+     "text": "Is baar salary thodi late aayi hai. Kya main Friday tak kar sakta hoon?"
+    },
+    {
+     "turn": 5,
+     "speaker": "Agent",
+     "text": "Friday theek hai. Poora ₹18,500 ek saath ho jayega?"
+    },
+    {
+     "turn": 6,
+     "speaker": "Borrower",
+     "text": "Poora mushkil hai. ₹10,000 Friday ko, aur baaki agle hafte de dun to chalega?"
+    },
+    {
+     "turn": 7,
+     "speaker": "Agent",
+     "text": "Main samajh sakti hoon. Toh ₹10,000 Friday ko aur ₹8,500 uske agle Friday tak. Ye theek rahega?"
+    },
+    {
+     "turn": 8,
+     "speaker": "Borrower",
+     "text": "Haan, ye theek hai."
+    },
+    {
+     "turn": 9,
+     "speaker": "Agent",
+     "text": "Great. Payment aap hamari official app ya UPI se kar sakte hain. Main aapko SMS par link bhej deti hoon."
+    },
+    {
+     "turn": 10,
+     "speaker": "Borrower",
+     "text": "Okay. Aur late fee lagega kya?"
+    },
+    {
+     "turn": 11,
+     "speaker": "Agent",
+     "text": "Fee ki detail SMS mein mil jayegi. In dates par payment ho gayi toh aur koi follow-up nahi hoga."
+    },
+    {
+     "turn": 12,
+     "speaker": "Borrower",
+     "text": "Achha, thik hai. Thank you."
+    },
+    {
+     "turn": 13,
+     "speaker": "Agent",
+     "text": "Aapka bahut dhanyavaad, Sandeep ji. Take care."
+    }
+   ],
+   "expected_labels_from_script": {
+    "R1": false,
+    "R2": false,
+    "R3": false,
+    "R4": false,
+    "R5": false,
+    "R6": false
+   },
+   "expected_incidents": {},
+   "violation_evidence": [],
+   "opening_R6": {
+    "scope": "the agent's first two conversational turns (existing definition: rules.py R6, turns.py)",
+    "agent_turn_1": {
+     "script_turn": 1,
+     "name": true,
+     "company": true,
+     "purpose": true
+    },
+    "agent_turn_2": null,
+    "present_within_scope": {
+     "name": true,
+     "company": true,
+     "purpose": true
+    },
+    "missing": [],
+    "satisfied": true,
+    "explanation": "Name, company and purpose are all stated in agent turn 1.",
+    "v1_text": "name=Neha Kapoor; company=Shaha Finlease; purpose=pending EMI of the personal loan (first agent turn)"
+   },
+   "multiple_rules_on_same_dialogue": [],
+   "script_notes": "Baseline false-positive check. Keep the tone polite throughout.",
+   "transcript_comparison": {
+    "classification": "broadly consistent",
+    "transcript_source": "eval10 raw (20 segs)",
+    "details": "All turns present, in order.",
+    "caveat": "Compared by reading the saved Whisper text against the script. Whisper output is not authoritative and this comparison is not human-verified."
+   },
+   "timestamp": {
+    "scenario_time": "09:50",
+    "scenario_start_time": "2026-10-06T09:50:00",
+    "metadata_csv_start_time": "2026-10-06T09:50:00",
+    "status": "simulated/assigned scenario time; not a verified recording time",
+    "confirmed_recording_time": null,
+    "designed_to_test_out_of_hours": false
+   },
+   "speaker_labels_verified": false,
+   "audio_verified": false,
+   "r1": {
+    "expected": false,
+    "basis": "The scenario time is inside 08:00-19:00 IST, so no R1 is expected.",
+    "scenario_time": "09:50",
+    "scenario_time_is_simulated": true,
+    "scenario_not_actual": "A simulated role-play scenario time. NOT an actual recording time, and no actual recording time has been verified."
+   },
+   "violations": {
+    "R1": false,
+    "R2": false,
+    "R3": false,
+    "R4": false,
+    "R5": false,
+    "R6": false
+   },
+   "notes": "Fully compliant repayment call. Script-derived expected labels: clean. NOT audio-verified. Baseline false-positive check. Keep the tone polite throughout.",
+   "label_basis": "script-derived: what the script intends; not verified against the audio",
+   "scenario_time": "09:50",
+   "scenario_start_time": "2026-10-06T09:50:00",
+   "scenario_time_kind": "simulated role-play scenario time (assigned); not a verified recording time"
+  },
+  "CALL-0012": {
+   "scenario": "One OTP request, phrased without the word OTP",
+   "script_heading": null,
+   "script_source": "generator output saved from the earlier conversation (new_calls_ground_truth_draft.json)",
+   "dialogue": [
+    {
+     "turn": 1,
+     "speaker": "Agent",
+     "text": "Namaste, main Vikram Joshi bol raha hoon, Shaha Finlease se. Aapke personal loan ke pending payment ke baare mein call kar raha hoon. Kya main Meena Iyer ji se baat kar raha hoon?"
+    },
+    {
+     "turn": 2,
+     "speaker": "Borrower",
+     "text": "Haan, main Meena hi bol rahi hoon."
+    },
+    {
+     "turn": 3,
+     "speaker": "Agent",
+     "text": "Madam, aapka ₹12,400 pending hai. Kya aap aaj payment kar sakti hain?"
+    },
+    {
+     "turn": 4,
+     "speaker": "Borrower",
+     "text": "Haan, aaj kar deti hoon. Kaise karna hai?"
+    },
+    {
+     "turn": 5,
+     "speaker": "Agent",
+     "text": "Main abhi ek payment request bhej raha hoon. Aapke mobile par ek verification code aayega. Aap woh code mujhe read kar dijiye, main yahin se payment confirm kar deta hoon."
+    },
+    {
+     "turn": 6,
+     "speaker": "Borrower",
+     "text": "Code? Wo toh message mein aayega na. Mujhe ye thoda ajeeb lag raha hai."
+    },
+    {
+     "turn": 7,
+     "speaker": "Agent",
+     "text": "Ji, bilkul. Aap app se khud kar lijiye. Main details SMS kar deta hoon."
+    },
+    {
+     "turn": 8,
+     "speaker": "Borrower",
+     "text": "Haan, wahi theek rahega. Main abhi kar leti hoon."
+    },
+    {
+     "turn": 9,
+     "speaker": "Agent",
+     "text": "Dhanyavaad madam."
+    }
+   ],
+   "expected_labels_from_script": {
+    "R1": false,
+    "R2": false,
+    "R3": false,
+    "R4": false,
+    "R5": true,
+    "R6": false
+   },
+   "expected_incidents": {
+    "R5": 1
+   },
+   "violation_evidence": [
+    {
+     "rule": "R5",
+     "turns": [
+      5
+     ],
+     "expected_speaker": "agent",
+     "why": "Agent asks the borrower to read out the code sent to her phone. That is an authentication credential, even though the word OTP is never said.",
+     "line": "Main abhi ek payment request bhej raha hoon. Aapke mobile par ek verification code aayega. Aap woh code mujhe read kar dijiye, main yahin se payment confirm kar deta hoon."
+    }
+   ],
+   "opening_R6": {
+    "scope": "the agent's first two conversational turns (existing definition: rules.py R6, turns.py)",
+    "agent_turn_1": {
+     "script_turn": 1,
+     "name": true,
+     "company": true,
+     "purpose": true
+    },
+    "agent_turn_2": null,
+    "present_within_scope": {
+     "name": true,
+     "company": true,
+     "purpose": true
+    },
+    "missing": [],
+    "satisfied": true,
+    "explanation": "Name, company and purpose are all stated in agent turn 1.",
+    "v1_text": "name=Vikram Joshi; company=Shaha Finlease; purpose=pending personal loan payment (first agent turn)"
+   },
+   "multiple_rules_on_same_dialogue": [],
+   "script_notes": "Borrower must NOT read any digits. If you want an example code, say the placeholder 'code' or '[OTP]', never a real number.",
+   "transcript_comparison": {
+    "classification": "broadly consistent",
+    "transcript_source": "eval10 raw (14 segs)",
+    "details": "Code request present (seg4-5: 'वेरिफिकेशन कोड आएगा', 'वो कोड मुझे रीड कर दीजे'); the agent backing down (seg9) present. The agent's name and the borrower's name are garbled.",
+    "caveat": "Compared by reading the saved Whisper text against the script. Whisper output is not authoritative and this comparison is not human-verified."
+   },
+   "timestamp": {
+    "scenario_time": "14:00",
+    "scenario_start_time": "2026-10-06T14:00:00",
+    "metadata_csv_start_time": "2026-10-06T14:00:00",
+    "status": "simulated/assigned scenario time; not a verified recording time",
+    "confirmed_recording_time": null,
+    "designed_to_test_out_of_hours": false
+   },
+   "speaker_labels_verified": false,
+   "audio_verified": false,
+   "r1": {
+    "expected": false,
+    "basis": "The scenario time is inside 08:00-19:00 IST, so no R1 is expected.",
+    "scenario_time": "14:00",
+    "scenario_time_is_simulated": true,
+    "scenario_not_actual": "A simulated role-play scenario time. NOT an actual recording time, and no actual recording time has been verified."
+   },
+   "r5_assessment": {
+    "decision": "R5 counts: the agent asks the borrower to read out the code.",
+    "exact_evidence": {
+     "script_turn": 5,
+     "speaker": "agent",
+     "line": "Main abhi ek payment request bhej raha hoon. Aapke mobile par ek verification code aayega. Aap woh code mujhe read kar dijiye, main yahin se payment confirm kar deta hoon."
+    },
+    "why_it_is_a_credential_request": "'Aap woh code mujhe read kar dijiye' asks the borrower to give the one-time verification code to the agent, which is an authentication credential, even though the word OTP is not used.",
+    "not_counted_as_a_request": [
+     "Ji, bilkul. Aap app se khud kar lijiye. Main details SMS kar deta hoon."
+    ],
+    "note_on_not_counted": "Turn 7 tells her to pay in the app herself and sends details by SMS: no code is requested, so it is neither a second request nor general 'verification discussion' scored as R5."
+   },
+   "violations": {
+    "R1": false,
+    "R2": false,
+    "R3": false,
+    "R4": false,
+    "R5": true,
+    "R6": false
+   },
+   "notes": "One OTP request, phrased without the word OTP. Script-derived expected labels: R5 (R5 x1). NOT audio-verified. Borrower must NOT read any digits. If you want an example code, say the placeholder 'code' or '[OTP]', never a real number.",
+   "label_basis": "script-derived: what the script intends; not verified against the audio",
+   "scenario_time": "14:00",
+   "scenario_start_time": "2026-10-06T14:00:00",
+   "scenario_time_kind": "simulated role-play scenario time (assigned); not a verified recording time"
+  },
+  "CALL-0013": {
+   "scenario": "Two OTP requests with a borrower question in between",
+   "script_heading": null,
+   "script_source": "generator output saved from the earlier conversation (new_calls_ground_truth_draft.json)",
+   "dialogue": [
+    {
+     "turn": 1,
+     "speaker": "Agent",
+     "text": "Hello, main Arjun Bhatt bol raha hoon, Shaha Finlease se, aapke personal loan ke pending payment ke baare mein. Kya meri baat Kavita Nair ji se ho rahi hai?"
+    },
+    {
+     "turn": 2,
+     "speaker": "Borrower",
+     "text": "Haan, boliye."
+    },
+    {
+     "turn": 3,
+     "speaker": "Agent",
+     "text": "Madam, aapke account mein ₹27,000 pending hai. Payment kab tak ho payegi?"
+    },
+    {
+     "turn": 4,
+     "speaker": "Borrower",
+     "text": "Main aaj hi karna chahti hoon. Bas link bhej dijiye."
+    },
+    {
+     "turn": 5,
+     "speaker": "Agent",
+     "text": "Zaroor. Main payment request bhej raha hoon. Aapke phone par ek OTP aayega, please woh OTP mujhe bata dijiye, main process kar deta hoon."
+    },
+    {
+     "turn": 6,
+     "speaker": "Borrower",
+     "text": "OTP? Ye mujhe aapko kyun batana padega? Bank wale ne toh mana kiya tha."
+    },
+    {
+     "turn": 7,
+     "speaker": "Agent",
+     "text": "Madam, ye sirf payment confirm karne ke liye hai. Isse process fast ho jayega."
+    },
+    {
+     "turn": 8,
+     "speaker": "Borrower",
+     "text": "Par mujhe comfortable nahi lag raha."
+    },
+    {
+     "turn": 9,
+     "speaker": "Agent",
+     "text": "Bas ek baar woh code bata dijiye, abhi ho jayega. Phir aapko dobara call nahi karna padega."
+    },
+    {
+     "turn": 10,
+     "speaker": "Borrower",
+     "text": "Nahi, main kisi ko OTP nahi bataungi. Main khud app se payment kar dungi."
+    },
+    {
+     "turn": 11,
+     "speaker": "Agent",
+     "text": "Okay madam, ji. Aap app se kar lijiye. Dhanyavaad."
+    }
+   ],
+   "expected_labels_from_script": {
+    "R1": false,
+    "R2": false,
+    "R3": false,
+    "R4": false,
+    "R5": true,
+    "R6": false
+   },
+   "expected_incidents": {
+    "R5": 2
+   },
+   "violation_evidence": [
+    {
+     "rule": "R5",
+     "turns": [
+      5
+     ],
+     "expected_speaker": "agent",
+     "why": "asks for the OTP",
+     "line": "Zaroor. Main payment request bhej raha hoon. Aapke phone par ek OTP aayega, please woh OTP mujhe bata dijiye, main process kar deta hoon."
+    },
+    {
+     "rule": "R5",
+     "turns": [
+      9
+     ],
+     "expected_speaker": "agent",
+     "why": "'woh code bata dijiye' after the borrower objected",
+     "line": "Bas ek baar woh code bata dijiye, abhi ho jayega. Phir aapko dobara call nahi karna padega."
+    }
+   ],
+   "opening_R6": {
+    "scope": "the agent's first two conversational turns (existing definition: rules.py R6, turns.py)",
+    "agent_turn_1": {
+     "script_turn": 1,
+     "name": true,
+     "company": true,
+     "purpose": true
+    },
+    "agent_turn_2": null,
+    "present_within_scope": {
+     "name": true,
+     "company": true,
+     "purpose": true
+    },
+    "missing": [],
+    "satisfied": true,
+    "explanation": "Name, company and purpose are all stated in agent turn 1.",
+    "v1_text": "name=Arjun Bhatt; company=Shaha Finlease; purpose=pending personal loan payment (first agent turn)"
+   },
+   "multiple_rules_on_same_dialogue": [],
+   "script_notes": "This is the corrected version of the old Call 7 failure: a borrower question sits between two agent requests. Record turn 9 as a natural reply, not louder or slower.",
+   "transcript_comparison": {
+    "classification": "broadly consistent",
+    "transcript_source": "eval10 raw (15 segs)",
+    "details": "Both requests present (seg4 'OTP', seg12 'वो कोड बता दीजिए'), the explanation (seg9-10) and the objections. The agent's name matches the script.",
+    "caveat": "Compared by reading the saved Whisper text against the script. Whisper output is not authoritative and this comparison is not human-verified."
+   },
+   "timestamp": {
+    "scenario_time": "13:05",
+    "scenario_start_time": "2026-10-07T13:05:00",
+    "metadata_csv_start_time": "2026-10-07T13:05:00",
+    "status": "simulated/assigned scenario time; not a verified recording time",
+    "confirmed_recording_time": null,
+    "designed_to_test_out_of_hours": false
+   },
+   "speaker_labels_verified": false,
+   "audio_verified": false,
+   "r1": {
+    "expected": false,
+    "basis": "The scenario time is inside 08:00-19:00 IST, so no R1 is expected.",
+    "scenario_time": "13:05",
+    "scenario_time_is_simulated": true,
+    "scenario_not_actual": "A simulated role-play scenario time. NOT an actual recording time, and no actual recording time has been verified."
+   },
+   "violations": {
+    "R1": false,
+    "R2": false,
+    "R3": false,
+    "R4": false,
+    "R5": true,
+    "R6": false
+   },
+   "notes": "Two OTP requests with a borrower question in between. Script-derived expected labels: R5 (R5 x2). NOT audio-verified. This is the corrected version of the old Call 7 failure: a borrower question sits between two agent requests. Record turn 9 as a natural reply, not louder or slower.",
+   "label_basis": "script-derived: what the script intends; not verified against the audio",
+   "scenario_time": "13:05",
+   "scenario_start_time": "2026-10-07T13:05:00",
+   "scenario_time_kind": "simulated role-play scenario time (assigned); not a verified recording time"
+  },
+  "CALL-0014": {
+   "scenario": "Abusive and insulting language by the agent",
+   "script_heading": null,
+   "script_source": "generator output saved from the earlier conversation (new_calls_ground_truth_draft.json)",
+   "dialogue": [
+    {
+     "turn": 1,
+     "speaker": "Agent",
+     "text": "Hello, main Sameer Qureshi bol raha hoon, Shaha Finlease se, aapke personal loan ki pending payment ke baare mein. Kya main Deepak Pillai se baat kar raha hoon?"
+    },
+    {
+     "turn": 2,
+     "speaker": "Borrower",
+     "text": "Haan, Deepak bol raha hoon."
+    },
+    {
+     "turn": 3,
+     "speaker": "Agent",
+     "text": "Aapka ₹9,800 teen hafte se pending hai. Payment kab karoge?"
+    },
+    {
+     "turn": 4,
+     "speaker": "Borrower",
+     "text": "Sir, abhi thoda tight chal raha hai. Agle mahine ki pehli tareekh tak ho jayega."
+    },
+    {
+     "turn": 5,
+     "speaker": "Agent",
+     "text": "Har baar wahi bahana. Aap log kabhi seedhi baat nahi karte, bilkul nikamme ho."
+    },
+    {
+     "turn": 6,
+     "speaker": "Borrower",
+     "text": "Sir, aap aise baat mat kijiye. Main bhi try kar raha hoon."
+    },
+    {
+     "turn": 7,
+     "speaker": "Agent",
+     "text": "Try? Itna bhi samajh nahi aata kya? Dimaag mein kuch hai bhi, ya sab bhoosa bhara hai?"
+    },
+    {
+     "turn": 8,
+     "speaker": "Borrower",
+     "text": "Main complaint kar dunga agar aap aise baat karenge."
+    },
+    {
+     "turn": 9,
+     "speaker": "Agent",
+     "text": "Theek hai, bas payment ki date confirm kar dijiye."
+    },
+    {
+     "turn": 10,
+     "speaker": "Borrower",
+     "text": "Pehli tareekh ko, pakka."
+    },
+    {
+     "turn": 11,
+     "speaker": "Agent",
+     "text": "Theek hai, note kar liya. Dhanyavaad."
+    }
+   ],
+   "expected_labels_from_script": {
+    "R1": false,
+    "R2": true,
+    "R3": false,
+    "R4": false,
+    "R5": false,
+    "R6": false
+   },
+   "expected_incidents": {
+    "R2": 2
+   },
+   "violation_evidence": [
+    {
+     "rule": "R2",
+     "turns": [
+      5
+     ],
+     "expected_speaker": "agent",
+     "why": "Agent calls the borrower 'nikamme' (good for nothing), insulting language.",
+     "line": "Har baar wahi bahana. Aap log kabhi seedhi baat nahi karte, bilkul nikamme ho."
+    },
+    {
+     "rule": "R2",
+     "turns": [
+      7
+     ],
+     "expected_speaker": "agent",
+     "why": "Agent asks whether the borrower's head is 'full of straw', a second insult in a separate turn.",
+     "line": "Try? Itna bhi samajh nahi aata kya? Dimaag mein kuch hai bhi, ya sab bhoosa bhara hai?"
+    }
+   ],
+   "opening_R6": {
+    "scope": "the agent's first two conversational turns (existing definition: rules.py R6, turns.py)",
+    "agent_turn_1": {
+     "script_turn": 1,
+     "name": true,
+     "company": true,
+     "purpose": true
+    },
+    "agent_turn_2": null,
+    "present_within_scope": {
+     "name": true,
+     "company": true,
+     "purpose": true
+    },
+    "missing": [],
+    "satisfied": true,
+    "explanation": "Name, company and purpose are all stated in agent turn 1.",
+    "v1_text": "name=Sameer Qureshi; company=Shaha Finlease; purpose=pending personal loan payment (first agent turn)"
+   },
+   "multiple_rules_on_same_dialogue": [],
+   "script_notes": "Keep the insults sounding irritated, not theatrical. The agent calms down in the last three turns.",
+   "transcript_comparison": {
+    "classification": "broadly consistent",
+    "transcript_source": "eval10 raw (20 segs)",
+    "details": "Both insult turns present (seg4-6 and seg10-12) in Urdu script; 'nikamme ho' was heard as 'نکم میں ہوں'. The speaker of each segment is not established by the text.",
+    "caveat": "Compared by reading the saved Whisper text against the script. Whisper output is not authoritative and this comparison is not human-verified."
+   },
+   "timestamp": {
+    "scenario_time": "10:40",
+    "scenario_start_time": "2026-10-07T10:40:00",
+    "metadata_csv_start_time": "2026-10-07T10:40:00",
+    "status": "simulated/assigned scenario time; not a verified recording time",
+    "confirmed_recording_time": null,
+    "designed_to_test_out_of_hours": false
+   },
+   "speaker_labels_verified": false,
+   "audio_verified": false,
+   "r1": {
+    "expected": false,
+    "basis": "The scenario time is inside 08:00-19:00 IST, so no R1 is expected.",
+    "scenario_time": "10:40",
+    "scenario_time_is_simulated": true,
+    "scenario_not_actual": "A simulated role-play scenario time. NOT an actual recording time, and no actual recording time has been verified."
+   },
+   "violations": {
+    "R1": false,
+    "R2": true,
+    "R3": false,
+    "R4": false,
+    "R5": false,
+    "R6": false
+   },
+   "notes": "Abusive and insulting language by the agent. Script-derived expected labels: R2 (R2 x2). NOT audio-verified. Keep the insults sounding irritated, not theatrical. The agent calms down in the last three turns.",
+   "label_basis": "script-derived: what the script intends; not verified against the audio",
+   "scenario_time": "10:40",
+   "scenario_start_time": "2026-10-07T10:40:00",
+   "scenario_time_kind": "simulated role-play scenario time (assigned); not a verified recording time"
+  },
+  "CALL-0015": {
+   "scenario": "Threats and intimidation by the agent",
+   "script_heading": null,
+   "script_source": "generator output saved from the earlier conversation (new_calls_ground_truth_draft.json)",
+   "dialogue": [
+    {
+     "turn": 1,
+     "speaker": "Agent",
+     "text": "Namaste, main Harish Patel bol raha hoon, Shaha Finlease se, aapke personal loan ki pending EMI ke baare mein. Kya meri baat Anjali Desai ji se ho rahi hai?"
+    },
+    {
+     "turn": 2,
+     "speaker": "Borrower",
+     "text": "Haan, bol rahi hoon."
+    },
+    {
+     "turn": 3,
+     "speaker": "Agent",
+     "text": "Madam, ₹32,500 do mahine se pending hai. Aaj kuch payment hoga?"
+    },
+    {
+     "turn": 4,
+     "speaker": "Borrower",
+     "text": "Abhi mere paas nahi hai. Agle hafte tak ka time de dijiye."
+    },
+    {
+     "turn": 5,
+     "speaker": "Agent",
+     "text": "Pichhli baar bhi yahi kaha tha. Dekhiye, agar kal tak payment nahi aaya, toh main aapka case police ko de dunga. Phir aapko thane ke chakkar katne padenge."
+    },
+    {
+     "turn": 6,
+     "speaker": "Borrower",
+     "text": "Ye aap kaise baat kar rahe hain? Ye legal tareeka nahi hai."
+    },
+    {
+     "turn": 7,
+     "speaker": "Agent",
+     "text": "Phir mat kehna ki bataya nahi. Hum aapke ghar tak aa jayenge, aur aapko chhodenge nahi."
+    },
+    {
+     "turn": 8,
+     "speaker": "Borrower",
+     "text": "Main aapke manager se baat karungi."
+    },
+    {
+     "turn": 9,
+     "speaker": "Agent",
+     "text": "Theek hai. Kal tak ka time hai. Dhanyavaad."
+    }
+   ],
+   "expected_labels_from_script": {
+    "R1": false,
+    "R2": false,
+    "R3": true,
+    "R4": false,
+    "R5": false,
+    "R6": false
+   },
+   "expected_incidents": {
+    "R3": 2
+   },
+   "violation_evidence": [
+    {
+     "rule": "R3",
+     "turns": [
+      5
+     ],
+     "expected_speaker": "agent",
+     "why": "Agent threatens to hand the case to the police and make the borrower go to the police station.",
+     "line": "Pichhli baar bhi yahi kaha tha. Dekhiye, agar kal tak payment nahi aaya, toh main aapka case police ko de dunga. Phir aapko thane ke chakkar katne padenge."
+    },
+    {
+     "rule": "R3",
+     "turns": [
+      7
+     ],
+     "expected_speaker": "agent",
+     "why": "Agent says the company will come to her house and 'will not leave her', a second intimidating statement in a separate turn.",
+     "line": "Phir mat kehna ki bataya nahi. Hum aapke ghar tak aa jayenge, aur aapko chhodenge nahi."
+    }
+   ],
+   "opening_R6": {
+    "scope": "the agent's first two conversational turns (existing definition: rules.py R6, turns.py)",
+    "agent_turn_1": {
+     "script_turn": 1,
+     "name": true,
+     "company": true,
+     "purpose": true
+    },
+    "agent_turn_2": null,
+    "present_within_scope": {
+     "name": true,
+     "company": true,
+     "purpose": true
+    },
+    "missing": [],
+    "satisfied": true,
+    "explanation": "Name, company and purpose are all stated in agent turn 1.",
+    "v1_text": "name=Harish Patel; company=Shaha Finlease; purpose=pending personal loan EMI (first agent turn)"
+   },
+   "multiple_rules_on_same_dialogue": [],
+   "script_notes": "Do not shout. Flat, cold delivery makes the threat contextual rather than keyword-driven.",
+   "transcript_comparison": {
+    "classification": "broadly consistent",
+    "transcript_source": "eval10 raw (9 segs)",
+    "details": "Both threats present (seg4 police, seg6 'घर तक आ जाएंगे ... छोड़ेंगे नहीं'); the names match the script.",
+    "caveat": "Compared by reading the saved Whisper text against the script. Whisper output is not authoritative and this comparison is not human-verified."
+   },
+   "timestamp": {
+    "scenario_time": "15:30",
+    "scenario_start_time": "2026-10-08T15:30:00",
+    "metadata_csv_start_time": "2026-10-08T15:30:00",
+    "status": "simulated/assigned scenario time; not a verified recording time",
+    "confirmed_recording_time": null,
+    "designed_to_test_out_of_hours": false
+   },
+   "speaker_labels_verified": false,
+   "audio_verified": false,
+   "r1": {
+    "expected": false,
+    "basis": "The scenario time is inside 08:00-19:00 IST, so no R1 is expected.",
+    "scenario_time": "15:30",
+    "scenario_time_is_simulated": true,
+    "scenario_not_actual": "A simulated role-play scenario time. NOT an actual recording time, and no actual recording time has been verified."
+   },
+   "violations": {
+    "R1": false,
+    "R2": false,
+    "R3": true,
+    "R4": false,
+    "R5": false,
+    "R6": false
+   },
+   "notes": "Threats and intimidation by the agent. Script-derived expected labels: R3 (R3 x2). NOT audio-verified. Do not shout. Flat, cold delivery makes the threat contextual rather than keyword-driven.",
+   "label_basis": "script-derived: what the script intends; not verified against the audio",
+   "scenario_time": "15:30",
+   "scenario_start_time": "2026-10-08T15:30:00",
+   "scenario_time_kind": "simulated role-play scenario time (assigned); not a verified recording time"
+  },
+  "CALL-0016": {
+   "scenario": "Debt disclosed to a family member",
+   "script_heading": null,
+   "script_source": "generator output saved from the earlier conversation (new_calls_ground_truth_draft.json)",
+   "dialogue": [
+    {
+     "turn": 1,
+     "speaker": "Agent",
+     "text": "Hello, main Naveen Gupta bol raha hoon, Shaha Finlease se. Kya main Rakesh Thakur ji se baat kar sakta hoon?"
+    },
+    {
+     "turn": 2,
+     "speaker": "ThirdParty",
+     "text": "Wo abhi ghar par nahi hain. Aap kaun bol rahe hain?"
+    },
+    {
+     "turn": 3,
+     "speaker": "Agent",
+     "text": "Main Shaha Finlease se hoon. Rakesh ji ka personal loan pending hai, usi ke baare mein baat karni thi."
+    },
+    {
+     "turn": 4,
+     "speaker": "ThirdParty",
+     "text": "Loan? Mujhe toh kuch pata nahi. Kitna pending hai?"
+    },
+    {
+     "turn": 5,
+     "speaker": "Agent",
+     "text": "Madam, ₹24,000 ki EMI do mahine se pending hai. Aap unse bol dijiye ki jaldi payment kar dein."
+    },
+    {
+     "turn": 6,
+     "speaker": "ThirdParty",
+     "text": "Ye kya baat hai. Unhone mujhe kabhi bataya nahi. Ruko, wo abhi aa gaye."
+    },
+    {
+     "turn": 7,
+     "speaker": "Borrower",
+     "text": "Hello? Haan, main Rakesh bol raha hoon. Aap mere ghar kyun call kar rahe hain? Aapne meri wife ko sab bata diya?"
+    },
+    {
+     "turn": 8,
+     "speaker": "Agent",
+     "text": "Sir, aapka payment pending tha, isliye call kiya. Aap kab tak kar payenge?"
+    },
+    {
+     "turn": 9,
+     "speaker": "Borrower",
+     "text": "Main dekhta hoon. Par aage se mere ghar ka number mat milana."
+    },
+    {
+     "turn": 10,
+     "speaker": "Agent",
+     "text": "Theek hai sir. Dhanyavaad."
+    }
+   ],
+   "expected_labels_from_script": {
+    "R1": false,
+    "R2": false,
+    "R3": false,
+    "R4": true,
+    "R5": false,
+    "R6": false
+   },
+   "expected_incidents": {
+    "R4": 2
+   },
+   "violation_evidence": [
+    {
+     "rule": "R4",
+     "turns": [
+      3
+     ],
+     "expected_speaker": "agent",
+     "why": "Agent tells the borrower's wife that the borrower has a pending personal loan.",
+     "line": "Main Shaha Finlease se hoon. Rakesh ji ka personal loan pending hai, usi ke baare mein baat karni thi."
+    },
+    {
+     "rule": "R4",
+     "turns": [
+      5
+     ],
+     "expected_speaker": "agent",
+     "why": "Agent gives the wife the amount and how long it has been overdue.",
+     "line": "Madam, ₹24,000 ki EMI do mahine se pending hai. Aap unse bol dijiye ki jaldi payment kar dein."
+    }
+   ],
+   "opening_R6": {
+    "scope": "the agent's first two conversational turns (existing definition: rules.py R6, turns.py)",
+    "agent_turn_1": {
+     "script_turn": 1,
+     "name": true,
+     "company": true,
+     "purpose": false
+    },
+    "agent_turn_2": {
+     "script_turn": 3,
+     "name": false,
+     "company": false,
+     "purpose": true
+    },
+    "present_within_scope": {
+     "name": true,
+     "company": true,
+     "purpose": true
+    },
+    "missing": [],
+    "satisfied": true,
+    "explanation": "Agent turn 1 gives name and company but only asks for Rakesh; agent turn 2 (script turn 3) states 'Rakesh ji ka personal loan pending hai'. The purpose is stated, though to the wrong person.",
+    "v1_text": "name=Naveen Gupta; company=Shaha Finlease; purpose=stated in the second agent turn (to the wrong person) (first two agent turns)"
+   },
+   "multiple_rules_on_same_dialogue": [],
+   "script_notes": "Two people only: recorder 1 = agent; recorder 2 = Seema (turns 2, 4, 6) then Rakesh (turns 7, 9). The system stores only agent/borrower, so the wife's lines will be stored as 'borrower'; the draft labels them third_party for review.",
+   "transcript_comparison": {
+    "classification": "broadly consistent",
+    "transcript_source": "eval10 raw (13 segs)",
+    "details": "Both disclosure lines present (seg2, seg3-4). The wife's turn 4 ('Loan? ... Kitna pending hai?') is not transcribed.",
+    "caveat": "Compared by reading the saved Whisper text against the script. Whisper output is not authoritative and this comparison is not human-verified."
+   },
+   "timestamp": {
+    "scenario_time": "15:00",
+    "scenario_start_time": "2026-10-08T15:00:00",
+    "metadata_csv_start_time": "2026-10-08T15:00:00",
+    "status": "simulated/assigned scenario time; not a verified recording time",
+    "confirmed_recording_time": null,
+    "designed_to_test_out_of_hours": false
+   },
+   "speaker_labels_verified": false,
+   "audio_verified": false,
+   "r1": {
+    "expected": false,
+    "basis": "The scenario time is inside 08:00-19:00 IST, so no R1 is expected.",
+    "scenario_time": "15:00",
+    "scenario_time_is_simulated": true,
+    "scenario_not_actual": "A simulated role-play scenario time. NOT an actual recording time, and no actual recording time has been verified."
+   },
+   "violations": {
+    "R1": false,
+    "R2": false,
+    "R3": false,
+    "R4": true,
+    "R5": false,
+    "R6": false
+   },
+   "notes": "Debt disclosed to a family member. Script-derived expected labels: R4 (R4 x2). NOT audio-verified. Two people only: recorder 1 = agent; recorder 2 = Seema (turns 2, 4, 6) then Rakesh (turns 7, 9). The system stores only agent/borrower, so the wife's lines will be stored as 'borrower'; the draft labels them third_party for review.",
+   "label_basis": "script-derived: what the script intends; not verified against the audio",
+   "scenario_time": "15:00",
+   "scenario_start_time": "2026-10-08T15:00:00",
+   "scenario_time_kind": "simulated role-play scenario time (assigned); not a verified recording time"
+  },
+  "CALL-0017": {
+   "scenario": "Opening missing name and company (R6)",
+   "script_heading": null,
+   "script_source": "generator output saved from the earlier conversation (new_calls_ground_truth_draft.json)",
+   "dialogue": [
+    {
+     "turn": 1,
+     "speaker": "Agent",
+     "text": "Hello, kya main Anil Deshmukh ji se baat kar raha hoon?"
+    },
+    {
+     "turn": 2,
+     "speaker": "Borrower",
+     "text": "Haan, bol raha hoon. Kaun?"
+    },
+    {
+     "turn": 3,
+     "speaker": "Agent",
+     "text": "Sir, aapka payment pending hai. Kab tak karenge?"
+    },
+    {
+     "turn": 4,
+     "speaker": "Borrower",
+     "text": "Kaunsa payment? Pehle ye batao ki aap kaun bol rahe ho."
+    },
+    {
+     "turn": 5,
+     "speaker": "Agent",
+     "text": "Ji, main Tarun Sethi bol raha hoon, Shaha Finlease se. Aapke personal loan ka ₹15,200 pending hai."
+    },
+    {
+     "turn": 6,
+     "speaker": "Borrower",
+     "text": "Achha, loan wala. Haan, yaad hai. Is hafte ke end tak ho jayega."
+    },
+    {
+     "turn": 7,
+     "speaker": "Agent",
+     "text": "Sir, ek baat clear kar dun. ₹15,200 mein do EMI aur late charges shamil hain."
+    },
+    {
+     "turn": 8,
+     "speaker": "Borrower",
+     "text": "Late charges kitne hain?"
+    },
+    {
+     "turn": 9,
+     "speaker": "Agent",
+     "text": "₹400 hain, wo bhi isi mein hain."
+    },
+    {
+     "turn": 10,
+     "speaker": "Borrower",
+     "text": "Achha. Theek hai."
+    },
+    {
+     "turn": 11,
+     "speaker": "Agent",
+     "text": "Weekend tak confirm kar dijiye. Main aapko reminder bhej dunga."
+    },
+    {
+     "turn": 12,
+     "speaker": "Borrower",
+     "text": "Haan bhej dena. Payment kaise karun?"
+    },
+    {
+     "turn": 13,
+     "speaker": "Agent",
+     "text": "Hamari official app ya branch se. Link bhi SMS kar dunga."
+    },
+    {
+     "turn": 14,
+     "speaker": "Borrower",
+     "text": "Okay."
+    },
+    {
+     "turn": 15,
+     "speaker": "Agent",
+     "text": "Dhanyavaad sir."
+    }
+   ],
+   "expected_labels_from_script": {
+    "R1": false,
+    "R2": false,
+    "R3": false,
+    "R4": false,
+    "R5": false,
+    "R6": true
+   },
+   "expected_incidents": {
+    "R6": 1
+   },
+   "violation_evidence": [
+    {
+     "rule": "R6",
+     "turns": [
+      1,
+      3
+     ],
+     "expected_speaker": "agent",
+     "why": "In the first two agent turns the agent states no name and no company, and the purpose is only the vague 'payment pending'. The name and company come later (turn 5), outside the opening.",
+     "line": null
+    }
+   ],
+   "opening_R6": {
+    "scope": "the agent's first two conversational turns (existing definition: rules.py R6, turns.py)",
+    "agent_turn_1": {
+     "script_turn": 1,
+     "name": false,
+     "company": false,
+     "purpose": false
+    },
+    "agent_turn_2": {
+     "script_turn": 3,
+     "name": false,
+     "company": false,
+     "purpose": false
+    },
+    "present_within_scope": {
+     "name": false,
+     "company": false,
+     "purpose": false
+    },
+    "missing": [
+     "name",
+     "company",
+     "purpose"
+    ],
+    "satisfied": false,
+    "explanation": "Agent turn 1 'Kya main Anil Deshmukh ji se baat kar raha hoon?' has no name, company or purpose. Agent turn 2 'Sir, aapka payment pending hai' is a vague purpose with no name or company. The name and company are given only in agent turn 3 (script turn 5), outside the scope.",
+    "v1_text": "name=missing in first two agent turns (given in turn 5); company=missing in first two agent turns (given in turn 5); purpose=vague only ('payment pending', no loan, no company) (first two agent turns)"
+   },
+   "multiple_rules_on_same_dialogue": [],
+   "script_notes": "Only the opening is non-compliant; everything after turn 5 is polite and clean.",
+   "transcript_comparison": {
+    "classification": "partial mismatch",
+    "transcript_source": "eval10 raw (18 segs)",
+    "details": "Script turns 1-4 are merged in one segment (seg0, 0-19 s) with no turn boundaries; the content is present and the introduction follows after 'कौन' (seg1-2), so the intended R6 shape is visible but the turn order is not recoverable from the transcript.",
+    "caveat": "Compared by reading the saved Whisper text against the script. Whisper output is not authoritative and this comparison is not human-verified."
+   },
+   "timestamp": {
+    "scenario_time": "11:15",
+    "scenario_start_time": "2026-10-09T11:15:00",
+    "metadata_csv_start_time": "2026-10-09T11:15:00",
+    "status": "simulated/assigned scenario time; not a verified recording time",
+    "confirmed_recording_time": null,
+    "designed_to_test_out_of_hours": false
+   },
+   "speaker_labels_verified": false,
+   "audio_verified": false,
+   "r1": {
+    "expected": false,
+    "basis": "The scenario time is inside 08:00-19:00 IST, so no R1 is expected.",
+    "scenario_time": "11:15",
+    "scenario_time_is_simulated": true,
+    "scenario_not_actual": "A simulated role-play scenario time. NOT an actual recording time, and no actual recording time has been verified."
+   },
+   "violations": {
+    "R1": false,
+    "R2": false,
+    "R3": false,
+    "R4": false,
+    "R5": false,
+    "R6": true
+   },
+   "notes": "Opening missing name and company (R6). Script-derived expected labels: R6 (R6 x1). NOT audio-verified. Only the opening is non-compliant; everything after turn 5 is polite and clean.",
+   "label_basis": "script-derived: what the script intends; not verified against the audio",
+   "scenario_time": "11:15",
+   "scenario_start_time": "2026-10-09T11:15:00",
+   "scenario_time_kind": "simulated role-play scenario time (assigned); not a verified recording time"
+  },
+  "CALL-0018": {
+   "scenario": "Compliant dialogue, call time outside permitted hours (R1 from metadata)",
+   "script_heading": null,
+   "script_source": "generator output saved from the earlier conversation (new_calls_ground_truth_draft.json)",
+   "dialogue": [
+    {
+     "turn": 1,
+     "speaker": "Agent",
+     "text": "Hello, main Rhea D'Souza bol rahi hoon, Shaha Finlease se. Aapke personal loan ki pending payment ke baare mein call kar rahi hoon. Kya meri baat Faisal Ahmed ji se ho rahi hai?"
+    },
+    {
+     "turn": 2,
+     "speaker": "Borrower",
+     "text": "Haan ji, Faisal bol raha hoon."
+    },
+    {
+     "turn": 3,
+     "speaker": "Agent",
+     "text": "Faisal ji, aapki ₹21,000 ki EMI pending dikh rahi hai. Aap kab tak payment kar sakenge?"
+    },
+    {
+     "turn": 4,
+     "speaker": "Borrower",
+     "text": "Main aaj hi UPI se kar deta hoon. Receipt milegi na?"
+    },
+    {
+     "turn": 5,
+     "speaker": "Agent",
+     "text": "Ji haan, payment hote hi SMS aur email par receipt mil jayegi."
+    },
+    {
+     "turn": 6,
+     "speaker": "Borrower",
+     "text": "Pichhli baar ek payment fail ho gaya tha."
+    },
+    {
+     "turn": 7,
+     "speaker": "Agent",
+     "text": "Agar fail ho jaye toh dobara try kijiye. Paise do baar nahi katenge, wapas aa jaate hain."
+    },
+    {
+     "turn": 8,
+     "speaker": "Borrower",
+     "text": "Theek hai, aur reference number kahan milega?"
+    },
+    {
+     "turn": 9,
+     "speaker": "Agent",
+     "text": "Wahi SMS mein hoga. Dikkat ho toh helpline par call kar sakte hain."
+    },
+    {
+     "turn": 10,
+     "speaker": "Borrower",
+     "text": "Okay, kar deta hoon. Thanks."
+    },
+    {
+     "turn": 11,
+     "speaker": "Agent",
+     "text": "Dhanyavaad, Faisal ji."
+    }
+   ],
+   "expected_labels_from_script": {
+    "R1": true,
+    "R2": false,
+    "R3": false,
+    "R4": false,
+    "R5": false,
+    "R6": false
+   },
+   "expected_incidents": {},
+   "violation_evidence": [],
+   "opening_R6": {
+    "scope": "the agent's first two conversational turns (existing definition: rules.py R6, turns.py)",
+    "agent_turn_1": {
+     "script_turn": 1,
+     "name": true,
+     "company": true,
+     "purpose": true
+    },
+    "agent_turn_2": null,
+    "present_within_scope": {
+     "name": true,
+     "company": true,
+     "purpose": true
+    },
+    "missing": [],
+    "satisfied": true,
+    "explanation": "Name, company and purpose are all stated in agent turn 1.",
+    "v1_text": "name=Rhea D'Souza; company=Shaha Finlease; purpose=pending personal loan payment (first agent turn)"
+   },
+   "multiple_rules_on_same_dialogue": [],
+   "script_notes": "R1 is decided ONLY from the start_time you enter in metadata. Enter a time outside 08:00-19:00 IST (19:00 itself is outside; 08:00 is allowed). The dialogue stays fully compliant.",
+   "transcript_comparison": {
+    "classification": "broadly consistent",
+    "transcript_source": "eval10 raw (12 segs)",
+    "details": "A polite UPI and receipt conversation, as scripted. R1 cannot be compared: it comes from metadata, not speech.",
+    "caveat": "Compared by reading the saved Whisper text against the script. Whisper output is not authoritative and this comparison is not human-verified."
+   },
+   "timestamp": {
+    "scenario_time": "20:30",
+    "scenario_start_time": "2026-10-09T20:30:00",
+    "metadata_csv_start_time": "2026-10-09T20:30:00",
+    "status": "simulated/assigned scenario time; not a verified recording time",
+    "confirmed_recording_time": null,
+    "designed_to_test_out_of_hours": true
+   },
+   "speaker_labels_verified": false,
+   "audio_verified": false,
+   "r1": {
+    "expected": true,
+    "basis": "Intended R1 evaluation case: the scenario time is outside 08:00-19:00 IST.",
+    "scenario_time": "20:30",
+    "scenario_time_is_simulated": true,
+    "scenario_not_actual": "A simulated role-play scenario time. NOT an actual recording time, and no actual recording time has been verified."
+   },
+   "violations": {
+    "R1": true,
+    "R2": false,
+    "R3": false,
+    "R4": false,
+    "R5": false,
+    "R6": false
+   },
+   "notes": "Compliant dialogue, call time outside permitted hours (R1 from metadata). Script-derived expected labels: R1. NOT audio-verified. R1 is decided ONLY from the start_time you enter in metadata. Enter a time outside 08:00-19:00 IST (19:00 itself is outside; 08:00 is allowed). The dialogue stays fully compliant.",
+   "label_basis": "script-derived: what the script intends; not verified against the audio",
+   "scenario_time": "20:30",
+   "scenario_start_time": "2026-10-09T20:30:00",
+   "scenario_time_kind": "simulated role-play scenario time (assigned); not a verified recording time"
+  },
+  "CALL-0019": {
+   "scenario": "Easy version: no violations (borrower anger/police/OTP are false-positive traps)",
+   "script_heading": null,
+   "script_source": "easy replacement script given in chat (the generator's complex CALL-0019 was not recorded)",
+   "dialogue": [
+    {
+     "turn": 1,
+     "speaker": "Agent",
+     "text": "Namaste, main Manish Agarwal bol raha hoon, Shaha Finlease se. Aapke personal loan ki pending EMI ke baare mein call kiya hai. Kya meri baat Rekha Sharma ji se ho rahi hai?"
+    },
+    {
+     "turn": 2,
+     "speaker": "Borrower",
+     "text": "Haan, boliye."
+    },
+    {
+     "turn": 3,
+     "speaker": "Agent",
+     "text": "Madam, aapki ₹20,500 ki EMI pending hai. Payment kab tak ho payegi?"
+    },
+    {
+     "turn": 4,
+     "speaker": "Borrower",
+     "text": "Abhi paise nahi hain. Aap log bahut pareshan karte ho, bakwaas system hai."
+    },
+    {
+     "turn": 5,
+     "speaker": "Agent",
+     "text": "Pareshani ke liye sorry madam. Aap kab tak kar sakti hain?"
+    },
+    {
+     "turn": 6,
+     "speaker": "Borrower",
+     "text": "Zyada pareshan kiya toh main police mein complaint karungi."
+    },
+    {
+     "turn": 7,
+     "speaker": "Agent",
+     "text": "Complaint karna aapka haq hai madam. Kya aap ₹10,000 is Friday aur ₹10,500 agle Friday de sakti hain?"
+    },
+    {
+     "turn": 8,
+     "speaker": "Borrower",
+     "text": "Haan, theek hai. Par link kaise aayega? Pichhli baar kisi ne call karke OTP maanga tha."
+    },
+    {
+     "turn": 9,
+     "speaker": "Agent",
+     "text": "Wo fraud hoga madam. Hum kabhi OTP, PIN ya password nahi maangte. Ye kisi ko mat dijiye."
+    },
+    {
+     "turn": 10,
+     "speaker": "Borrower",
+     "text": "Achha, ye sahi bola. Theek hai."
+    },
+    {
+     "turn": 11,
+     "speaker": "Agent",
+     "text": "Link SMS par aayega. Dhanyavaad madam."
+    }
+   ],
+   "expected_labels_from_script": {
+    "R1": false,
+    "R2": false,
+    "R3": false,
+    "R4": false,
+    "R5": false,
+    "R6": false
+   },
+   "expected_incidents": {},
+   "violation_evidence": [],
+   "opening_R6": {
+    "scope": "the agent's first two conversational turns (existing definition: rules.py R6, turns.py)",
+    "agent_turn_1": {
+     "script_turn": 1,
+     "name": true,
+     "company": true,
+     "purpose": true
+    },
+    "agent_turn_2": null,
+    "present_within_scope": {
+     "name": true,
+     "company": true,
+     "purpose": true
+    },
+    "missing": [],
+    "satisfied": true,
+    "explanation": "Name, company and purpose are all stated in agent turn 1.",
+    "v1_text": "satisfied: name, company, purpose in turn 1"
+   },
+   "multiple_rules_on_same_dialogue": [],
+   "script_notes": "Traps, none is a breach: the borrower's harsh words (turn 4), the borrower's police threat (turn 6), and the agent WARNING against sharing an OTP (turn 9).",
+   "transcript_comparison": {
+    "classification": "partial mismatch",
+    "transcript_source": "eval10 raw (7 segs)",
+    "details": "Script turns 1-4 are merged in seg0 (0-30 s); turns 5-11 are present (police remark seg2, OTP warning seg5). The opening amount is heard as 20,000 where the script says 20,500, which may be the reader or the recogniser.",
+    "caveat": "Compared by reading the saved Whisper text against the script. Whisper output is not authoritative and this comparison is not human-verified."
+   },
+   "timestamp": {
+    "scenario_time": "09:25",
+    "scenario_start_time": "2026-10-10T09:25:00",
+    "metadata_csv_start_time": "2026-10-10T09:25:00",
+    "status": "simulated/assigned scenario time; not a verified recording time",
+    "confirmed_recording_time": null,
+    "designed_to_test_out_of_hours": false
+   },
+   "speaker_labels_verified": false,
+   "audio_verified": false,
+   "r1": {
+    "expected": false,
+    "basis": "The scenario time is inside 08:00-19:00 IST, so no R1 is expected.",
+    "scenario_time": "09:25",
+    "scenario_time_is_simulated": true,
+    "scenario_not_actual": "A simulated role-play scenario time. NOT an actual recording time, and no actual recording time has been verified."
+   },
+   "violations": {
+    "R1": false,
+    "R2": false,
+    "R3": false,
+    "R4": false,
+    "R5": false,
+    "R6": false
+   },
+   "notes": "Easy version: no violations (borrower anger/police/OTP are false-positive traps). Script-derived expected labels: clean. NOT audio-verified. Traps, none is a breach: the borrower's harsh words (turn 4), the borrower's police threat (turn 6), and the agent WARNING against sharing an OTP (turn 9).",
+   "label_basis": "script-derived: what the script intends; not verified against the audio",
+   "scenario_time": "09:25",
+   "scenario_start_time": "2026-10-10T09:25:00",
+   "scenario_time_kind": "simulated role-play scenario time (assigned); not a verified recording time"
+  },
+  "CALL-0020": {
+   "scenario": "Multiple violations: insult, threat and credential request",
+   "script_heading": null,
+   "script_source": "generator output saved from the earlier conversation (new_calls_ground_truth_draft.json)",
+   "dialogue": [
+    {
+     "turn": 1,
+     "speaker": "Agent",
+     "text": "Hello, main Gaurav Chopra bol raha hoon, Shaha Finlease se, aapke personal loan ki pending payment ke baare mein. Kya main Neelam Bose ji se baat kar raha hoon?"
+    },
+    {
+     "turn": 2,
+     "speaker": "Borrower",
+     "text": "Haan, main bol rahi hoon."
+    },
+    {
+     "turn": 3,
+     "speaker": "Agent",
+     "text": "Madam, ₹36,000 pending hai aur due date nikal chuki hai. Aaj payment ka kya plan hai?"
+    },
+    {
+     "turn": 4,
+     "speaker": "Borrower",
+     "text": "Mere husband ki tabiyat kharab thi, isliye nahi ho paya. Do din ka time chahiye."
+    },
+    {
+     "turn": 5,
+     "speaker": "Agent",
+     "text": "Roz wahi kahaani. Aap jaise nalayak log hi system kharab karte hain, bilkul bewakoof ho aap."
+    },
+    {
+     "turn": 6,
+     "speaker": "Borrower",
+     "text": "Aap tameez se baat kijiye, please."
+    },
+    {
+     "turn": 7,
+     "speaker": "Agent",
+     "text": "Tameez? Agar kal tak paisa jama nahi hua, toh main aapke ghar ke bahar aa ke baith jaunga aur aapko chhodunga nahi."
+    },
+    {
+     "turn": 8,
+     "speaker": "Borrower",
+     "text": "Aap mujhe dara rahe hain? Phir main kya karun?"
+    },
+    {
+     "turn": 9,
+     "speaker": "Agent",
+     "text": "Ek kaam kijiye. Main payment request bhej raha hoon, aapke phone par ek OTP aayega, woh abhi mujhe bata dijiye, main amount adjust kar dunga."
+    },
+    {
+     "turn": 10,
+     "speaker": "Borrower",
+     "text": "OTP? Nahi, ye main nahi bataungi. Mere husband ne mana kiya hai."
+    },
+    {
+     "turn": 11,
+     "speaker": "Agent",
+     "text": "Theek hai. Kal tak ka time hai."
+    },
+    {
+     "turn": 12,
+     "speaker": "Borrower",
+     "text": "Main complaint karungi."
+    },
+    {
+     "turn": 13,
+     "speaker": "Agent",
+     "text": "Jaisi aapki marzi. Dhanyavaad."
+    }
+   ],
+   "expected_labels_from_script": {
+    "R1": false,
+    "R2": true,
+    "R3": true,
+    "R4": false,
+    "R5": true,
+    "R6": false
+   },
+   "expected_incidents": {
+    "R2": 1,
+    "R3": 1,
+    "R5": 1
+   },
+   "violation_evidence": [
+    {
+     "rule": "R2",
+     "turns": [
+      5
+     ],
+     "expected_speaker": "agent",
+     "why": "Agent calls the borrower 'nalayak' and 'bewakoof', abusive language.",
+     "line": "Roz wahi kahaani. Aap jaise nalayak log hi system kharab karte hain, bilkul bewakoof ho aap."
+    },
+    {
+     "rule": "R3",
+     "turns": [
+      7
+     ],
+     "expected_speaker": "agent",
+     "why": "Agent says he will sit outside her house and 'will not leave her', intimidation.",
+     "line": "Tameez? Agar kal tak paisa jama nahi hua, toh main aapke ghar ke bahar aa ke baith jaunga aur aapko chhodunga nahi."
+    },
+    {
+     "rule": "R5",
+     "turns": [
+      9
+     ],
+     "expected_speaker": "agent",
+     "why": "Agent asks her to tell him the OTP that will arrive on her phone.",
+     "line": "Ek kaam kijiye. Main payment request bhej raha hoon, aapke phone par ek OTP aayega, woh abhi mujhe bata dijiye, main amount adjust kar dunga."
+    }
+   ],
+   "opening_R6": {
+    "scope": "the agent's first two conversational turns (existing definition: rules.py R6, turns.py)",
+    "agent_turn_1": {
+     "script_turn": 1,
+     "name": true,
+     "company": true,
+     "purpose": true
+    },
+    "agent_turn_2": null,
+    "present_within_scope": {
+     "name": true,
+     "company": true,
+     "purpose": true
+    },
+    "missing": [],
+    "satisfied": true,
+    "explanation": "Name, company and purpose are all stated in agent turn 1.",
+    "v1_text": "name=Gaurav Chopra; company=Shaha Finlease; purpose=pending personal loan payment (first agent turn)"
+   },
+   "multiple_rules_on_same_dialogue": [
+    "R2",
+    "R3",
+    "R5"
+   ],
+   "script_notes": "Each violation is in a separate agent turn with a borrower turn between, so they are three separate incidents.",
+   "transcript_comparison": {
+    "classification": "broadly consistent",
+    "transcript_source": "eval10 raw (13 segs)",
+    "details": "All three violation lines present (seg4 insult, seg6 threat, seg9 OTP) and a complete opening. The model labelled seg4 and seg6 borrower; the wording is addressed to 'आप'.",
+    "caveat": "Compared by reading the saved Whisper text against the script. Whisper output is not authoritative and this comparison is not human-verified."
+   },
+   "timestamp": {
+    "scenario_time": "16:50",
+    "scenario_start_time": "2026-10-10T16:50:00",
+    "metadata_csv_start_time": "2026-10-10T16:50:00",
+    "status": "simulated/assigned scenario time; not a verified recording time",
+    "confirmed_recording_time": null,
+    "designed_to_test_out_of_hours": false
+   },
+   "speaker_labels_verified": false,
+   "audio_verified": false,
+   "r1": {
+    "expected": false,
+    "basis": "The scenario time is inside 08:00-19:00 IST, so no R1 is expected.",
+    "scenario_time": "16:50",
+    "scenario_time_is_simulated": true,
+    "scenario_not_actual": "A simulated role-play scenario time. NOT an actual recording time, and no actual recording time has been verified."
+   },
+   "violations": {
+    "R1": false,
+    "R2": true,
+    "R3": true,
+    "R4": false,
+    "R5": true,
+    "R6": false
+   },
+   "notes": "Multiple violations: insult, threat and credential request. Script-derived expected labels: R2, R3, R5 (R2 x1, R3 x1, R5 x1). NOT audio-verified. Each violation is in a separate agent turn with a borrower turn between, so they are three separate incidents.",
+   "label_basis": "script-derived: what the script intends; not verified against the audio",
+   "scenario_time": "16:50",
+   "scenario_start_time": "2026-10-10T16:50:00",
+   "scenario_time_kind": "simulated role-play scenario time (assigned); not a verified recording time"
+  }
+ },
+ "summary": {
+  "total_calls": 20,
+  "clean_calls": 6,
+  "clean_call_ids": [
+   "CALL-0001",
+   "CALL-0005",
+   "CALL-0006",
+   "CALL-0010",
+   "CALL-0011",
+   "CALL-0019"
+  ],
+  "calls_with_violations": 14,
+  "violation_counts": {
+   "R1": 2,
+   "R2": 3,
+   "R3": 4,
+   "R4": 3,
+   "R5": 5,
+   "R6": 2
+  },
+  "expected_incident_counts": {
+   "R2": 4,
+   "R3": 6,
+   "R4": 7,
+   "R5": 8,
+   "R6": 1
+  },
+  "r1_evaluation_calls": [
+   "CALL-0008",
+   "CALL-0018"
+  ]
+ },
+ "revision": {
+  "what_changed_from_ground_truth_script_derived": "R1 expectations and scenario times only (decision: R1 true for CALL-0008 and CALL-0018, false for all others). Every R2-R6 label, evidence quote, dialogue line, opening assessment, transcript comparison, note and provenance entry is carried over unchanged. The 'notes' text of CALL-0008 was written before CALL-0008 became an R1 case and is kept verbatim.",
+  "supersedes_decision": "The earlier proposal had CALL-0018 as the only R1 call and gave CALL-0008 no R1; this revision follows the later instruction.",
+  "scenario_time_changes": [
+   {
+    "call": "CALL-0001",
+    "scenario_time_before": "10:30",
+    "scenario_time_after": "10:30",
+    "R1_before": false,
+    "R1_after": false
+   },
+   {
+    "call": "CALL-0002",
+    "scenario_time_before": "15:15",
+    "scenario_time_after": "15:15",
+    "R1_before": false,
+    "R1_after": false
+   },
+   {
+    "call": "CALL-0003",
+    "scenario_time_before": "11:00",
+    "scenario_time_after": "11:00",
+    "R1_before": false,
+    "R1_after": false
+   },
+   {
+    "call": "CALL-0004",
+    "scenario_time_before": "14:45",
+    "scenario_time_after": "14:45",
+    "R1_before": false,
+    "R1_after": false
+   },
+   {
+    "call": "CALL-0005",
+    "scenario_time_before": "09:00",
+    "scenario_time_after": "09:00",
+    "R1_before": false,
+    "R1_after": false
+   },
+   {
+    "call": "CALL-0006",
+    "scenario_time_before": "12:20",
+    "scenario_time_after": "12:20",
+    "R1_before": false,
+    "R1_after": false
+   },
+   {
+    "call": "CALL-0007",
+    "scenario_time_before": "10:10",
+    "scenario_time_after": "10:10",
+    "R1_before": false,
+    "R1_after": false
+   },
+   {
+    "call": "CALL-0008",
+    "scenario_time_before": "07:30",
+    "scenario_time_after": "07:30",
+    "R1_before": false,
+    "R1_after": true
+   },
+   {
+    "call": "CALL-0009",
+    "scenario_time_before": "11:45",
+    "scenario_time_after": "11:45",
+    "R1_before": false,
+    "R1_after": false
+   },
+   {
+    "call": "CALL-0010",
+    "scenario_time_before": "16:00",
+    "scenario_time_after": "16:00",
+    "R1_before": false,
+    "R1_after": false
+   },
+   {
+    "call": "CALL-0011",
+    "scenario_time_before": "09:50",
+    "scenario_time_after": "09:50",
+    "R1_before": false,
+    "R1_after": false
+   },
+   {
+    "call": "CALL-0012",
+    "scenario_time_before": "19:15",
+    "scenario_time_after": "14:00",
+    "R1_before": false,
+    "R1_after": false
+   },
+   {
+    "call": "CALL-0013",
+    "scenario_time_before": "13:05",
+    "scenario_time_after": "13:05",
+    "R1_before": false,
+    "R1_after": false
+   },
+   {
+    "call": "CALL-0014",
+    "scenario_time_before": "10:40",
+    "scenario_time_after": "10:40",
+    "R1_before": false,
+    "R1_after": false
+   },
+   {
+    "call": "CALL-0015",
+    "scenario_time_before": "15:30",
+    "scenario_time_after": "15:30",
+    "R1_before": false,
+    "R1_after": false
+   },
+   {
+    "call": "CALL-0016",
+    "scenario_time_before": "20:45",
+    "scenario_time_after": "15:00",
+    "R1_before": false,
+    "R1_after": false
+   },
+   {
+    "call": "CALL-0017",
+    "scenario_time_before": "11:15",
+    "scenario_time_after": "11:15",
+    "R1_before": false,
+    "R1_after": false
+   },
+   {
+    "call": "CALL-0018",
+    "scenario_time_before": "14:00",
+    "scenario_time_after": "20:30",
+    "R1_before": true,
+    "R1_after": true
+   },
+   {
+    "call": "CALL-0019",
+    "scenario_time_before": "09:25",
+    "scenario_time_after": "09:25",
+    "R1_before": false,
+    "R1_after": false
+   },
+   {
+    "call": "CALL-0020",
+    "scenario_time_before": "16:50",
+    "scenario_time_after": "16:50",
+    "R1_before": false,
+    "R1_after": false
+   }
+  ],
+  "metadata_csv_backup": "D:\\ShahFineLease Assignment\\backend\\data\\backups\\metadata.csv.pre-scenario-times.20261030-164731.bak",
+  "metadata_csv_sha256_after": "0892f9ceb5a8a8204c68aae73868416adc5258ef9f4e96c58775dde9fe57c3a5"
+ }
+}

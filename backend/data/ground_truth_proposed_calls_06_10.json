@@ -1,0 +1,126 @@
+{
+  "status": "PROPOSED - NOT APPLIED. ground_truth.json has not been modified.",
+  "basis": "Derived from the intended scripts for calls 06-10 in call_scripts.md, the rule definitions in backend/app/rules.py, and backend/data/metadata.csv (authoritative source for R1). NOT verified against the audio recordings.",
+  "audio_verified": false,
+  "format_note": "Same call-level format as ground_truth.json: one boolean per rule R1-R6 per call, plus notes. Fields other than 'violations' and 'notes' (in this file only) are review aids and are not part of the ground_truth.json schema.",
+  "calls": {
+    "CALL-0006": {
+      "audio_file": "call_06.wav",
+      "audio_duration_seconds": 71.7,
+      "metadata_start_time": "2026-10-03T12:20:00",
+      "current_violations": {"R1": false, "R2": true, "R3": false, "R4": false, "R5": false, "R6": false},
+      "violations": {"R1": false, "R2": false, "R3": false, "R4": false, "R5": false, "R6": false},
+      "changes_from_current": ["R2: true -> false (current label is a synthetic placeholder: 'Agent uses foul language (synthetic scenario - not from scripts)'; the script contains no abusive language)"],
+      "notes": "Clean call. Proper opening (name, company, purpose) in the first agent turn; polite throughout; agent agrees to record the borrower's request not to be called before the 12th.",
+      "rule_reasoning": {
+        "R1": "false - metadata.csv start_time 12:20 is inside 08:00-19:00.",
+        "R2": "false - no slurs, swearing or abusive language in the script.",
+        "R3": "false - no mention of police, jail, arrest, legal action or visits.",
+        "R4": "false - the agent confirms they are speaking with the borrower ('Am I speaking with Amit Sharma?') and discusses the debt only with them.",
+        "R5": "false - no request for OTP, PIN, CVV or password.",
+        "R6": "false - first agent turn: name 'Preet Jhagekar', company 'Shaha Finlease', purpose 'regarding your personal loan'."
+      },
+      "audio_verification": "None. No transcript of this recording is retained, so even indirect corroboration is unavailable."
+    },
+    "CALL-0007": {
+      "audio_file": "call_07.wav",
+      "audio_duration_seconds": 69.9,
+      "metadata_start_time": "2026-10-04T10:10:00",
+      "current_violations": {"R1": false, "R2": false, "R3": true, "R4": false, "R5": false, "R6": false},
+      "violations": {"R1": false, "R2": false, "R3": false, "R4": false, "R5": true, "R6": false},
+      "changes_from_current": [
+        "R3: true -> false (current label is a synthetic placeholder: 'Agent threatens legal action and police involvement (synthetic scenario)'; the script contains no threat)",
+        "R5: false -> true (agent requests the borrower's OTP)"
+      ],
+      "notes": "R5: the agent asks for the borrower's OTP twice - 'Aapke phone par ek OTP aayega. Please woh OTP mujhe bata dijiye, main payment process kar deta hoon.' and, after the borrower objects, 'Haan sir, jaldi process karne ke liye bata dijiye.' The borrower's refusal ('Nahi, main OTP share nahi karunga') is correct behaviour and is not a violation. The agent then accepts payment through the bank app.",
+      "rule_reasoning": {
+        "R1": "false - metadata.csv start_time 10:10 is inside 08:00-19:00.",
+        "R2": "false - no abusive language.",
+        "R3": "false - 'jaldi process karne ke liye bata dijiye' is pressure to hand over the OTP, not a threat or intimidation.",
+        "R4": "false - the agent confirms they are speaking with Rahul Mehta ji.",
+        "R5": "true - the agent requests an OTP in two separate turns (a repeat after the borrower objected). Two separate requests are two incidents under the incident-grouping scoring policy; the call-level label is still a single R5=true.",
+        "R6": "false - first agent turn: name 'Preet Jhagekar', company 'Shaha Finlease', purpose 'personal loan ke pending payment ke baare mein'."
+      },
+      "audio_verification": "Not verified. Indirect, weak corroboration only: earlier machine transcripts of the current call_07.wav (several runs, noisy and non-deterministic) contained an agent turn about an OTP arriving on the phone, an agent request to tell the OTP, a borrower reply asking whether it is necessary, a borrower refusal to share it with a bank-app payment instead, and a 22,000 amount - all consistent with this script. The opening was garbled in every run, so the opening cannot be confirmed from them. This is not word-for-word verification."
+    },
+    "CALL-0008": {
+      "audio_file": "call_08.wav",
+      "audio_duration_seconds": 73.7,
+      "metadata_start_time": "2026-10-04T07:30:00",
+      "current_violations": {"R1": true, "R2": false, "R3": false, "R4": false, "R5": false, "R6": false},
+      "violations": {"R1": true, "R2": false, "R3": true, "R4": false, "R5": false, "R6": false},
+      "changes_from_current": ["R3: false -> true (agent threatens police action and jail)", "R1 unchanged: true (metadata.csv start_time 07:30 is before 08:00)"],
+      "notes": "R1: metadata.csv start_time is 07:30, before the permitted 08:00 start (the script says nothing about time; this label comes from metadata alone). R3: 'Agar aapne payment nahi ki, toh main police bhej dunga aur aapko jail jaana padega.' - one continuous threat statement. The borrower's complaint about the threat is not a violation.",
+      "rule_reasoning": {
+        "R1": "true - metadata.csv start_time 07:30 < 08:00, which check_r1_violation() flags. CAVEAT: the application database holds a different start_time for CALL-0008 (2026-09-25 08:32:16), so the application would not flag R1 until that is reconciled; that is a separate known issue.",
+        "R2": "false - no abusive language.",
+        "R3": "true - explicit threat of police action and jail, conditional on non-payment.",
+        "R4": "false - the agent confirms they are speaking with Rohit Verma ji ('Ji haan').",
+        "R5": "false - no credential request.",
+        "R6": "false - first agent turn: name 'Preet Jhagekar', company 'Shaha Finlease', purpose 'personal loan ke pending payment ke baare mein'."
+      },
+      "audio_verification": "None. No transcript of this recording is retained."
+    },
+    "CALL-0009": {
+      "audio_file": "call_09.wav",
+      "audio_duration_seconds": 71.7,
+      "metadata_start_time": "2026-10-05T11:45:00",
+      "current_violations": {"R1": false, "R2": false, "R3": false, "R4": false, "R5": false, "R6": false},
+      "violations": {"R1": false, "R2": false, "R3": false, "R4": true, "R5": false, "R6": false},
+      "changes_from_current": ["R4: false -> true (agent discloses loan details to a colleague; current label is a synthetic placeholder: 'Clean call (synthetic scenario)')"],
+      "notes": "R4: the agent tells the borrower's colleague that Karan 'has an outstanding personal loan of 55,000 rupees with our company' and that 'He has missed several payments, and we haven't received the amount despite multiple reminders', and continues after the colleague objects ('That's private information').",
+      "rule_reasoning": {
+        "R1": "false - metadata.csv start_time 11:45 is inside 08:00-19:00.",
+        "R2": "false - no abusive language.",
+        "R3": "false - no threat.",
+        "R4": "true - debt details (existence, amount, missed payments) disclosed to someone other than the borrower, matching 'Never discuss debt details with family members, employers, or anyone other than the borrower'.",
+        "R5": "false - no credential request.",
+        "R6": "false, BUT A JUDGMENT CALL. First agent turn gives name and company, and says only 'regarding Mr. Karan Malhotra'. The purpose of the call (an outstanding loan) is stated in the second agent turn. The rule is scoped to the first 1-2 agent turns, so it is satisfied; a stricter 'purpose in the opening line' reading would make it true. A labeller should confirm this reading."
+      },
+      "audio_verification": "None. No transcript of this recording is retained."
+    },
+    "CALL-0010": {
+      "audio_file": "call_10.wav",
+      "audio_duration_seconds": 77.8,
+      "metadata_start_time": "2026-10-05T16:00:00",
+      "current_violations": {"R1": false, "R2": false, "R3": false, "R4": false, "R5": true, "R6": false},
+      "violations": {"R1": false, "R2": false, "R3": false, "R4": false, "R5": false, "R6": false},
+      "changes_from_current": ["R5: true -> false (current label is a synthetic placeholder: 'Agent asks for CVV and PIN (synthetic scenario)'; the script contains no credential request)"],
+      "notes": "Clean call. Proper opening in the first agent turn; the agent asks whether it is a good time to talk, notes the borrower's commitment to pay by Friday, and closes politely.",
+      "rule_reasoning": {
+        "R1": "false - metadata.csv start_time 16:00 is inside 08:00-19:00.",
+        "R2": "false - no abusive language.",
+        "R3": "false - no threat.",
+        "R4": "false - the agent confirms they are speaking with Neeraj Sharma ji.",
+        "R5": "false - no request for OTP, PIN, CVV or password.",
+        "R6": "false - first agent turn: name 'Preet Jhagekar', company 'Shaha Finlease', purpose 'personal loan ke outstanding payment ke baare mein'."
+      },
+      "audio_verification": "None. No transcript of this recording is retained."
+    }
+  },
+  "coverage_if_applied": {
+    "per_rule_positive_counts_all_20_calls": {"R1": 3, "R2": 2, "R3": 3, "R4": 3, "R5": 2, "R6": 3},
+    "clean_calls": 8,
+    "calls_with_violations": 12,
+    "meets_assignment_requirements": "yes (every rule >= 2, clean calls >= 6)",
+    "thin_margins": "R2 and R5 would sit at exactly 2 positives each. R2: CALL-0002 and CALL-0018. R5: CALL-0003 and CALL-0007. CALL-0018 has no recording, so only 1 of the R2 positives is currently testable.",
+    "positives_among_the_10_recorded_calls": {"R1": ["CALL-0008"], "R2": ["CALL-0002"], "R3": ["CALL-0002", "CALL-0008"], "R4": ["CALL-0004", "CALL-0009"], "R5": ["CALL-0003", "CALL-0007"], "R6": ["CALL-0003"]},
+    "ground_truth_json_summary_block_would_need": "violation_counts R1=3 R2=2 R3=3 R4=3 R5=2 R6=3, clean_calls=8, calls_with_violations=12, and metadata.notes updated (calls 1-10 from scripts, 10 synthetic)."
+  },
+  "metadata_vs_script_mismatches": {
+    "note": "These do not change any R1-R6 label (R1 depends only on start_time) and metadata.csv was not modified.",
+    "CALL-0006": "metadata account_type=credit_card but the script says 'personal loan'; metadata language=hi but the script is English.",
+    "CALL-0007": "consistent (personal_loan, hi-en).",
+    "CALL-0008": "metadata account_type=credit_card but the script says 'personal loan'; metadata language=en but the script is Hindi/Hinglish.",
+    "CALL-0009": "account_type consistent (personal_loan); metadata language=mr (Marathi) but the script is English.",
+    "CALL-0010": "metadata account_type=credit_card but the script says 'personal loan'; metadata language=en but the script is mixed Hindi/English."
+  },
+  "listening_checklist_before_applying": {
+    "total_audio_minutes_for_five_calls": 6.1,
+    "CALL-0006": "Confirm: no threat, abuse or disclosure; agent states name, company and purpose in the first turn.",
+    "CALL-0007": "Confirm: agent asks for the OTP (note whether once or twice); agent states name, company and purpose in the first turn.",
+    "CALL-0008": "Confirm: agent says police and jail as a threat; opening is intact. (R1 comes from metadata, not from listening.)",
+    "CALL-0009": "Confirm: agent states the loan amount and missed payments to the colleague; decide the R6 purpose question.",
+    "CALL-0010": "Confirm: nothing threatening, abusive or credential-related; agent states name, company and purpose in the first turn."
+  }
+}

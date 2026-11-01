@@ -1,0 +1,1106 @@
+{
+ "note": "Captured Whisper transcripts and unified-analysis responses from the 10-call evaluation (CALL-0012..0017). The recordings are script-derived role-plays by one person; labels are NOT audio-verified. Used only to replay the opening (R6) decision offline.",
+ "CALL-0012": {
+  "transcript": [
+   {
+    "seq": 0,
+    "start": 0.0,
+    "end": 22.06,
+    "text": "नमस्ते सि यो हूँ शहा फिंली का आपके प्रे साल में के पें्डिंग पेमेंट के बारू में का मैं मीना कार्च प्रेसे हो का आप सामिधि कमे यो है"
+   },
+   {
+    "seq": 1,
+    "start": 22.06,
+    "end": 29.179998,
+    "text": "मैडम आपका 12,400 पेंडिंग है क्या आप आज पेमेंट कर सकती है"
+   },
+   {
+    "seq": 2,
+    "start": 29.179998,
+    "end": 35.579998,
+    "text": "हाँ आज कर देती हूँ कैसे करना है"
+   },
+   {
+    "seq": 3,
+    "start": 35.579998,
+    "end": 40.14,
+    "text": "मैं अभी एक पेमेंट रिक्वेस्ट भेज रहा हूँ"
+   },
+   {
+    "seq": 4,
+    "start": 40.14,
+    "end": 43.32,
+    "text": "आपके मोबाइल पर एक वेरिफिकेशन कोड आएगा"
+   },
+   {
+    "seq": 5,
+    "start": 43.32,
+    "end": 45.66,
+    "text": "आप वा कोड मुझे रीड कर दीजे"
+   },
+   {
+    "seq": 6,
+    "start": 45.66,
+    "end": 48.22,
+    "text": "मैं ही से पेमेंट कनफर्म कर देता हूँ"
+   },
+   {
+    "seq": 7,
+    "start": 48.22,
+    "end": 53.6,
+    "text": "कोड वो तो मैसेज में आएगा न"
+   },
+   {
+    "seq": 8,
+    "start": 53.6,
+    "end": 56.0,
+    "text": "मुझे ये थोड़ा अजीब लग रहा है"
+   },
+   {
+    "seq": 9,
+    "start": 56.0,
+    "end": 60.899998,
+    "text": "जी बिलकुल आप खुद से कर दीजिए"
+   },
+   {
+    "seq": 10,
+    "start": 60.899998,
+    "end": 63.66,
+    "text": "मैं से मैं से टेल्स कर देता हूँ"
+   },
+   {
+    "seq": 11,
+    "start": 63.66,
+    "end": 67.74,
+    "text": "हाँ वही ठीक रहेगा"
+   },
+   {
+    "seq": 12,
+    "start": 67.74,
+    "end": 69.299995,
+    "text": "मैं अभी कर लेती हूँ"
+   },
+   {
+    "seq": 13,
+    "start": 69.299995,
+    "end": 71.939995,
+    "text": "धन्यवाद मैडम"
+   }
+  ],
+  "captured_response": {
+   "segments": [
+    {
+     "index": 0,
+     "speaker": "agent",
+     "confidence": 0.98,
+     "uncertain": false,
+     "mixed_speakers": false
+    },
+    {
+     "index": 1,
+     "speaker": "agent",
+     "confidence": 0.97,
+     "uncertain": false,
+     "mixed_speakers": false
+    },
+    {
+     "index": 2,
+     "speaker": "borrower",
+     "confidence": 0.99,
+     "uncertain": false,
+     "mixed_speakers": false
+    },
+    {
+     "index": 3,
+     "speaker": "agent",
+     "confidence": 0.98,
+     "uncertain": false,
+     "mixed_speakers": false
+    },
+    {
+     "index": 4,
+     "speaker": "agent",
+     "confidence": 0.98,
+     "uncertain": false,
+     "mixed_speakers": false
+    },
+    {
+     "index": 5,
+     "speaker": "agent",
+     "confidence": 0.99,
+     "uncertain": false,
+     "mixed_speakers": false
+    },
+    {
+     "index": 6,
+     "speaker": "agent",
+     "confidence": 0.97,
+     "uncertain": false,
+     "mixed_speakers": false
+    },
+    {
+     "index": 7,
+     "speaker": "borrower",
+     "confidence": 0.95,
+     "uncertain": false,
+     "mixed_speakers": false
+    },
+    {
+     "index": 8,
+     "speaker": "borrower",
+     "confidence": 0.95,
+     "uncertain": false,
+     "mixed_speakers": false
+    },
+    {
+     "index": 9,
+     "speaker": "agent",
+     "confidence": 0.96,
+     "uncertain": false,
+     "mixed_speakers": false
+    },
+    {
+     "index": 10,
+     "speaker": "agent",
+     "confidence": 0.95,
+     "uncertain": false,
+     "mixed_speakers": false
+    },
+    {
+     "index": 11,
+     "speaker": "borrower",
+     "confidence": 0.95,
+     "uncertain": false,
+     "mixed_speakers": false
+    },
+    {
+     "index": 12,
+     "speaker": "borrower",
+     "confidence": 0.95,
+     "uncertain": false,
+     "mixed_speakers": false
+    },
+    {
+     "index": 13,
+     "speaker": "agent",
+     "confidence": 0.96,
+     "uncertain": false,
+     "mixed_speakers": false
+    }
+   ],
+   "violations": [
+    {
+     "rule_code": "R5",
+     "segment_index": 5,
+     "word_start": 0,
+     "word_end": 6,
+     "quote": "आप वा कोड मुझे रीड कर दीजे",
+     "speaker": "agent",
+     "explanation": "Agent asks borrower to read the verification (OTP) code aloud",
+     "confidence": 0.99,
+     "uncertain": false
+    }
+   ],
+   "rule_outcomes": {
+    "R2": {
+     "violated": false,
+     "uncertain": false,
+     "note": "No abusive language detected"
+    },
+    "R3": {
+     "violated": false,
+     "uncertain": false,
+     "note": "No threats or intimidation detected"
+    },
+    "R4": {
+     "violated": false,
+     "uncertain": false,
+     "note": "No disclosure to third parties detected"
+    },
+    "R5": {
+     "violated": true,
+     "uncertain": false,
+     "note": "Agent requested OTP/verification code"
+    },
+    "R6": {
+     "violated": false,
+     "uncertain": false,
+     "note": "Opening includes name, company, and purpose"
+    }
+   },
+   "opening_check": {
+    "agent_turns_considered": [
+     [
+      0,
+      1
+     ],
+     [
+      3,
+      4,
+      5,
+      6
+     ]
+    ],
+    "name": {
+     "stated": true,
+     "segment_index": 0,
+     "evidence_quote": "मीना कार्च"
+    },
+    "company": {
+     "stated": true,
+     "segment_index": 0,
+     "evidence_quote": "शहा फिंली"
+    },
+    "purpose": {
+     "stated": true,
+     "segment_index": 0,
+     "evidence_quote": "पें्डिंग पेमेंट"
+    },
+    "uncertain": false
+   },
+   "sentiment": {
+    "borrower_overall": "neutral",
+    "agent_stayed_calm": true
+   },
+   "review_recommended": true,
+   "review_reasons": [
+    "OTP request (R5)"
+   ]
+  }
+ },
+ "CALL-0013": {
+  "transcript": [
+   {
+    "seq": 0,
+    "start": 0.0,
+    "end": 16.0,
+    "text": "हेलो मैं अर्चुन भड बोल रहा हूँ शहाफ इनलीस से आपके पर्सनल लोन के पेंडिंग पेमेंट के बारे में क्या मेरी बात कवीता नायर जी से हो रही है हाँ बोलिये"
+   },
+   {
+    "seq": 1,
+    "start": 16.0,
+    "end": 23.78,
+    "text": "मैडम आपके अकाउंट में 27,000 पेंडिंग है पेमेंट कब तक हो पाएगी"
+   },
+   {
+    "seq": 2,
+    "start": 23.78,
+    "end": 29.26,
+    "text": "मैं आज ही करना चाहती हूँ बस लिंग भेज दीजे"
+   },
+   {
+    "seq": 3,
+    "start": 29.26,
+    "end": 34.22,
+    "text": "जरूर मैं पेमेंट रिक्वेस्ट भेज रहा हूँ"
+   },
+   {
+    "seq": 4,
+    "start": 34.22,
+    "end": 38.42,
+    "text": "आपके फोन पर एक OTP आएगा प्लीज वो OTP मुझे बता दीजे"
+   },
+   {
+    "seq": 5,
+    "start": 38.42,
+    "end": 40.42,
+    "text": "मैं प्रोसस कर देता हूँ"
+   },
+   {
+    "seq": 6,
+    "start": 40.42,
+    "end": 43.879997,
+    "text": "पूटी पी?"
+   },
+   {
+    "seq": 7,
+    "start": 44.32,
+    "end": 45.999996,
+    "text": "ये मुझे आपको क्यों बताना पड़ेगा"
+   },
+   {
+    "seq": 8,
+    "start": 45.999996,
+    "end": 47.999996,
+    "text": "बैंक वालने तो मना किया था"
+   },
+   {
+    "seq": 9,
+    "start": 47.999996,
+    "end": 53.219997,
+    "text": "मैडम ये सिर्फ पेयमेंट कन्फर्म करने के लिए है"
+   },
+   {
+    "seq": 10,
+    "start": 53.219997,
+    "end": 55.659996,
+    "text": "इससे प्रोसस फास्ट हो जाएगा"
+   },
+   {
+    "seq": 11,
+    "start": 55.659996,
+    "end": 59.319996,
+    "text": "पर मुझे कमफिल्ट एवर नहीं लग रहा"
+   },
+   {
+    "seq": 12,
+    "start": 59.32,
+    "end": 67.32,
+    "text": "बस एक बार वो कोड बता दीजिए अब भी हो जाएगा फिर आपको दुबारा कॉल नहीं करना पड़ेगा"
+   },
+   {
+    "seq": 13,
+    "start": 67.32,
+    "end": 74.46,
+    "text": "नहीं मैं किसी को OTP नहीं बताऊंगी मैं खुद एप से पेमेंट कर दूँगी"
+   },
+   {
+    "seq": 14,
+    "start": 74.46,
+    "end": 79.52,
+    "text": "ओके मैडम जी आप एप से कर लीजिए धन्यवाद"
+   }
+  ],
+  "captured_response": {
+   "segments": [
+    {
+     "index": 0,
+     "speaker": "agent",
+     "confidence": 0.96,
+     "uncertain": false,
+     "mixed_speakers": false
+    },
+    {
+     "index": 1,
+     "speaker": "agent",
+     "confidence": 0.95,
+     "uncertain": false,
+     "mixed_speakers": false
+    },
+    {
+     "index": 2,
+     "speaker": "borrower",
+     "confidence": 0.97,
+     "uncertain": false,
+     "mixed_speakers": false
+    },
+    {
+     "index": 3,
+     "speaker": "agent",
+     "confidence": 0.96,
+     "uncertain": false,
+     "mixed_speakers": false
+    },
+    {
+     "index": 4,
+     "speaker": "agent",
+     "confidence": 0.96,
+     "uncertain": false,
+     "mixed_speakers": false
+    },
+    {
+     "index": 5,
+     "speaker": "agent",
+     "confidence": 0.95,
+     "uncertain": false,
+     "mixed_speakers": false
+    },
+    {
+     "index": 6,
+     "speaker": "borrower",
+     "confidence": 0.6,
+     "uncertain": true,
+     "mixed_speakers": false
+    },
+    {
+     "index": 7,
+     "speaker": "borrower",
+     "confidence": 0.94,
+     "uncertain": false,
+     "mixed_speakers": false
+    },
+    {
+     "index": 8,
+     "speaker": "borrower",
+     "confidence": 0.92,
+     "uncertain": false,
+     "mixed_speakers": false
+    },
+    {
+     "index": 9,
+     "speaker": "agent",
+     "confidence": 0.94,
+     "uncertain": false,
+     "mixed_speakers": false
+    },
+    {
+     "index": 10,
+     "speaker": "agent",
+     "confidence": 0.94,
+     "uncertain": false,
+     "mixed_speakers": false
+    },
+    {
+     "index": 11,
+     "speaker": "borrower",
+     "confidence": 0.93,
+     "uncertain": false,
+     "mixed_speakers": false
+    },
+    {
+     "index": 12,
+     "speaker": "borrower",
+     "confidence": 0.94,
+     "uncertain": false,
+     "mixed_speakers": false
+    },
+    {
+     "index": 13,
+     "speaker": "borrower",
+     "confidence": 0.95,
+     "uncertain": false,
+     "mixed_speakers": false
+    },
+    {
+     "index": 14,
+     "speaker": "agent",
+     "confidence": 0.95,
+     "uncertain": false,
+     "mixed_speakers": false
+    }
+   ],
+   "violations": [
+    {
+     "rule_code": "R5",
+     "segment_index": 4,
+     "word_start": 4,
+     "word_end": 10,
+     "quote": "OTP आएगा प्लीज वो OTP मुझे बता",
+     "speaker": "agent",
+     "explanation": "Agent requests the borrower to disclose the OTP received on the phone, which is prohibited.",
+     "confidence": 0.96,
+     "uncertain": false
+    }
+   ],
+   "rule_outcomes": {
+    "R2": {
+     "violated": false,
+     "uncertain": false,
+     "note": "No abusive language detected."
+    },
+    "R3": {
+     "violated": false,
+     "uncertain": false,
+     "note": "No threats or intimidation detected."
+    },
+    "R4": {
+     "violated": false,
+     "uncertain": false,
+     "note": "No disclosure of debt details to third parties detected."
+    },
+    "R5": {
+     "violated": true,
+     "uncertain": false,
+     "note": "Agent asked for OTP."
+    },
+    "R6": {
+     "violated": false,
+     "uncertain": false,
+     "note": "Agent provided name, company, and purpose in the opening."
+    }
+   },
+   "opening_check": {
+    "agent_turns_considered": [
+     [
+      0,
+      1
+     ],
+     [
+      3,
+      4,
+      5
+     ]
+    ],
+    "name": {
+     "stated": true,
+     "segment_index": 0,
+     "evidence_quote": "अर्चुन भड"
+    },
+    "company": {
+     "stated": true,
+     "segment_index": 0,
+     "evidence_quote": "शहाफ इनलीस"
+    },
+    "purpose": {
+     "stated": true,
+     "segment_index": 0,
+     "evidence_quote": "पर्सनल लोन के पेंडिंग पेमेंट"
+    },
+    "uncertain": false
+   },
+   "sentiment": {
+    "borrower_overall": "negative",
+    "agent_stayed_calm": true
+   },
+   "review_recommended": true,
+   "review_reasons": [
+    "OTP request violates R5"
+   ]
+  }
+ },
+ "CALL-0016": {
+  "transcript": [
+   {
+    "seq": 0,
+    "start": 0.0,
+    "end": 8.679999,
+    "text": "मैं नमीन गुटा बोल रहा हूं शाफ इंलीस से क्या में राकेश ठाकर जीसे बात कर रहा हूं"
+   },
+   {
+    "seq": 1,
+    "start": 11.059999,
+    "end": 14.0,
+    "text": "वह भी घर पर नहीं है आप कौन बोल रहा है"
+   },
+   {
+    "seq": 2,
+    "start": 14.0,
+    "end": 23.699999,
+    "text": "मैं शाफ इंलीस से हूं राकेश जी यह परसनल लोन पेंडिंडिंग है उसी बारे में बात करनी थी"
+   },
+   {
+    "seq": 3,
+    "start": 23.699999,
+    "end": 30.46,
+    "text": "मैडम 24,000 की एमाई दो महिने से पेंडिंग है"
+   },
+   {
+    "seq": 4,
+    "start": 30.46,
+    "end": 33.579998,
+    "text": "आप उनसे बोल देजी कि जल्दी पेमेंट कर दे"
+   },
+   {
+    "seq": 5,
+    "start": 33.579998,
+    "end": 39.859997,
+    "text": "ये क्या बात है उन्होंने मुझे कभी बताया नहीं"
+   },
+   {
+    "seq": 6,
+    "start": 39.859997,
+    "end": 41.239998,
+    "text": "रुको वो अभी आ गए"
+   },
+   {
+    "seq": 7,
+    "start": 41.239998,
+    "end": 46.399998,
+    "text": "हेलो हाँ मैं राकेश बोल रहा हूँ"
+   },
+   {
+    "seq": 8,
+    "start": 46.399998,
+    "end": 48.92,
+    "text": "आप मेरे घर क्यों कॉल कर रहे हैं"
+   },
+   {
+    "seq": 9,
+    "start": 48.92,
+    "end": 50.8,
+    "text": "आपने मेरी वाइफ को सब बता दिया?"
+   },
+   {
+    "seq": 10,
+    "start": 53.719997,
+    "end": 58.3,
+    "text": "सर आपका पेमिन्ट पेंडिंग था, इसलिए कॉल किया, आप कब तक कर पाएंगे?"
+   },
+   {
+    "seq": 11,
+    "start": 60.8,
+    "end": 64.659996,
+    "text": "मैं देखता हूँ, पर आगे से मेरे घर का नंबर मत मिलाना."
+   },
+   {
+    "seq": 12,
+    "start": 67.88,
+    "end": 69.119995,
+    "text": "ठीक है सर, धन्यवाद."
+   }
+  ],
+  "captured_response": {
+   "segments": [
+    {
+     "index": 0,
+     "speaker": "agent",
+     "confidence": 0.96,
+     "uncertain": false,
+     "mixed_speakers": false
+    },
+    {
+     "index": 1,
+     "speaker": "third_party",
+     "confidence": 0.94,
+     "uncertain": false,
+     "mixed_speakers": false
+    },
+    {
+     "index": 2,
+     "speaker": "agent",
+     "confidence": 0.96,
+     "uncertain": false,
+     "mixed_speakers": false
+    },
+    {
+     "index": 3,
+     "speaker": "borrower",
+     "confidence": 0.95,
+     "uncertain": false,
+     "mixed_speakers": false
+    },
+    {
+     "index": 4,
+     "speaker": "borrower",
+     "confidence": 0.93,
+     "uncertain": false,
+     "mixed_speakers": false
+    },
+    {
+     "index": 5,
+     "speaker": "borrower",
+     "confidence": 0.93,
+     "uncertain": false,
+     "mixed_speakers": false
+    },
+    {
+     "index": 6,
+     "speaker": "borrower",
+     "confidence": 0.92,
+     "uncertain": false,
+     "mixed_speakers": false
+    },
+    {
+     "index": 7,
+     "speaker": "borrower",
+     "confidence": 0.96,
+     "uncertain": false,
+     "mixed_speakers": false
+    },
+    {
+     "index": 8,
+     "speaker": "borrower",
+     "confidence": 0.95,
+     "uncertain": false,
+     "mixed_speakers": false
+    },
+    {
+     "index": 9,
+     "speaker": "borrower",
+     "confidence": 0.95,
+     "uncertain": false,
+     "mixed_speakers": false
+    },
+    {
+     "index": 10,
+     "speaker": "agent",
+     "confidence": 0.96,
+     "uncertain": false,
+     "mixed_speakers": false
+    },
+    {
+     "index": 11,
+     "speaker": "borrower",
+     "confidence": 0.95,
+     "uncertain": false,
+     "mixed_speakers": false
+    },
+    {
+     "index": 12,
+     "speaker": "agent",
+     "confidence": 0.96,
+     "uncertain": false,
+     "mixed_speakers": false
+    }
+   ],
+   "violations": [
+    {
+     "rule_code": "R4",
+     "segment_index": 2,
+     "word_start": 0,
+     "word_end": 17,
+     "quote": "मैं शाफ इन्लीसे से हूं राकेश जी यह परसनल लोन पेंडिंडिंग है उसी बारे में बात करनी थी",
+     "speaker": "agent",
+     "explanation": "Agent disclosed personal loan details to a person who is not the borrower",
+     "confidence": 0.94,
+     "uncertain": false
+    }
+   ],
+   "rule_outcomes": {
+    "R2": {
+     "violated": false,
+     "uncertain": false,
+     "note": "No abusive language detected"
+    },
+    "R3": {
+     "violated": false,
+     "uncertain": false,
+     "note": "No threats or intimidation detected"
+    },
+    "R4": {
+     "violated": true,
+     "uncertain": false,
+     "note": "Debt details disclosed to third party"
+    },
+    "R5": {
+     "violated": false,
+     "uncertain": false,
+     "note": "No request for OTP/PIN/CVV"
+    },
+    "R6": {
+     "violated": false,
+     "uncertain": false,
+     "note": "Opening included name, company, and purpose"
+    }
+   },
+   "opening_check": {
+    "agent_turns_considered": [
+     [
+      0
+     ],
+     [
+      2
+     ]
+    ],
+    "name": {
+     "stated": true,
+     "segment_index": 0,
+     "evidence_quote": "नमीन गुटा"
+    },
+    "company": {
+     "stated": true,
+     "segment_index": 0,
+     "evidence_quote": "शाफ इन्लीसे"
+    },
+    "purpose": {
+     "stated": true,
+     "segment_index": 2,
+     "evidence_quote": "परसनल लोन पेंडिंडिंग है"
+    },
+    "uncertain": false
+   },
+   "sentiment": {
+    "borrower_overall": "negative",
+    "agent_stayed_calm": true
+   },
+   "review_recommended": true,
+   "review_reasons": [
+    "R4 violation: disclosure of loan details to a third party"
+   ]
+  }
+ },
+ "CALL-0017": {
+  "transcript": [
+   {
+    "seq": 0,
+    "start": 0.0,
+    "end": 19.0,
+    "text": "हेलो क्या मैं अनिल देशमुग जिसे बात कर रहा हूं हाँ बोल रहा हूं कौन सर आपका पेमेंट पेंडिंग है कब तक करेंगे कौन सा पेमेंट पहले ये वताओ कि आप कौन बोल रहे हैं"
+   },
+   {
+    "seq": 1,
+    "start": 19.0,
+    "end": 23.62,
+    "text": "जी मैं तर्म सेथी बोल रहा हूँ"
+   },
+   {
+    "seq": 2,
+    "start": 23.62,
+    "end": 25.46,
+    "text": "शाह फिनलीस से"
+   },
+   {
+    "seq": 3,
+    "start": 25.46,
+    "end": 31.119999,
+    "text": "आपके परसनल लोन का 15,200 पेंडिंग है"
+   },
+   {
+    "seq": 4,
+    "start": 31.119999,
+    "end": 36.16,
+    "text": "अच्छा लोन वाला आयाद है"
+   },
+   {
+    "seq": 5,
+    "start": 36.16,
+    "end": 38.46,
+    "text": "इस हफ़ते को एंड तक हो जाएगा"
+   },
+   {
+    "seq": 6,
+    "start": 38.46,
+    "end": 42.92,
+    "text": "सर एक बार क्लियर कर दू"
+   },
+   {
+    "seq": 7,
+    "start": 42.92,
+    "end": 47.899998,
+    "text": "15,200 में दो एमाई और लेट चार्जस शामिल है"
+   },
+   {
+    "seq": 8,
+    "start": 47.899998,
+    "end": 52.899998,
+    "text": "लेट चार्जर्स कितने हैं"
+   },
+   {
+    "seq": 9,
+    "start": 52.899998,
+    "end": 57.739998,
+    "text": "400 वो भी इसी में है"
+   },
+   {
+    "seq": 10,
+    "start": 57.739998,
+    "end": 61.46,
+    "text": "अच्छा ठीक है"
+   },
+   {
+    "seq": 11,
+    "start": 61.46,
+    "end": 65.899994,
+    "text": "वीकेंड तक कन्फर्म कर दीजे"
+   },
+   {
+    "seq": 12,
+    "start": 65.899994,
+    "end": 67.899994,
+    "text": "मैं आपको रिमाइंटर भीज दूँगा"
+   },
+   {
+    "seq": 13,
+    "start": 68.579994,
+    "end": 73.899994,
+    "text": "हाँ भीज देना पेमेंट कैसे करूँ"
+   },
+   {
+    "seq": 14,
+    "start": 73.899994,
+    "end": 77.799995,
+    "text": "हमारे ओफिशल एप या ब्रांज से"
+   },
+   {
+    "seq": 15,
+    "start": 77.799995,
+    "end": 79.88,
+    "text": "लिंक भी SMS कर दूँगा"
+   },
+   {
+    "seq": 16,
+    "start": 79.88,
+    "end": 82.53999,
+    "text": "ओके"
+   },
+   {
+    "seq": 17,
+    "start": 82.53999,
+    "end": 84.71999,
+    "text": "धन्यवाद सर"
+   }
+  ],
+  "captured_response": {
+   "segments": [
+    {
+     "index": 0,
+     "speaker": "borrower",
+     "confidence": 0.9,
+     "uncertain": false,
+     "mixed_speakers": false
+    },
+    {
+     "index": 1,
+     "speaker": "agent",
+     "confidence": 0.9,
+     "uncertain": false,
+     "mixed_speakers": false
+    },
+    {
+     "index": 2,
+     "speaker": "agent",
+     "confidence": 0.9,
+     "uncertain": false,
+     "mixed_speakers": false
+    },
+    {
+     "index": 3,
+     "speaker": "agent",
+     "confidence": 0.9,
+     "uncertain": false,
+     "mixed_speakers": false
+    },
+    {
+     "index": 4,
+     "speaker": "borrower",
+     "confidence": 0.9,
+     "uncertain": false,
+     "mixed_speakers": false
+    },
+    {
+     "index": 5,
+     "speaker": "borrower",
+     "confidence": 0.9,
+     "uncertain": false,
+     "mixed_speakers": false
+    },
+    {
+     "index": 6,
+     "speaker": "borrower",
+     "confidence": 0.9,
+     "uncertain": false,
+     "mixed_speakers": false
+    },
+    {
+     "index": 7,
+     "speaker": "agent",
+     "confidence": 0.9,
+     "uncertain": false,
+     "mixed_speakers": false
+    },
+    {
+     "index": 8,
+     "speaker": "borrower",
+     "confidence": 0.9,
+     "uncertain": false,
+     "mixed_speakers": false
+    },
+    {
+     "index": 9,
+     "speaker": "agent",
+     "confidence": 0.9,
+     "uncertain": false,
+     "mixed_speakers": false
+    },
+    {
+     "index": 10,
+     "speaker": "borrower",
+     "confidence": 0.9,
+     "uncertain": false,
+     "mixed_speakers": false
+    },
+    {
+     "index": 11,
+     "speaker": "borrower",
+     "confidence": 0.9,
+     "uncertain": false,
+     "mixed_speakers": false
+    },
+    {
+     "index": 12,
+     "speaker": "agent",
+     "confidence": 0.9,
+     "uncertain": false,
+     "mixed_speakers": false
+    },
+    {
+     "index": 13,
+     "speaker": "borrower",
+     "confidence": 0.9,
+     "uncertain": false,
+     "mixed_speakers": false
+    },
+    {
+     "index": 14,
+     "speaker": "agent",
+     "confidence": 0.9,
+     "uncertain": false,
+     "mixed_speakers": false
+    },
+    {
+     "index": 15,
+     "speaker": "agent",
+     "confidence": 0.9,
+     "uncertain": false,
+     "mixed_speakers": false
+    },
+    {
+     "index": 16,
+     "speaker": "borrower",
+     "confidence": 0.9,
+     "uncertain": false,
+     "mixed_speakers": false
+    },
+    {
+     "index": 17,
+     "speaker": "borrower",
+     "confidence": 0.9,
+     "uncertain": false,
+     "mixed_speakers": false
+    }
+   ],
+   "violations": [],
+   "rule_outcomes": {
+    "R2": {
+     "violated": false,
+     "uncertain": false,
+     "note": "No abusive language detected"
+    },
+    "R3": {
+     "violated": false,
+     "uncertain": false,
+     "note": "No threats or intimidation detected"
+    },
+    "R4": {
+     "violated": false,
+     "uncertain": false,
+     "note": "No disclosure to third parties detected"
+    },
+    "R5": {
+     "violated": false,
+     "uncertain": false,
+     "note": "No request for OTP/PIN/CVV detected"
+    },
+    "R6": {
+     "violated": false,
+     "uncertain": false,
+     "note": "Opening includes name, company, and purpose"
+    }
+   },
+   "opening_check": {
+    "agent_turns_considered": [
+     [
+      1,
+      2,
+      3
+     ],
+     [
+      7
+     ]
+    ],
+    "name": {
+     "stated": true,
+     "segment_index": 1,
+     "evidence_quote": "मैं तर्म सेथी"
+    },
+    "company": {
+     "stated": true,
+     "segment_index": 2,
+     "evidence_quote": "शाह फिनलीस"
+    },
+    "purpose": {
+     "stated": true,
+     "segment_index": 3,
+     "evidence_quote": "आपके परसनल लोन का 15,200 पेंडिंग है"
+    },
+    "uncertain": false
+   },
+   "sentiment": {
+    "borrower_overall": "positive",
+    "agent_stayed_calm": true
+   },
+   "review_recommended": false,
+   "review_reasons": []
+  }
+ }
+}

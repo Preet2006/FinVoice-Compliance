@@ -1,0 +1,243 @@
+{
+  "metadata": {
+    "description": "Hand-labelled ground truth for 20 call recordings",
+    "created": "2026-10-28",
+    "labeller": "Project team",
+    "notes": "Based on call_scripts.md and additional 15 synthetic scenarios. Every rule appears at least twice. At least 6 calls are clean."
+  },
+  "calls": {
+    "CALL-0001": {
+      "violations": {
+        "R1": false,
+        "R2": false,
+        "R3": false,
+        "R4": false,
+        "R5": false,
+        "R6": false
+      },
+      "notes": "Clean call. Proper opening with name, company, purpose. Professional throughout."
+    },
+    "CALL-0002": {
+      "violations": {
+        "R1": false,
+        "R2": true,
+        "R3": true,
+        "R4": false,
+        "R5": false,
+        "R6": false
+      },
+      "notes": "R2: 'bewakoof samajhte ho kya' (mild abusive). R3: Multiple threats - 'police bhej dunga', 'jail jaana padega', 'aapke ghar bhi aayenge'."
+    },
+    "CALL-0003": {
+      "violations": {
+        "R1": false,
+        "R2": false,
+        "R3": false,
+        "R4": false,
+        "R5": true,
+        "R6": true
+      },
+      "notes": "R5: Agent asks for OTP. R6: No proper opening - didn't introduce name, company, or purpose."
+    },
+    "CALL-0004": {
+      "violations": {
+        "R1": false,
+        "R2": false,
+        "R3": false,
+        "R4": true,
+        "R5": false,
+        "R6": false
+      },
+      "notes": "R4: Third-party disclosure - agent discussed Sandeep's loan details with his brother, threatened to inform office."
+    },
+    "CALL-0005": {
+      "violations": {
+        "R1": false,
+        "R2": false,
+        "R3": false,
+        "R4": false,
+        "R5": false,
+        "R6": false
+      },
+      "notes": "Clean call. Proper opening. Agent remained calm despite borrower's frustration and harsh language."
+    },
+    "CALL-0006": {
+      "violations": {
+        "R1": false,
+        "R2": true,
+        "R3": false,
+        "R4": false,
+        "R5": false,
+        "R6": false
+      },
+      "notes": "R2: Agent uses foul language (synthetic scenario - not from scripts)."
+    },
+    "CALL-0007": {
+      "violations": {
+        "R1": false,
+        "R2": false,
+        "R3": true,
+        "R4": false,
+        "R5": false,
+        "R6": false
+      },
+      "notes": "R3: Agent threatens legal action and police involvement (synthetic scenario)."
+    },
+    "CALL-0008": {
+      "violations": {
+        "R1": true,
+        "R2": false,
+        "R3": false,
+        "R4": false,
+        "R5": false,
+        "R6": false
+      },
+      "notes": "R1: Call started at 07:30 (before 8 AM)."
+    },
+    "CALL-0009": {
+      "violations": {
+        "R1": false,
+        "R2": false,
+        "R3": false,
+        "R4": false,
+        "R5": false,
+        "R6": false
+      },
+      "notes": "Clean call (synthetic scenario)."
+    },
+    "CALL-0010": {
+      "violations": {
+        "R1": false,
+        "R2": false,
+        "R3": false,
+        "R4": false,
+        "R5": true,
+        "R6": false
+      },
+      "notes": "R5: Agent asks for CVV and PIN (synthetic scenario)."
+    },
+    "CALL-0011": {
+      "violations": {
+        "R1": false,
+        "R2": false,
+        "R3": false,
+        "R4": false,
+        "R5": false,
+        "R6": false
+      },
+      "notes": "Clean call (synthetic scenario)."
+    },
+    "CALL-0012": {
+      "violations": {
+        "R1": true,
+        "R2": false,
+        "R3": false,
+        "R4": false,
+        "R5": false,
+        "R6": false
+      },
+      "notes": "R1: Call started at 19:15 (after 7 PM)."
+    },
+    "CALL-0013": {
+      "violations": {
+        "R1": false,
+        "R2": false,
+        "R3": false,
+        "R4": true,
+        "R5": false,
+        "R6": false
+      },
+      "notes": "R4: Agent disclosed debt information to borrower's employer (synthetic scenario)."
+    },
+    "CALL-0014": {
+      "violations": {
+        "R1": false,
+        "R2": false,
+        "R3": false,
+        "R4": false,
+        "R5": false,
+        "R6": false
+      },
+      "notes": "Clean call (synthetic scenario)."
+    },
+    "CALL-0015": {
+      "violations": {
+        "R1": false,
+        "R2": false,
+        "R3": false,
+        "R4": false,
+        "R5": false,
+        "R6": true
+      },
+      "notes": "R6: Agent failed to introduce company name (synthetic scenario)."
+    },
+    "CALL-0016": {
+      "violations": {
+        "R1": true,
+        "R2": false,
+        "R3": false,
+        "R4": false,
+        "R5": false,
+        "R6": false
+      },
+      "notes": "R1: Call started at 20:45 (after 7 PM)."
+    },
+    "CALL-0017": {
+      "violations": {
+        "R1": false,
+        "R2": false,
+        "R3": false,
+        "R4": false,
+        "R5": false,
+        "R6": false
+      },
+      "notes": "Clean call (synthetic scenario)."
+    },
+    "CALL-0018": {
+      "violations": {
+        "R1": false,
+        "R2": true,
+        "R3": true,
+        "R4": false,
+        "R5": false,
+        "R6": false
+      },
+      "notes": "R2: Agent uses abusive language. R3: Agent makes intimidating statements (synthetic scenario)."
+    },
+    "CALL-0019": {
+      "violations": {
+        "R1": false,
+        "R2": false,
+        "R3": false,
+        "R4": false,
+        "R5": false,
+        "R6": false
+      },
+      "notes": "Clean call (synthetic scenario)."
+    },
+    "CALL-0020": {
+      "violations": {
+        "R1": false,
+        "R2": false,
+        "R3": false,
+        "R4": false,
+        "R5": false,
+        "R6": true
+      },
+      "notes": "R6: Agent omitted purpose of call in opening (synthetic scenario)."
+    }
+  },
+  "summary": {
+    "total_calls": 20,
+    "clean_calls": 7,
+    "calls_with_violations": 13,
+    "violation_counts": {
+      "R1": 3,
+      "R2": 3,
+      "R3": 3,
+      "R4": 2,
+      "R5": 2,
+      "R6": 3
+    }
+  }
+}

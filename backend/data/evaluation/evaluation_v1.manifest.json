@@ -1,0 +1,145 @@
+{
+ "kind": "evaluation database (isolated, never the production database)",
+ "database": "D:\\ShahFineLease Assignment\\backend\\data\\evaluation\\evaluation_v1.db",
+ "batch_id": "evaluation-v1",
+ "scenario_times": "SIMULATED role-play scenario times (from metadata.csv, identical in the ground truth). Not recording times; none is confirmed.",
+ "inputs": {
+  "metadata_csv_sha256": "0892f9ceb5a8a8204c68aae73868416adc5258ef9f4e96c58775dde9fe57c3a5",
+  "ground_truth_sha256": "1f6d2ae423566129592537858dd22dc8cd2c60cebfcef34b36d5e683e3d5d7a3"
+ },
+ "source_database_sha256_before_and_after": "ed1e0c7a4290954db265544a49775bd94f1c72d3640409a91bfb24ac24703de9",
+ "integrity_check": "ok",
+ "foreign_key_violations": 0,
+ "row_counts": {
+  "office": 3,
+  "app_user": 68,
+  "rule": 6,
+  "call": 20,
+  "transcript_segment": 0,
+  "violation": 0,
+  "review": 0
+ },
+ "calls": [
+  {
+   "call_id": "CALL-0001",
+   "scenario_time": "10:30",
+   "expected_R1": false,
+   "audio_bytes": 1077326
+  },
+  {
+   "call_id": "CALL-0002",
+   "scenario_time": "15:15",
+   "expected_R1": false,
+   "audio_bytes": 1134670
+  },
+  {
+   "call_id": "CALL-0003",
+   "scenario_time": "11:00",
+   "expected_R1": false,
+   "audio_bytes": 825422
+  },
+  {
+   "call_id": "CALL-0004",
+   "scenario_time": "14:45",
+   "expected_R1": false,
+   "audio_bytes": 966734
+  },
+  {
+   "call_id": "CALL-0005",
+   "scenario_time": "09:00",
+   "expected_R1": false,
+   "audio_bytes": 1335374
+  },
+  {
+   "call_id": "CALL-0006",
+   "scenario_time": "12:20",
+   "expected_R1": false,
+   "audio_bytes": 1146958
+  },
+  {
+   "call_id": "CALL-0007",
+   "scenario_time": "10:10",
+   "expected_R1": false,
+   "audio_bytes": 1118286
+  },
+  {
+   "call_id": "CALL-0008",
+   "scenario_time": "07:30",
+   "expected_R1": true,
+   "audio_bytes": 1179726
+  },
+  {
+   "call_id": "CALL-0009",
+   "scenario_time": "11:45",
+   "expected_R1": false,
+   "audio_bytes": 1146958
+  },
+  {
+   "call_id": "CALL-0010",
+   "scenario_time": "16:00",
+   "expected_R1": false,
+   "audio_bytes": 1245262
+  },
+  {
+   "call_id": "CALL-0011",
+   "scenario_time": "09:50",
+   "expected_R1": false,
+   "audio_bytes": 16959848
+  },
+  {
+   "call_id": "CALL-0012",
+   "scenario_time": "14:00",
+   "expected_R1": false,
+   "audio_bytes": 12925228
+  },
+  {
+   "call_id": "CALL-0013",
+   "scenario_time": "13:05",
+   "expected_R1": false,
+   "audio_bytes": 15473742
+  },
+  {
+   "call_id": "CALL-0014",
+   "scenario_time": "10:40",
+   "expected_R1": false,
+   "audio_bytes": 15224910
+  },
+  {
+   "call_id": "CALL-0015",
+   "scenario_time": "15:30",
+   "expected_R1": false,
+   "audio_bytes": 13312590
+  },
+  {
+   "call_id": "CALL-0016",
+   "scenario_time": "15:00",
+   "expected_R1": false,
+   "audio_bytes": 13400142
+  },
+  {
+   "call_id": "CALL-0017",
+   "scenario_time": "11:15",
+   "expected_R1": false,
+   "audio_bytes": 16409166
+  },
+  {
+   "call_id": "CALL-0018",
+   "scenario_time": "20:30",
+   "expected_R1": true,
+   "audio_bytes": 13575246
+  },
+  {
+   "call_id": "CALL-0019",
+   "scenario_time": "09:25",
+   "expected_R1": false,
+   "audio_bytes": 14321742
+  },
+  {
+   "call_id": "CALL-0020",
+   "scenario_time": "16:50",
+   "expected_R1": false,
+   "audio_bytes": 16008270
+  }
+ ],
+ "audio": "existence and size only; no audio file was opened or processed"
+}

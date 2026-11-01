@@ -1,0 +1,552 @@
+{
+ "about": "Offline regression data. Transcript text and the model's recorded opening answers captured from earlier live evaluation runs (legacy runs of calls 7-9, and unified runs with the generalized prompt). Used only to check how the CURRENT backend code treats those recorded answers; it says nothing about how a live model would answer today.",
+ "cases": [
+  {
+   "id": "CALL-0007-legacy-run1",
+   "call": "CALL-0007",
+   "pipeline": "legacy",
+   "recorded_model_opening": {
+    "name_stated": false,
+    "company_stated": true,
+    "purpose_stated": true,
+    "evidence_quote": "शहाफ इनली से मैं आपके पर्सनल लोन के पेंडिंग पेंडिंट के बारे में कॉल कर रहा हूं"
+   },
+   "recorded_earlier_r6": "Mandatory opening missing required element(s): agent name.",
+   "segments": [
+    {
+     "seq": 0,
+     "speaker": "agent",
+     "text": "एक प्रिच विकर बोल रहा हूं शहाफ इनली से मैं आपके पर्सनल लोन के पेंडिंग पेंडिंट के बारे में कॉल कर रहा हूं क्या मेरी बात रहुल मेहता जी से हो रही है"
+    },
+    {
+     "seq": 1,
+     "speaker": "borrower",
+     "text": "आप बोली कितना पेंडिंग है"
+    },
+    {
+     "seq": 2,
+     "speaker": "agent",
+     "text": "सर आपकी अकाउंट में 22,000 रुपेया पैंडिंग है आप पेमेंट कब तक कर पाएंगे"
+    },
+    {
+     "seq": 3,
+     "speaker": "borrower",
+     "text": "मैं अगले अप्टे तक पेमेंट पैंडिंग कोशिश करूँ गा"
+    },
+    {
+     "seq": 4,
+     "speaker": "agent",
+     "text": "ठीक है सर मैं आपको पेमेंट रिक्वेस्ट भेज रहा हूँ"
+    },
+    {
+     "seq": 5,
+     "speaker": "agent",
+     "text": "आपके phone पर एक OTP आएगा"
+    },
+    {
+     "seq": 6,
+     "speaker": "borrower",
+     "text": "Please OTP मुझे बता दीजे"
+    },
+    {
+     "seq": 7,
+     "speaker": "agent",
+     "text": "मैं payment process कर देता हूँ"
+    }
+   ]
+  },
+  {
+   "id": "CALL-0007-legacy-run2",
+   "call": "CALL-0007",
+   "pipeline": "legacy",
+   "recorded_model_opening": {
+    "name_stated": false,
+    "company_stated": true,
+    "purpose_stated": true,
+    "evidence_quote": "शहाफ इनली से मैं आपके पर्सनल लोन के पेंडिंग पेमेंट के बारे में कॉल कर रहा हूं"
+   },
+   "recorded_earlier_r6": "Mandatory opening missing required element(s): agent name.",
+   "segments": [
+    {
+     "seq": 0,
+     "speaker": "agent",
+     "text": "अग्याव कि अग्याव कर बोल रहा हूं शहाफ इनली से मैं आपके पर्सनल लोन के पेंडिंग पेमेंट के बारे में कॉल कर रहा हूं क्या मेरी बात रहुल मैंता जी से हो रही है"
+    },
+    {
+     "seq": 1,
+     "speaker": "borrower",
+     "text": "आप बोले कितना पेंडिंग है"
+    },
+    {
+     "seq": 2,
+     "speaker": "agent",
+     "text": "सर आपकी अकाउंट में 22,000 रुपेया पैंडिंग है आप पेमेंट कब तक कर पाएंगे"
+    },
+    {
+     "seq": 3,
+     "speaker": "borrower",
+     "text": "मैं अगले अप्टे तक पेमेंट पैंडिंग कोशिश करूँ गा"
+    },
+    {
+     "seq": 4,
+     "speaker": "agent",
+     "text": "ठीक है सर मैं आपको पेमेंट रिक्वेस्ट भेज रहा हूँ"
+    },
+    {
+     "seq": 5,
+     "speaker": "agent",
+     "text": "आपके phone पर एक OTP आएगा"
+    },
+    {
+     "seq": 6,
+     "speaker": "agent",
+     "text": "Please OTP मुझे बता दीजे"
+    },
+    {
+     "seq": 7,
+     "speaker": "borrower",
+     "text": "मैं payment process कर देता हूँ"
+    }
+   ]
+  },
+  {
+   "id": "CALL-0008-legacy-run1",
+   "call": "CALL-0008",
+   "pipeline": "legacy",
+   "recorded_model_opening": {
+    "name_stated": true,
+    "company_stated": false,
+    "purpose_stated": true,
+    "evidence_quote": "नमस्ते मैं प्रीज वेकर बोल रहा हूँ शहा पिनली से मैं आपके पर्सनल लोन के पेंडिंग पेमेंट के बारे में बात कर रहा हूँ"
+   },
+   "recorded_earlier_r6": "Mandatory opening missing required element(s): company name.",
+   "segments": [
+    {
+     "seq": 0,
+     "speaker": "agent",
+     "text": "नमस्ते मैं प्रीज वेकर बोल रहा हूँ शहा पिनली से मैं आपके पर्सनल लोन के पेंडिंग पेमेंट के बारे में बात कर रहा हूँ क्या मेरी बात रुहिद परमाजी से हो रही है"
+    },
+    {
+     "seq": 1,
+     "speaker": "borrower",
+     "text": "जी हाँ बताईए क्या बात है"
+    },
+    {
+     "seq": 2,
+     "speaker": "agent",
+     "text": "सर आपके लोन अकाउंट में 40,000 रुपया पेंडिंग है पेमेंट कब तक कर पाएंगे"
+    },
+    {
+     "seq": 3,
+     "speaker": "borrower",
+     "text": "अभी मेरे पाइनेंटल सिच्टिएशन ठीक नहीं है मुझे थोड़ा और टाइम चाहिए"
+    },
+    {
+     "seq": 4,
+     "speaker": "agent",
+     "text": "सर आपने पहले भी टाइम मांगा था हमें पेमेंट की एक क्लियर डेट चाहिए"
+    },
+    {
+     "seq": 5,
+     "speaker": "agent",
+     "text": "अगर आपने पेमेंट नहीं की तो मैं पुलिस भीज़ दूंगा और आपको जेल जाना पड़ेगा"
+    },
+    {
+     "seq": 6,
+     "speaker": "borrower",
+     "text": "आप मुझे पुलिस और जेल की दमकी क्यों दे रहे हैं चैनल कर दूपाए आपको बता रहा हूं कि पेमेंट को डिले मत कीजिये"
+    },
+    {
+     "seq": 7,
+     "speaker": "agent",
+     "text": "ठीक, आपनी तरफ से कुशिश करूँगा"
+    }
+   ]
+  },
+  {
+   "id": "CALL-0008-legacy-run2",
+   "call": "CALL-0008",
+   "pipeline": "legacy",
+   "recorded_model_opening": {
+    "name_stated": true,
+    "company_stated": false,
+    "purpose_stated": true,
+    "evidence_quote": "नमस्ते मैं प्रीज वेकर बोल रहा हूं शहा पिनली से मैं आपके पर्सनल लोन के पेंडिंग पेमेंट के बारे में बात कर रहा हूं"
+   },
+   "recorded_earlier_r6": "Mandatory opening missing required element(s): company name.",
+   "segments": [
+    {
+     "seq": 0,
+     "speaker": "agent",
+     "text": "नमस्ते मैं प्रीज वेकर बोल रहा हूं शहा पिनली से मैं आपके पर्सनल लोन के पेंडिंग पेमेंट के बारे में बात कर रहा हूं क्या मेरी बात रुविद परमाजी से हो रही है"
+    },
+    {
+     "seq": 1,
+     "speaker": "borrower",
+     "text": "जी हाँ बताईए क्या बात है"
+    },
+    {
+     "seq": 2,
+     "speaker": "agent",
+     "text": "सर आपके लोन अकाउंट में 40,000 रुपया पेंडिंग है पेमेंट कब तक कर पाएंगे"
+    },
+    {
+     "seq": 3,
+     "speaker": "borrower",
+     "text": "अभी मेरी पाइनेंटल सिच्टुएशन ठीक नहीं है मुझे थोड़ा और टाइम चाहिए"
+    },
+    {
+     "seq": 4,
+     "speaker": "agent",
+     "text": "सर आपने पहले भी टाइम मांगा था हमें पेमेंट की एक क्लियर डेट चाहिए"
+    },
+    {
+     "seq": 5,
+     "speaker": "agent",
+     "text": "अगर आपने पेमेंट नहीं की तो मैं पुलिस भीज दूँगा और आपको जेल जाना पड़ेगा"
+    },
+    {
+     "seq": 6,
+     "speaker": "borrower",
+     "text": "आप मुझे पुलिस और जेल की दमकी क्यों दे रहे हैं आपको बता रहा हूँ कि पेमेंट को डिले मत कीजिए"
+    },
+    {
+     "seq": 7,
+     "speaker": "borrower",
+     "text": "ठीक, आपनी तरफ से कुशिश करूँगा"
+    }
+   ]
+  },
+  {
+   "id": "CALL-0009-legacy-run1",
+   "call": "CALL-0009",
+   "pipeline": "legacy",
+   "recorded_model_opening": {
+    "name_stated": true,
+    "company_stated": true,
+    "purpose_stated": false,
+    "evidence_quote": "Good afternoon. This is Prit Jhavikar calling from Shahah, Finley's regarding Mr. Karan Malhotra."
+   },
+   "recorded_earlier_r6": "Mandatory opening missing required element(s): call purpose.",
+   "segments": [
+    {
+     "seq": 0,
+     "speaker": "agent",
+     "text": "Good afternoon. This is Prit Jhavikar calling from Shahah, Finley's regarding Mr. Karan Malhotra."
+    },
+    {
+     "seq": 1,
+     "speaker": "agent",
+     "text": "Am I speaking with someone from his office?"
+    },
+    {
+     "seq": 2,
+     "speaker": "borrower",
+     "text": "Yes, I am his colleague. May I know why are you calling?"
+    },
+    {
+     "seq": 3,
+     "speaker": "agent",
+     "text": "I am calling because Karan has an outstanding loan of 55,000 rupees to the company."
+    },
+    {
+     "seq": 4,
+     "speaker": "borrower",
+     "text": "I am sorry but I don't handle his personal matter. You should speak to him directly."
+    },
+    {
+     "seq": 5,
+     "speaker": "agent",
+     "text": "He has missed several payments. We haven't received the amount despite multiple reminders."
+    },
+    {
+     "seq": 6,
+     "speaker": "borrower",
+     "text": "That's private information. Why are you sharing it with me?"
+    },
+    {
+     "seq": 7,
+     "speaker": "agent",
+     "text": "Please ask him to contact Shahafinlees as soon as possible about his pending payments."
+    }
+   ]
+  },
+  {
+   "id": "CALL-0009-legacy-run2",
+   "call": "CALL-0009",
+   "pipeline": "legacy",
+   "recorded_model_opening": {
+    "name_stated": true,
+    "company_stated": false,
+    "purpose_stated": false,
+    "evidence_quote": "Good afternoon. This is Prit Jhavikar calling from Shahah, Finley's regarding Mr. Karan Malhotra."
+   },
+   "recorded_earlier_r6": "Mandatory opening missing required element(s): call purpose.",
+   "segments": [
+    {
+     "seq": 0,
+     "speaker": "agent",
+     "text": "Good afternoon. This is Prit Jhavikar calling from Shahah, Finley's regarding Mr. Karan Malhotra."
+    },
+    {
+     "seq": 1,
+     "speaker": "agent",
+     "text": "Am I speaking with someone from his office?"
+    },
+    {
+     "seq": 2,
+     "speaker": "borrower",
+     "text": "Yes, I am his colleague. May I know why are you calling?"
+    },
+    {
+     "seq": 3,
+     "speaker": "agent",
+     "text": "I am calling because Karan has an outstanding loan of 55,000 rupees to the company."
+    },
+    {
+     "seq": 4,
+     "speaker": "borrower",
+     "text": "I am sorry but I don't handle his personal matter. You should speak to him directly."
+    },
+    {
+     "seq": 5,
+     "speaker": "agent",
+     "text": "He has missed several payments. We haven't received the amount despite multiple reminders."
+    },
+    {
+     "seq": 6,
+     "speaker": "borrower",
+     "text": "That's private information. Why are you sharing it with me?"
+    },
+    {
+     "seq": 7,
+     "speaker": "agent",
+     "text": "Please ask him to contact Shahafinlees as soon as possible about his pending payments."
+    }
+   ]
+  },
+  {
+   "id": "CALL-0007-unified-run1",
+   "call": "CALL-0007",
+   "pipeline": "unified",
+   "recorded_model_opening": {
+    "agent_turns_considered": [
+     [
+      0
+     ],
+     [
+      2
+     ]
+    ],
+    "name": {
+     "stated": false,
+     "segment_index": null,
+     "evidence_quote": null
+    },
+    "company": {
+     "stated": true,
+     "segment_index": 0,
+     "evidence_quote": "एक प्रिच विकर बोल रहा हूं शहाफ इनली से मैं आपके पर्सनल लोन के पेंडिंग पेंडिंट के बारे में कॉल कर रहा हूं क्या मेरी बात रहुल मेहता जी से हो रही है"
+    },
+    "purpose": {
+     "stated": true,
+     "segment_index": 0,
+     "evidence_quote": "एक प्रिच विकर बोल रहा हूं शहाफ इनली से मैं आपके पर्सनल लोन के पेंडिंग पेंडिंट के बारे में कॉल कर रहा हूं"
+    },
+    "uncertain": false
+   },
+   "recorded_earlier_r6": "Mandatory opening missing required element(s): agent name.",
+   "segments": [
+    {
+     "seq": 0,
+     "speaker": "agent",
+     "text": "एक प्रिच विकर बोल रहा हूं शहाफ इनली से मैं आपके पर्सनल लोन के पेंडिंग पेंडिंट के बारे में कॉल कर रहा हूं क्या मेरी बात रहुल मेहता जी से हो रही है"
+    },
+    {
+     "seq": 1,
+     "speaker": "borrower",
+     "text": "आप बोली कितना पेंडिंग है"
+    },
+    {
+     "seq": 2,
+     "speaker": "agent",
+     "text": "सर आपकी अकाउंट में 22,000 रुपेया पैंडिंग है आप पेमेंट कब तक कर पाएंगे"
+    },
+    {
+     "seq": 3,
+     "speaker": "borrower",
+     "text": "मैं अगले अप्टे तक पेमेंट पैंडिंग कोशिश करूँ गा"
+    },
+    {
+     "seq": 4,
+     "speaker": "agent",
+     "text": "ठीक है सर मैं आपको पेमेंट रिक्वेस्ट भेज रहा हूँ"
+    },
+    {
+     "seq": 5,
+     "speaker": "agent",
+     "text": "आपके phone पर एक OTP आएगा"
+    },
+    {
+     "seq": 6,
+     "speaker": "agent",
+     "text": "Please OTP मुझे बता दीजे"
+    },
+    {
+     "seq": 7,
+     "speaker": "borrower",
+     "text": "मैं payment process कर देता हूँ"
+    }
+   ]
+  },
+  {
+   "id": "CALL-0008-unified-run1",
+   "call": "CALL-0008",
+   "pipeline": "unified",
+   "recorded_model_opening": {
+    "agent_turns_considered": [
+     [
+      0
+     ],
+     [
+      2
+     ]
+    ],
+    "name": {
+     "stated": true,
+     "segment_index": 0,
+     "evidence_quote": "मैं प्रीज वेकर बोल रहा हूँ"
+    },
+    "company": {
+     "stated": true,
+     "segment_index": 0,
+     "evidence_quote": "शहा पिनली"
+    },
+    "purpose": {
+     "stated": true,
+     "segment_index": 0,
+     "evidence_quote": "आपके पर्सनल लोन के पेंडिंग पेमेंट के बारे में बात कर रहा हूँ"
+    },
+    "uncertain": false
+   },
+   "recorded_earlier_r6": null,
+   "segments": [
+    {
+     "seq": 0,
+     "speaker": "agent",
+     "text": "नमस्ते मैं प्रीज वेकर बोल रहा हूँ शहा पिनली से मैं आपके पर्सनल लोन के पेंडिंग पेमेंट के बारे में बात कर रहा हूँ क्या मेरी बात रुहिद परमाजी से हो रही है"
+    },
+    {
+     "seq": 1,
+     "speaker": "borrower",
+     "text": "जी हाँ बताईए क्या बात है"
+    },
+    {
+     "seq": 2,
+     "speaker": "agent",
+     "text": "सर आपके लोन अकाउंट में 40,000 रुपया पेंडिंग है पेमेंट कब तक कर पाएंगे"
+    },
+    {
+     "seq": 3,
+     "speaker": "borrower",
+     "text": "अभी मेरे पाइनेंटल सिच्टिएशन ठीक नहीं है मुझे थोड़ा और टाइम चाहिए"
+    },
+    {
+     "seq": 4,
+     "speaker": "agent",
+     "text": "सर आपने पहले भी टाइम मांगा था हमें पेमेंट की एक क्लियर डेट चाहिए"
+    },
+    {
+     "seq": 5,
+     "speaker": "agent",
+     "text": "अगर आपने पेमेंट नहीं की तो मैं पुलिस भीज़ दूंगा और आपको जेल जाना पड़ेगा"
+    },
+    {
+     "seq": 6,
+     "speaker": "agent",
+     "text": "आप मुझे पुलिस और जेल की दमकी क्यों दे रहे हैं चैनल कर दूपाए आपको बता रहा हूं कि पेमेंट को डिले मत कीजिये"
+    },
+    {
+     "seq": 7,
+     "speaker": "borrower",
+     "text": "ठीक, आपनी तरफ से कुशिश करूँगा"
+    }
+   ]
+  },
+  {
+   "id": "CALL-0009-unified-run1",
+   "call": "CALL-0009",
+   "pipeline": "unified",
+   "recorded_model_opening": {
+    "agent_turns_considered": [
+     [
+      0,
+      1
+     ],
+     [
+      3
+     ]
+    ],
+    "name": {
+     "stated": true,
+     "segment_index": 0,
+     "evidence_quote": "Good afternoon. This is Prit Jhavikar calling from Shahah, Finley's regarding Mr. Karan Malhotra."
+    },
+    "company": {
+     "stated": true,
+     "segment_index": 0,
+     "evidence_quote": "Good afternoon. This is Prit Jhavikar calling from Shahah, Finley's regarding Mr. Karan Malhotra."
+    },
+    "purpose": {
+     "stated": false,
+     "segment_index": null,
+     "evidence_quote": null
+    },
+    "uncertain": false
+   },
+   "recorded_earlier_r6": "Mandatory opening missing required element(s): call purpose.",
+   "segments": [
+    {
+     "seq": 0,
+     "speaker": "agent",
+     "text": "Good afternoon. This is Prit Jhavikar calling from Shahah, Finley's regarding Mr. Karan Malhotra."
+    },
+    {
+     "seq": 1,
+     "speaker": "agent",
+     "text": "Am I speaking with someone from his office?"
+    },
+    {
+     "seq": 2,
+     "speaker": "borrower",
+     "text": "Yes, I am his colleague. May I know why are you calling?"
+    },
+    {
+     "seq": 3,
+     "speaker": "agent",
+     "text": "I am calling because Karan has an outstanding loan of 55,000 rupees to the company."
+    },
+    {
+     "seq": 4,
+     "speaker": "borrower",
+     "text": "I am sorry but I don't handle his personal matter. You should speak to him directly."
+    },
+    {
+     "seq": 5,
+     "speaker": "agent",
+     "text": "He has missed several payments. We haven't received the amount despite multiple reminders."
+    },
+    {
+     "seq": 6,
+     "speaker": "borrower",
+     "text": "That's private information. Why are you sharing it with me?"
+    },
+    {
+     "seq": 7,
+     "speaker": "agent",
+     "text": "Please ask him to contact Shahafinlees as soon as possible about his pending payments."
+    }
+   ]
+  }
+ ]
+}

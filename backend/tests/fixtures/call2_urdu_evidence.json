@@ -1,0 +1,64 @@
+{
+ "about": "Call 2, generalized-prompt run (live, earlier). The model quoted a Urdu-script threat in Devanagari, so the verbatim check rejected a genuine finding. Used only as offline regression data.",
+ "segments": [
+  {
+   "seq": 9,
+   "speaker": "borrower",
+   "text": "آپ ہمیں بے وکوف سمجھتے ہو کیا"
+  },
+  {
+   "seq": 10,
+   "speaker": "borrower",
+   "text": "آپ ایسے بات نہ کیجئے"
+  },
+  {
+   "seq": 11,
+   "speaker": "borrower",
+   "text": "اگر کل تک پیسہ نہیں آیا"
+  },
+  {
+   "seq": 12,
+   "speaker": "borrower",
+   "text": "تو میں پولیس بھیج دوں گا"
+  },
+  {
+   "seq": 13,
+   "speaker": "borrower",
+   "text": "اور آپ کو جیل جانا پڑے گا"
+  },
+  {
+   "seq": 14,
+   "speaker": "borrower",
+   "text": "آپ مجھے دڑا رہے ہیں"
+  },
+  {
+   "seq": 15,
+   "speaker": "borrower",
+   "text": "یا یہ کلت ہے"
+  },
+  {
+   "seq": 16,
+   "speaker": "borrower",
+   "text": "ڈرنا چاہیے"
+  },
+  {
+   "seq": 17,
+   "speaker": "borrower",
+   "text": "ابھی پیسہ آئے گا"
+  },
+  {
+   "seq": 18,
+   "speaker": "agent",
+   "text": "ہم آپ کے گھر بھی آئیں گے"
+  }
+ ],
+ "rejected_model_entry": {
+  "rule_code": "R3",
+  "segment_index": 18,
+  "quote": "हम आप के घर भी आएँगे",
+  "speaker": "agent",
+  "explanation": "Agent threatens to visit the borrower’s residence, constituting intimidation",
+  "confidence": 0.9,
+  "uncertain": false
+ }
+}
