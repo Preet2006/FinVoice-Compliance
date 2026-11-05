@@ -18,7 +18,7 @@ Shaha Finlease is a prototype system for reviewing debt-collection calls. It com
 - Server-managed authentication with Argon2id password hashes, HTTP-only sessions, CSRF protection, and role scoping.
 - Caller, manager, and Head of Collections permissions.
 - Dashboard analytics, search, filters, sorting, tabs, pagination, and evaluation metrics.
-- Batch upload of audio and metadata CSV with validation and processing-status polling.
+- Single-call upload with manually entered metadata, plus batch upload of audio and metadata CSV with validation and processing-status polling.
 
 ## Architecture
 
@@ -79,7 +79,7 @@ Reviewers can play audio, navigate transcript evidence, inspect speaker labels, 
 
 ### Upload
 
-Managers and Heads can upload audio plus a metadata CSV. The API validates the batch before processing, reports accepted/rejected files, and exposes batch status. Callers receive `403` and cannot upload or start analysis.
+Managers and Heads can upload one call using manually entered metadata or upload multiple recordings with a metadata CSV. Both modes use the same backend validation and create queued calls. Analysis remains a separate explicit action, so both modes use the same transcription, unified analysis, evidence validation, scoring, review, and dashboard pipeline. Callers receive `403` and cannot upload or start analysis.
 
 | Role | Visibility | Permitted actions |
 |---|---|---|
@@ -161,7 +161,7 @@ The legacy-header compatibility switch is disabled by default and is enabled onl
 | Authentication | `/api/auth/login`, `/me`, `/logout` |
 | Calls | `GET /api/calls`, `GET /api/calls/{id}`, transcript, violations, reprocess |
 | Dashboard | `GET /api/dashboard` |
-| Uploads | `POST /api/uploads/batch`, `GET /api/uploads/batch/{id}` |
+| Uploads | `POST /api/uploads/single`, `POST /api/uploads/batch`, `GET /api/uploads/batch/{id}` |
 | Reviews | `POST /api/violations/{id}/review`, call sign-off |
 | Corrections | Speaker correction, manual finding, audit history under `/api/calls/{id}` |
 | Media | `GET /api/media/{call_id}` |

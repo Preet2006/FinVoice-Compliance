@@ -7,7 +7,7 @@ file. (Roles are a prototype convention, not authentication.)
 
 from pathlib import Path
 
-from fastapi import APIRouter, Depends, File, HTTPException, UploadFile
+from fastapi import APIRouter, Depends, File, Form, HTTPException, UploadFile
 from sqlalchemy.orm import Session
 
 from app.config import settings
@@ -45,6 +45,52 @@ async def upload_batch(
         db=db,
         csv_bytes=csv_bytes,
         audio_files=audio_payload,
+        audio_dir=Path(settings.audio_dir),
+        max_upload_size_bytes=settings.max_upload_size_bytes,
+    )
+
+    return UploadBatchResponse(
+        batch_id=result.batch_id,
+        accepted=[
+            {"call_id": a.call_id, "filename": a.filename, "status": a.status}
+            for a in result.accepted
+        ],
+        rejected=[
+            {"identifier": r.identifier, "reason": r.reason, "detail": r.detail}
+            for r in result.rejected
+        ],
+    )
+
+
+@router.post("/single", response_model=UploadBatchResponse, status_code=202)
+async def upload_single(
+    audio_file: UploadFile = File(...),
+    caller_id: str = Form(...),
+    office_id: str = Form(...),
+    account_type: str = Form(...),
+    start_time: str = Form(...),
+    language: str = Form(""),
+    call_id: str = Form(""),
+    ctx: RoleContext = Depends(get_role_context),
+    db: Session = Depends(get_db),
+):
+    """Create one queued call from manually entered metadata.
+
+    This is a convenience input mode only. The service converts the fields to
+    the same canonical metadata shape as CSV ingestion, and analysis remains a
+    separate explicit action through the existing analysis queue.
+    """
+    _require_uploader(ctx)
+    result = upload_service.process_single(
+        db=db,
+        call_id=call_id,
+        audio_filename=audio_file.filename or "",
+        audio_content=await audio_file.read(),
+        caller_id=caller_id,
+        office_id=office_id,
+        account_type=account_type,
+        start_time=start_time,
+        language=language,
         audio_dir=Path(settings.audio_dir),
         max_upload_size_bytes=settings.max_upload_size_bytes,
     )

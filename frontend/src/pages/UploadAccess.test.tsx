@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, afterEach } from 'vitest'
-import { render, screen, cleanup } from '@testing-library/react'
+import { render, screen, cleanup, fireEvent } from '@testing-library/react'
 import { MemoryRouter, Route, Routes } from 'react-router-dom'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { UploadPage } from './UploadPage'
@@ -35,6 +35,17 @@ describe('upload access by role', () => {
     expect(screen.getByRole('link', { name: 'Upload' })).toBeInTheDocument()
     expect(screen.queryByTestId('upload-denied')).not.toBeInTheDocument()
     expect(screen.getByRole('heading', { name: 'Upload Calls' })).toBeInTheDocument()
+  })
+
+  it('offers a single-call form that keeps analysis separate from upload', () => {
+    identity.role = 'manager'
+    app('/upload')
+    fireEvent.click(screen.getByTestId('single-upload-mode'))
+    expect(screen.getByRole('heading', { name: 'Upload one call' })).toBeInTheDocument()
+    expect(screen.getByLabelText('Audio recording')).toBeInTheDocument()
+    expect(screen.getByLabelText('Caller')).toBeInTheDocument()
+    expect(screen.getByLabelText('Office')).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'Create queued call' })).toBeDisabled()
   })
 
   it('a caller has no Upload link', () => {

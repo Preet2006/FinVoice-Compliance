@@ -1,7 +1,9 @@
-import { useRef, useState } from 'react'
+import { useRef, useState, type FormEvent } from 'react'
 import { Link } from 'react-router-dom'
 import { ApiError } from '../api/client'
-import { useUploadBatch } from '../api/uploads'
+import type { RoleHeaders } from '../api/client'
+import { useOffices, useUsers } from '../api/meta'
+import { useUploadBatch, useUploadSingle } from '../api/uploads'
 import { BatchAnalysisPanel } from '../components/analysis/BatchAnalysisPanel'
 import { useRoleContext } from '../context/RoleContext'
 
@@ -40,10 +42,111 @@ function dropzoneStyle(isDragging: boolean) {
   }
 }
 
-function UploadWorkspace() {
-  const { role, activeUserId } = useRoleContext()
-  const headers = activeUserId ? { role, userId: activeUserId } : null
+function SingleCallWorkspace({ headers }: { headers: RoleHeaders | null }) {
+  const callers = useUsers('caller')
+  const offices = useOffices()
+  const upload = useUploadSingle(headers)
+  const [audioFile, setAudioFile] = useState<File | null>(null)
+  const [callId, setCallId] = useState('')
+  const [callerId, setCallerId] = useState('')
+  const [officeId, setOfficeId] = useState('')
+  const [accountType, setAccountType] = useState<'personal_loan' | 'credit_card'>('personal_loan')
+  const [startTime, setStartTime] = useState('')
+  const [language, setLanguage] = useState('hi')
 
+  const canSubmit = Boolean(audioFile && callerId && officeId && startTime && !upload.isPending)
+
+  function submit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault()
+    if (!audioFile || !canSubmit) return
+    upload.mutate({
+      audioFile,
+      callId,
+      callerId,
+      officeId,
+      accountType,
+      startTime,
+      language,
+    })
+  }
+
+  return (
+    <div style={{ display: 'grid', gap: '20px' }}>
+      <div>
+        <p style={{ color: 'var(--brand)', fontSize: 'var(--text-xs)', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase' }}>Single-call workspace</p>
+        <h1 style={{ marginTop: '6px', fontSize: 'var(--text-2xl)', fontWeight: 700, letterSpacing: '-0.02em' }}>Upload one call</h1>
+        <p style={{ color: 'var(--text-secondary)', marginTop: '6px', maxWidth: '720px' }}>
+          Enter the same metadata normally supplied by one CSV row. The call will be queued first; you can explicitly start the complete analysis pipeline afterwards.
+        </p>
+      </div>
+
+      <form onSubmit={submit} style={{ ...panelStyle, padding: '20px', display: 'grid', gap: '16px' }}>
+        <div style={{ display: 'grid', gap: '6px' }}>
+          <label htmlFor="single-audio" style={{ fontWeight: 600 }}>Audio recording</label>
+          <input id="single-audio" type="file" accept=".wav,.mp3,audio/wav,audio/mpeg" onChange={(event) => setAudioFile(event.target.files?.[0] ?? null)} />
+          <span style={{ color: 'var(--text-secondary)', fontSize: 'var(--text-sm)' }}>{audioFile ? `${audioFile.name} · ${formatBytes(audioFile.size)}` : 'WAV or MP3, one file only'}</span>
+        </div>
+
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
+          <label style={{ display: 'grid', gap: '6px', fontWeight: 600 }}>
+            Call ID <span style={{ color: 'var(--text-secondary)', fontSize: 'var(--text-xs)', fontWeight: 400 }}>Optional; generated if empty</span>
+            <input value={callId} onChange={(event) => setCallId(event.target.value)} placeholder="CALL-TEST-001" style={{ minHeight: '38px', padding: '8px 10px', border: '1px solid var(--border)', borderRadius: 'var(--radius-input)' }} />
+          </label>
+          <label style={{ display: 'grid', gap: '6px', fontWeight: 600 }}>
+            Caller
+            <select required value={callerId} onChange={(event) => setCallerId(event.target.value)} style={{ minHeight: '38px', padding: '8px 10px', border: '1px solid var(--border)', borderRadius: 'var(--radius-input)', background: 'var(--surface-1)' }}>
+              <option value="">Select caller</option>
+              {callers.data?.map((caller) => <option key={caller.id} value={caller.id}>{caller.name} ({caller.id})</option>)}
+            </select>
+          </label>
+          <label style={{ display: 'grid', gap: '6px', fontWeight: 600 }}>
+            Office
+            <select required value={officeId} onChange={(event) => setOfficeId(event.target.value)} style={{ minHeight: '38px', padding: '8px 10px', border: '1px solid var(--border)', borderRadius: 'var(--radius-input)', background: 'var(--surface-1)' }}>
+              <option value="">Select office</option>
+              {offices.data?.map((office) => <option key={office.id} value={office.id}>{office.name} ({office.id})</option>)}
+            </select>
+          </label>
+          <label style={{ display: 'grid', gap: '6px', fontWeight: 600 }}>
+            Account type
+            <select value={accountType} onChange={(event) => setAccountType(event.target.value as 'personal_loan' | 'credit_card')} style={{ minHeight: '38px', padding: '8px 10px', border: '1px solid var(--border)', borderRadius: 'var(--radius-input)', background: 'var(--surface-1)' }}>
+              <option value="personal_loan">Personal loan</option>
+              <option value="credit_card">Credit card</option>
+            </select>
+          </label>
+          <label style={{ display: 'grid', gap: '6px', fontWeight: 600 }}>
+            Call start time
+            <input required type="datetime-local" value={startTime} onChange={(event) => setStartTime(event.target.value)} style={{ minHeight: '38px', padding: '8px 10px', border: '1px solid var(--border)', borderRadius: 'var(--radius-input)' }} />
+          </label>
+          <label style={{ display: 'grid', gap: '6px', fontWeight: 600 }}>
+            Language
+            <select value={language} onChange={(event) => setLanguage(event.target.value)} style={{ minHeight: '38px', padding: '8px 10px', border: '1px solid var(--border)', borderRadius: 'var(--radius-input)', background: 'var(--surface-1)' }}>
+              <option value="hi">Hindi</option>
+              <option value="hi-en">Hindi-English</option>
+              <option value="en">English</option>
+              <option value="mr">Marathi</option>
+            </select>
+          </label>
+        </div>
+
+        <button type="submit" disabled={!canSubmit} style={{ minHeight: '40px', justifySelf: 'start', padding: '10px 18px', border: 0, borderRadius: 'var(--radius-input)', background: canSubmit ? 'var(--brand)' : 'var(--surface-2)', color: canSubmit ? '#fff' : 'var(--text-secondary)', cursor: canSubmit ? 'pointer' : 'not-allowed', fontWeight: 700 }}>
+          {upload.isPending ? 'Uploading…' : 'Create queued call'}
+        </button>
+      </form>
+
+      {upload.isError && <p role="alert" style={{ padding: '14px 16px', background: 'var(--error-bg)', borderRadius: 'var(--radius-input)', color: 'var(--critical)' }}>{upload.error instanceof ApiError ? upload.error.message : 'Upload failed unexpectedly.'}</p>}
+
+      {upload.data && (
+        <div style={{ ...panelStyle, padding: '18px' }}>
+          <p style={{ color: 'var(--brand)', fontSize: 'var(--text-xs)', fontWeight: 700, letterSpacing: '0.06em', textTransform: 'uppercase' }}>Single call created</p>
+          {upload.data.accepted.length > 0 && <BatchAnalysisPanel accepted={upload.data.accepted} headers={headers} canRun />}
+          {upload.data.rejected.map((item) => <p key={item.identifier} role="alert" style={{ marginTop: '12px', color: 'var(--critical)' }}>{item.identifier}: {item.reason}{item.detail ? ` — ${item.detail}` : ''}</p>)}
+        </div>
+      )}
+    </div>
+  )
+}
+
+function BatchUploadWorkspace({ headers, role }: { headers: RoleHeaders | null; role: string }) {
   const [audioFiles, setAudioFiles] = useState<File[]>([])
   const [csvFile, setCsvFile] = useState<File | null>(null)
   const [draggingAudio, setDraggingAudio] = useState(false)
@@ -249,6 +352,26 @@ function UploadWorkspace() {
           )}
         </div>
       )}
+    </div>
+  )
+}
+
+function UploadWorkspace() {
+  const { role, activeUserId } = useRoleContext()
+  const headers = activeUserId ? { role, userId: activeUserId } : null
+  const [mode, setMode] = useState<'single' | 'batch'>('batch')
+
+  return (
+    <div style={{ display: 'grid', gap: '20px' }}>
+      <div style={{ ...panelStyle, padding: '8px', display: 'inline-flex', gap: '6px', width: 'fit-content' }} role="tablist" aria-label="Upload mode">
+        <button type="button" role="tab" aria-selected={mode === 'single'} data-testid="single-upload-mode" onClick={() => setMode('single')} style={{ ...secondaryButtonStyle, background: mode === 'single' ? 'var(--brand)' : 'var(--surface-1)', color: mode === 'single' ? '#fff' : 'var(--text-primary)' }}>
+          Single call
+        </button>
+        <button type="button" role="tab" aria-selected={mode === 'batch'} data-testid="batch-upload-mode" onClick={() => setMode('batch')} style={{ ...secondaryButtonStyle, background: mode === 'batch' ? 'var(--brand)' : 'var(--surface-1)', color: mode === 'batch' ? '#fff' : 'var(--text-primary)' }}>
+          Batch with CSV
+        </button>
+      </div>
+      {mode === 'single' ? <SingleCallWorkspace headers={headers} /> : <BatchUploadWorkspace headers={headers} role={role} />}
     </div>
   )
 }

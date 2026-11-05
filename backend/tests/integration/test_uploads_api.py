@@ -35,6 +35,22 @@ def upload(client, headers, csv_text, files):
     return client.post("/api/uploads/batch", headers=headers, files=multipart_files)
 
 
+def upload_single(client, headers, filename="single.wav", call_id="CALL-SINGLE-01"):
+    return client.post(
+        "/api/uploads/single",
+        headers=headers,
+        files={"audio_file": (filename, make_wav_bytes(), "audio/wav")},
+        data={
+            "call_id": call_id,
+            "caller_id": "u-caller1",
+            "office_id": "o-01",
+            "account_type": "personal_loan",
+            "start_time": "2026-10-15T10:00:00",
+            "language": "hi",
+        },
+    )
+
+
 def test_successful_upload_and_ingestion(client, scratch_audio_dir):
     wav = make_wav_bytes()
     csv_text = VALID_HEADER + (
@@ -53,6 +69,57 @@ def test_successful_upload_and_ingestion(client, scratch_audio_dir):
     assert resp2.status_code == 200
     assert resp2.json()["status"] == "queued"
     assert resp2.json()["duration_seconds"] == 1
+
+
+def test_single_upload_creates_the_same_queued_call_shape(client, scratch_audio_dir):
+    resp = upload_single(client, HEAD_HEADERS)
+    assert resp.status_code == 202
+    body = resp.json()
+    assert body["rejected"] == []
+    assert body["accepted"] == [{"call_id": "CALL-SINGLE-01", "filename": "single.wav", "status": "queued"}]
+
+    call = client.get("/api/calls/CALL-SINGLE-01", headers=HEAD_HEADERS)
+    assert call.status_code == 200
+    assert call.json()["status"] == "queued"
+    assert call.json()["duration_seconds"] == 1
+    assert (scratch_audio_dir / "single.wav").exists()
+
+
+def test_single_upload_generates_call_id_when_omitted(client, scratch_audio_dir):
+    resp = upload_single(client, HEAD_HEADERS, filename="generated.wav", call_id="")
+    assert resp.status_code == 202
+    accepted = resp.json()["accepted"]
+    assert len(accepted) == 1
+    assert accepted[0]["call_id"].startswith("CALL-MANUAL-")
+    assert accepted[0]["status"] == "queued"
+
+
+def test_single_upload_reuses_validation_and_rejects_bad_metadata(client, scratch_audio_dir):
+    resp = client.post(
+        "/api/uploads/single",
+        headers=HEAD_HEADERS,
+        files={"audio_file": ("bad-single.wav", make_wav_bytes(), "audio/wav")},
+        data={
+            "call_id": "CALL-SINGLE-BAD",
+            "caller_id": "u-ghost",
+            "office_id": "o-01",
+            "account_type": "personal_loan",
+            "start_time": "2026-10-15T10:00:00",
+            "language": "hi",
+        },
+    )
+    assert resp.status_code == 202
+    assert resp.json()["accepted"] == []
+    assert resp.json()["rejected"][0]["reason"] == "unknown_caller_id"
+    assert list(scratch_audio_dir.iterdir()) == []
+
+
+def test_caller_single_upload_is_refused_and_leaves_no_trace(client, scratch_audio_dir):
+    before = client.get("/api/calls", headers=HEAD_HEADERS).json()["total"]
+    resp = upload_single(client, CALLER1_HEADERS, call_id="CALL-SINGLE-FORBIDDEN")
+    assert resp.status_code == 403
+    assert client.get("/api/calls", headers=HEAD_HEADERS).json()["total"] == before
+    assert list(scratch_audio_dir.iterdir()) == []
 
 
 def test_malformed_file_disguised_as_wav_rejected(client, scratch_audio_dir):

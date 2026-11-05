@@ -320,3 +320,49 @@ def process_batch(
             result.rejected.append(RejectedItem(name, "no_matching_call_id_in_csv"))
 
     return result
+
+
+def process_single(
+    db: Session,
+    *,
+    call_id: str,
+    audio_filename: str,
+    audio_content: bytes,
+    caller_id: str,
+    office_id: str,
+    account_type: str,
+    start_time: str,
+    language: str,
+    audio_dir: Path,
+    max_upload_size_bytes: int,
+) -> BatchResult:
+    """Create one queued call using the same path as CSV batch ingestion.
+
+    Manual metadata is converted to the same seven-column representation used
+    by ``process_batch``. This keeps validation, filename safety, audio
+    storage, duplicate protection, duration extraction and call creation
+    identical for single-call and CSV uploads. Analysis is intentionally not
+    started here; the existing analysis queue starts it after the user acts.
+    """
+    generated_call_id = call_id.strip() or f"CALL-MANUAL-{uuid.uuid4().hex[:12].upper()}"
+    row = [
+        generated_call_id,
+        audio_filename,
+        caller_id,
+        office_id,
+        account_type,
+        start_time,
+        language,
+    ]
+    csv_buffer = io.StringIO()
+    writer = csv.writer(csv_buffer)
+    writer.writerow(REQUIRED_CSV_COLUMNS)
+    writer.writerow(row)
+
+    return process_batch(
+        db=db,
+        csv_bytes=csv_buffer.getvalue().encode("utf-8"),
+        audio_files=[(audio_filename, audio_content)],
+        audio_dir=audio_dir,
+        max_upload_size_bytes=max_upload_size_bytes,
+    )
