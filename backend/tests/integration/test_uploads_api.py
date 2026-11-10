@@ -71,6 +71,21 @@ def test_successful_upload_and_ingestion(client, scratch_audio_dir):
     assert resp2.json()["duration_seconds"] == 1
 
 
+def test_company_metadata_schema_creates_metadata_identities_and_queues_call(client, scratch_audio_dir):
+    company_header = "call_id,audio_file,caller_id,caller_name,office,manager_id,manager_name,start_time,language\n"
+    company_csv = company_header + "call_01,call_01.wav,CL01,Pooja Rane,Jogeshwari,MG01,Sachin Kamble,2026-10-26 11:15,Hindi\n"
+    resp = upload(client, HEAD_HEADERS, company_csv, [("call_01.wav", make_wav_bytes())])
+    assert resp.status_code == 202
+    assert resp.json()["rejected"] == []
+    assert resp.json()["accepted"][0]["call_id"] == "call_01"
+
+    call = client.get("/api/calls/call_01", headers=HEAD_HEADERS)
+    assert call.status_code == 200
+    assert call.json()["status"] == "queued"
+    assert call.json()["start_time"].startswith("2026-10-26T11:15")
+    assert (scratch_audio_dir / "call_01.wav").exists()
+
+
 def test_single_upload_creates_the_same_queued_call_shape(client, scratch_audio_dir):
     resp = upload_single(client, HEAD_HEADERS)
     assert resp.status_code == 202

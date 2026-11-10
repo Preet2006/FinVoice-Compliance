@@ -1,0 +1,26 @@
+call_id,line_ref,rule_code,severity,description
+call_01,,NONE,,Clean call
+call_02,Agent line 4,R2,Critical,Agent calls the borrower bewakoof
+call_02,Agent line 5,R3,Critical,Agent threatens to send police and jail
+call_02,Agent line 6,R3,Critical,Agent threatens to come to the borrower's house
+call_02,Agent line 1,R6,Medium,Agent does not provide a personal name in the opening
+call_03,metadata,R1,High,Call starts at 19:40 which is after 7 PM
+call_03,Agent line 1,R6,Medium,Agent gives no name or company or purpose (still missing in line 2)
+call_03,Agent line 3,R5,High,Agent asks the borrower to read out an OTP
+call_03,Agent line 4,R5,High,Agent presses again for the OTP
+call_04,Agent line 2,R4,Critical,Agent tells the borrower's brother about the loan and unpaid instalments
+call_04,Agent line 3,R4,Critical,Agent shames the borrower to a third party and calls him a defaulter
+call_04,Agent line 4,R4,Critical,Agent threatens to tell the borrower's office
+call_04,Agent line 1,R6,Medium,Agent does not provide a name, company or clear purpose in the opening
+call_05,Agent line 1,R6,Medium,Agent provides company and purpose but does not provide a personal name
+call_06,Agent line 1,R6,Medium,Agent gives no name or company or purpose
+call_06,Agent line 3,R2,Critical,Agent calls the borrower gadha (donkey)
+call_07,Agent line 3,R3,Critical,Agent threatens to have the borrower arrested
+call_07,Agent line 4,R5,High,Agent asks for card number and PIN and CVV
+call_07,Agent line 1,R6,Medium,Agent provides company and purpose but does not provide a personal name
+call_08,metadata,R1,High,Call starts at 07:25 which is before 8 AM
+call_08,Agent line 2,R4,Critical,Agent tells the borrower's wife about the unpaid dues and says he is cheating
+call_08,Agent line 3,R4,Critical,Agent threatens to tell the neighbours
+call_08,Agent line 1,R6,Medium,Agent does not provide a name, company or clear purpose in the opening
+call_09,Agent line 1,R6,Medium,Agent provides company and purpose but does not provide a personal name
+call_10,,NONE,,Clean call; borrower asks for a callback and the agent agrees

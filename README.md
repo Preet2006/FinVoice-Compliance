@@ -153,6 +153,51 @@ alembic upgrade head
 
 The legacy-header compatibility switch is disabled by default and is enabled only by offline test fixtures. It must remain disabled in deployed configuration.
 
+### Company demo handoff
+
+For a company member who wants to try the application locally with the supplied demo recordings, provide the clean demo database through a private handoff. Do not publish `.env`, API keys, plaintext passwords, or password hashes in documentation.
+
+The clean demo database contains authentication/reference data only:
+
+- Head: `u-001`
+- Manager: `u-002`
+- Caller: `u-009`
+- No old calls, transcripts, violations, reviews, or evaluation results
+
+The demo password is supplied separately. Use the Head or Manager account for uploads; the Caller account cannot upload or start analysis.
+
+After cloning the repository, place the private database at:
+
+```text
+backend/data/compliance.db
+```
+
+On a fresh clone, start the application with the normal commands below. No custom `DATABASE_URL` is required when the database is at that path:
+
+```powershell
+cd "<project-folder>\backend"
+python -m venv venv
+.\venv\Scripts\Activate.ps1
+pip install -r requirements.txt
+python -m uvicorn app.main:app --host 127.0.0.1 --port 8000
+```
+
+In a second PowerShell window:
+
+```powershell
+cd "<project-folder>\frontend"
+npm.cmd install
+npm.cmd run dev
+```
+
+Open the frontend URL shown by Vite, sign in with the privately supplied demo password, and use the Upload page. The company metadata format is accepted without editing the supplied CSV:
+
+```csv
+call_id,audio_file,caller_id,caller_name,office,manager_id,manager_name,start_time,language
+```
+
+Select the audio files together with `call_metadata_.csv`. The application parses timestamps such as `2026-10-26 11:15`, queues the calls, and uses the existing transcription, unified analysis, evidence validation, scoring, review, and dashboard workflow. `answer_key.csv` is used only for offline evaluation metrics and should not be uploaded as metadata or sent to the AI providers.
+
 ## API overview
 
 | Group | Main endpoints |

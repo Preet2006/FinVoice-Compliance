@@ -20,6 +20,7 @@ build/
 *.db
 *.sqlite
 *.sqlite3
+!backend/data/company_demo_clean.db
 backend/data/backups/
 
 # Alembic

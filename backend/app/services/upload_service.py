@@ -34,6 +34,17 @@ REQUIRED_CSV_COLUMNS = [
     "start_time",
     "language",
 ]
+COMPANY_CSV_COLUMNS = [
+    "call_id",
+    "audio_file",
+    "caller_id",
+    "caller_name",
+    "office",
+    "manager_id",
+    "manager_name",
+    "start_time",
+    "language",
+]
 
 ALLOWED_AUDIO_EXTENSIONS = {".wav", ".mp3"}
 ALLOWED_ACCOUNT_TYPES = {"personal_loan", "credit_card"}
@@ -103,6 +114,11 @@ class CsvRow:
     account_type: str = ""
     start_time: Optional[datetime] = None
     language: str = ""
+    caller_name: str = ""
+    office_name: str = ""
+    manager_id: str = ""
+    manager_name: str = ""
+    source_schema: str = "canonical"
 
 
 @dataclass
@@ -140,9 +156,20 @@ def parse_metadata_csv(csv_bytes: bytes) -> list[CsvRow]:
     if reader.fieldnames is None:
         raise CsvFormatError("CSV has no header row.")
 
-    missing = [c for c in REQUIRED_CSV_COLUMNS if c not in reader.fieldnames]
-    if missing:
-        raise CsvFormatError(f"CSV is missing required column(s): {', '.join(missing)}")
+    if all(c in reader.fieldnames for c in REQUIRED_CSV_COLUMNS):
+        schema = "canonical"
+    elif all(c in reader.fieldnames for c in COMPANY_CSV_COLUMNS):
+        schema = "company"
+    else:
+        canonical_missing = [c for c in REQUIRED_CSV_COLUMNS if c not in reader.fieldnames]
+        company_missing = [c for c in COMPANY_CSV_COLUMNS if c not in reader.fieldnames]
+        raise CsvFormatError(
+            "CSV must use either the canonical columns "
+            f"({', '.join(REQUIRED_CSV_COLUMNS)}) or the company columns "
+            f"({', '.join(COMPANY_CSV_COLUMNS)}). "
+            f"Missing canonical: {', '.join(canonical_missing)}; "
+            f"missing company: {', '.join(company_missing)}"
+        )
 
     rows = []
     for i, raw in enumerate(reader, start=2):  # header is line 1
@@ -150,12 +177,17 @@ def parse_metadata_csv(csv_bytes: bytes) -> list[CsvRow]:
             CsvRow(
                 line_number=i,
                 call_id=(raw.get("call_id") or "").strip(),
-                filename=(raw.get("filename") or "").strip(),
+                filename=(raw.get("filename") or raw.get("audio_file") or "").strip(),
                 caller_id=(raw.get("caller_id") or "").strip(),
                 office_id=(raw.get("office_id") or "").strip(),
-                account_type=(raw.get("account_type") or "").strip(),
+                account_type=(raw.get("account_type") or "personal_loan").strip(),
                 start_time=_try_parse_timestamp(raw.get("start_time")),
                 language=(raw.get("language") or "").strip(),
+                caller_name=(raw.get("caller_name") or "").strip(),
+                office_name=(raw.get("office") or "").strip(),
+                manager_id=(raw.get("manager_id") or "").strip(),
+                manager_name=(raw.get("manager_name") or "").strip(),
+                source_schema=schema,
             )
         )
     return rows
@@ -186,6 +218,71 @@ def _try_parse_timestamp(raw: Optional[str]) -> Optional[datetime]:
     if parsed.tzinfo is not None:
         parsed = parsed.astimezone(IST).replace(tzinfo=None)
     return parsed
+
+
+def _company_slug(value: str) -> str:
+    slug = re.sub(r"[^a-z0-9]+", "-", value.lower()).strip("-")
+    return slug or "office"
+
+
+def _resolve_company_entities(db: Session, row: CsvRow) -> Optional[str]:
+    """Resolve the company CSV's human-readable ownership fields.
+
+    Company metadata uses external caller/manager IDs and office names rather
+    than the canonical database office IDs. Missing metadata identities are
+    created as non-login records in the current database; passwords are never
+    generated here. Existing records are never silently reassigned.
+    """
+    if not row.caller_name or not row.office_name or not row.manager_id or not row.manager_name:
+        return "missing_company_identity_field"
+
+    office = next(
+        (o for o in db.query(Office).all() if o.name.strip().casefold() == row.office_name.casefold()),
+        None,
+    )
+    if office is None:
+        office_id = f"company-office-{_company_slug(row.office_name)}"
+        office = db.get(Office, office_id)
+        if office is None:
+            office = Office(id=office_id, name=row.office_name.strip())
+            db.add(office)
+            db.flush()
+    row.office_id = office.id
+
+    manager = db.get(AppUser, row.manager_id)
+    if manager is None:
+        manager = AppUser(
+            id=row.manager_id,
+            name=row.manager_name,
+            role="manager",
+            office_id=office.id,
+            password_hash=None,
+        )
+        db.add(manager)
+        db.flush()
+    elif manager.role != "manager" or manager.name.strip() != row.manager_name:
+        return "manager_id_conflict"
+    elif manager.office_id != office.id:
+        return "manager_office_conflict"
+
+    caller = db.get(AppUser, row.caller_id)
+    if caller is None:
+        db.add(
+            AppUser(
+                id=row.caller_id,
+                name=row.caller_name,
+                role="caller",
+                office_id=office.id,
+                manager_id=manager.id,
+                password_hash=None,
+            )
+        )
+        db.flush()
+    elif caller.role != "caller" or caller.name.strip() != row.caller_name:
+        return "caller_id_conflict"
+    elif caller.office_id != office.id or caller.manager_id != manager.id:
+        return "caller_ownership_conflict"
+    return None
 
 
 def process_batch(
@@ -256,12 +353,20 @@ def process_batch(
         if row.start_time is None:
             result.rejected.append(RejectedItem(ident, "invalid_timestamp"))
             continue
-        if row.office_id not in office_ids:
-            result.rejected.append(RejectedItem(ident, "unknown_office_id"))
-            continue
-        if row.caller_id not in caller_ids:
-            result.rejected.append(RejectedItem(ident, "unknown_caller_id"))
-            continue
+        if row.source_schema == "company":
+            entity_error = _resolve_company_entities(db, row)
+            if entity_error:
+                result.rejected.append(RejectedItem(ident, entity_error))
+                continue
+            office_ids.add(row.office_id)
+            caller_ids.add(row.caller_id)
+        else:
+            if row.office_id not in office_ids:
+                result.rejected.append(RejectedItem(ident, "unknown_office_id"))
+                continue
+            if row.caller_id not in caller_ids:
+                result.rejected.append(RejectedItem(ident, "unknown_caller_id"))
+                continue
         if row.account_type not in ALLOWED_ACCOUNT_TYPES:
             result.rejected.append(RejectedItem(ident, "invalid_account_type"))
             continue

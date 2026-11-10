@@ -111,3 +111,16 @@ def test_parse_metadata_csv_bad_timestamp_leaves_start_time_none():
     ).encode("utf-8")
     rows = parse_metadata_csv(csv_bytes)
     assert rows[0].start_time is None
+
+
+def test_parse_metadata_csv_accepts_company_schema_and_preserves_timestamp():
+    csv_bytes = (
+        "call_id,audio_file,caller_id,caller_name,office,manager_id,manager_name,start_time,language\n"
+        "call_01,call_01.wav,CL01,Pooja Rane,Jogeshwari,MG01,Sachin Kamble,2026-10-26 11:15,Hindi\n"
+    ).encode("utf-8")
+    row = parse_metadata_csv(csv_bytes)[0]
+    assert row.source_schema == "company"
+    assert row.filename == "call_01.wav"
+    assert row.account_type == "personal_loan"
+    assert row.office_name == "Jogeshwari"
+    assert row.start_time.hour == 11 and row.start_time.minute == 15
